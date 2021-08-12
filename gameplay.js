@@ -45,4 +45,3 @@
         // Create player in DB, make not VIP
             // Send username to DB, select random available avatar, send
             // Show avatar selection screen
-        

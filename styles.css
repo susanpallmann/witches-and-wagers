@@ -43,16 +43,6 @@ h3 {
   font: 400 24px/32px "Poppins", "Helvetica Neue", sans-serif;
 }
 
-#title h1 {
-  font: 500 24px/32px "Poppins", "Helvetica Neue", sans-serif;
-  margin: 0 8px 0 0;
-  padding: 0 8px;
-  min-height: 52px;
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-
 header nav {
   color: var(--dark-grey);
   font: 500 14px/20px "Poppins", "Helvetica Neue", sans-serif;

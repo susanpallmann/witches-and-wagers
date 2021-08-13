@@ -59,7 +59,7 @@ function trackGamePhase(key) {
 
 function updateRoomCode(key) {
     var loc = firebase.database().ref('TEST/round/' + key);
-    loc.update({'player': 'Skooz2'});
+    loc.update({'player': 'Skooz'});
 }
 
 $(document).ready(function() {

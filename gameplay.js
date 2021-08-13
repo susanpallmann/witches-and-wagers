@@ -59,4 +59,5 @@ function trackGamePhase(key) {
 
 $(document).ready(function() {
     trackGamePhase('player');
+    console.log('this ran');
 });

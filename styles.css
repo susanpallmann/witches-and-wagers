@@ -112,3 +112,8 @@ header nav ul li a.selected:active {
   color: var(--dark-blue);
   background-color: var(--light-blue);
 }
+
+#scoreboard {
+  display: flex;
+  flex-direction: row;
+}

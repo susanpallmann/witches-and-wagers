@@ -46,132 +46,184 @@
             // Send username to DB, select random available avatar, send
             // Show avatar selection screen
 
-function trackGamePhase(key) {
-    let phase = firebase.database().ref('TEST/round/currentPlayer/' + key);
-    phase.on('value', function(snapshot) {
-        updatePhase(snapshot.val());
-    });
-}
+/* END PSEUDOCODE, START REAL CODE */
 
+// Example of a database update for future reference
 //var loc = firebase.database().ref('TEST/round/' + key);
 //    loc.update({'player': 'Skooz'});
 
+/* ----------------------------------------------------------------------------------------------*/
+/*  THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE                        */
+/* ----------------------------------------------------------------------------------------------*/
+
+// Reusable function to change the text in a provided DOM element
+// Making this more in case we switch to React or anything similar down the road
+// Consider making this instead take an object as parameter and effectively "queue" DOM changes
+// to avoid having to call this function 80 times in a row (TODO)
 function updateDomText(element, text) {
     $(element).text(text);
 }
 
+// Simple function to show the room code in the setup screen
 function displayRoomCode(code) {
     updateDomText($('#room-code'), code);
 }
 
+// Function to update all player info containers with current usernames, avatars, and VIP status
+// if applicable. We may want to turn this off once the game gets going since those things will
+// no longer be editable (TODO)
 function displayPlayers(code) {
+    // Grabs directory location
     let location = firebase.database().ref(code + '/players/');
+    // Takes ongoing snapshot
     location.on('value', function(snapshot) {
+        // Iteration counter
         let count = 1;
+        // For each player
         snapshot.forEach((childSnapshot) => {
+            // Save information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let vip = userData.VIP;
             let avatar = userData.avatar;
+            // Update each instance of player avatar elements
             $('.player-' + count + '-avatar').each(function() {
                 $(this).parent().addClass(username);
                 updateDomText($(this), avatar);
             });
+            // Update each instance of player username elements
             $('.player-' + count + '-name').each(function() {
                 $(this).parent().addClass(username);
                 updateDomText($(this), username);
             });
+            // Increase iteration counter
             count++;
         });
     });
 }
 
+// Function to display stats stored under the individual player in the database (slightly 
+// different process to get this information, some calculation needed)
 function displayPlayerStats(code) {
+    // Grabs directory location
     let location = firebase.database().ref(code + '/players/');
+    // Saves maximum score per category, starts at 0
     let maxCounts = {
         'coward' : 0,
         'optimist' : 0,
         'pessimist' : 0
     };
+    // Saves actual user each score belongs to, starts empty
     let playerStats = {
         'coward' : '',
         'optimist' : '',
         'pessimist' : ''
     };
+    // Takes a snapshot one time (this information won't update visually)
     location.once('value', function(snapshot) {
+        // For each player
         snapshot.forEach((childSnapshot) => {
+            // Save information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let counts = userData.counts;
+            // Iterate through user's stats (saved under "counts")
             for (let stat in counts) {
+                // If the score in the given statistic is greater than what's saved in maxCounts
                 if (counts[stat] > maxCounts[`${stat}`]) {
+                    // Update maxCounts with new high score
                     maxCounts[`${stat}`] = counts[stat];
+                    // Update playerStats with the corresponding username
                     playerStats[`${stat}`] = username;
                 }
             }
         });
+        // Update DOM elements accordingly
         updateDomText($('#stat-coward'), playerStats.coward);
         updateDomText($('#stat-optimist'), playerStats.optimist);
         updateDomText($('#stat-pessimist'), playerStats.pessimist);
     });
 }
 
+// Function to display stats stored by the game overall (not under specific players)
 function displayGameStats(code) {
+    // Grabs directory location
     let location = firebase.database().ref(code + '/trackers/');
+    // Takes a snapshot one time (this information won't update visually)
     location.once("value", function(snapshot) {
+        // Save information to variables
         let trackers = snapshot.val();
         let helper = trackers.helper;
         helper = helper.player;
         let hurter = trackers.hurter;
         hurter = hurter.player;
+        // Update DOM elements accordingly
         updateDomText($('#stat-helper'), helper);
         updateDomText($('#stat-saboteur'), hurter);
     });
 }
 
+// Parent function to update all statistics, calls more specific functions since the two
+// will always be run together
 function displayAllStats(code) {
     displayPlayerStats(code);
     displayGameStats(code);
 }
 
+// Function to make sure player placement on the scoreboard corresponds with their place in
+// the game, uses CSS flexbox and order to achieve result
+// TODO: think through how to animate this swap
 function rearrangeScoreboard(values) {
-    console.log('this ran');
-    for (let gold in values) {
-        let username = gold;
-        console.log(username);
-        let score = values[gold];
-        console.log(score);
+    // For each record passed in
+    for (let record in values) {
+        // Create some variables
+        let username = record;
+        let score = values[record];
         let position = $('#scoreboard').find('.' + username);
         position = position.parent();
+        // Apply the amount of gold as CSS order property, since parent is row-reverse, high
+        // values will show first
         position.css('order', score);
     }
 }
 
+// Function to update scoreboard with active players and their respective scores
 function displayScoreboard(code) {
+    // Grabs directory location
     let location = firebase.database().ref(code + '/players/');
+    // Initializing values variable for use later
     let values = {};
+    // Take an ongoing snapshot to allow for continuous updates
     location.on('value', function(snapshot) {
+        // For each player
         snapshot.forEach((childSnapshot) => {
+            // Save some information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let gold = userData.gold;
-            console.log(gold);
+            // Add gold amount and username to "values" object
             values[username] = gold;
             let position = $('#scoreboard').find('.' + username);
             let goldUpdate = position.find('.gold');
+            // Display amount of gold in the DOM (player name/avatar is already handled by 
+            // displayPlayers function)
             updateDomText(goldUpdate, gold);
         });
+        // Call rearrangeScoreboard to update CSS order properties
         rearrangeScoreboard(values);
     });
 }
-// Get player stats
-// Compare player stats
-// Update relevant stats
 
-
+// When document loads
 $(document).ready(function() {
+    // For now calls all of the "starter" functions just for testing. Going to also write
+    // a little about when these should be called in the end
+    // TODO: Call when setup phase begins
     displayRoomCode('TEST');
+    // TODO: Call when setup phase begins
     displayPlayers('TEST');
+    // TODO: Call when outro phase begins
     displayAllStats('TEST');
+    // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
 });

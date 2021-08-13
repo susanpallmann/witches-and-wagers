@@ -137,10 +137,10 @@ function displayAllStats(code) {
 function rearrangeScoreboard(values) {
     let scores = values;
     console.log('this ran');
-    for (let users in scores) {
-        let username = users;
+    for (let score in scores) {
+        let username = score;
         console.log(username);
-        let score = scores[users];
+        let score = scores[score];
         console.log(score);
         let position = $('#scoreboard').find('.' + username);
         position = position.parent();
@@ -162,9 +162,8 @@ function displayScoreboard(code) {
             let goldUpdate = position.find('.gold');
             updateDomText(goldUpdate, gold);
         });
+        rearrangeScoreboard(values);
     });
-    
-    rearrangeScoreboard(values);
 }
 // Get player stats
 // Compare player stats

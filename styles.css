@@ -120,6 +120,10 @@ header nav ul li a.selected:active {
   flex-direction: row-reverse;
 }
 
+#scoreboard div {
+  transition: all 0.2s;
+}
+
 #scene {
 display: flex;
 flex-direction: row;

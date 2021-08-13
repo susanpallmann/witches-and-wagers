@@ -64,6 +64,18 @@ function updateRoomCode(code) {
     $('#room-code').text(code);
 }
 
+function updatePlayers(code) {
+    var location = firebase.database().ref(code + '/players/');
+    location.on('value', function(snapshot) {
+        snapshot.forEach((childSnapshot) => {
+            var username = childSnapshot.key;
+            var vip = username.VIP;
+            var avatar = username.avatar;
+            console.log(username + " " + vip + " " + avatar);
+        }
+    });
+}
+
 $(document).ready(function() {
     updateRoomCode('TEST');
 });

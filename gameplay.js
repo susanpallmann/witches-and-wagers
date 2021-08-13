@@ -154,7 +154,7 @@ function displayScoreboard(code) {
         });
     });
     
-    rearrangeScoreboard(values);
+    //rearrangeScoreboard(values);
 }
 // Get player stats
 // Compare player stats
@@ -165,4 +165,5 @@ $(document).ready(function() {
     displayRoomCode('TEST');
     displayPlayers('TEST');
     displayAllStats('TEST');
+    displayScoreboard('TEST');
 });

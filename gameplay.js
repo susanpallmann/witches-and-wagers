@@ -73,7 +73,6 @@ function displayPlayers(code) {
             let userData = childSnapshot.val();
             let vip = userData.VIP;
             let avatar = userData.avatar;
-            console.log(username + " " + vip + " " + avatar);
             $('.player-' + count + '-avatar').each(function() {
                 updateDomText($(this), avatar);
             });

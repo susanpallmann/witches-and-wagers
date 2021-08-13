@@ -147,7 +147,7 @@ function displayScoreboard(code) {
             let gold = userData.gold;
             console.log(gold);
             values[username] = gold;
-            let position = $('#scoreboard').find('.player-container');
+            let position = $('#scoreboard').find('.' + username);
             let goldUpdate = position.find('.gold');
             updateDomText(goldUpdate, gold);
             position = position.parent();

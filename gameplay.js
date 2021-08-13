@@ -94,7 +94,7 @@ function getPlayerStats(code) {
             let userData = childSnapshot.val();
             let counts = userData.counts;
             console.log(counts);
-        }
+        });
     });
     //displayPlayerStats(values);
 }

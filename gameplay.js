@@ -74,9 +74,11 @@ function displayPlayers(code) {
             let vip = userData.VIP;
             let avatar = userData.avatar;
             $('.player-' + count + '-avatar').each(function() {
+                $(this).parent().addClass(username);
                 updateDomText($(this), avatar);
             });
             $('.player-' + count + '-name').each(function() {
+                $(this).parent().addClass(username);
                 updateDomText($(this), username);
             });
             count++;
@@ -84,7 +86,7 @@ function displayPlayers(code) {
     });
 }
 
-function getPlayerStats(code) {
+function displayPlayerStats(code) {
     let location = firebase.database().ref(code + '/players/');
     let maxCounts = {
         'coward' : 0,
@@ -108,13 +110,10 @@ function getPlayerStats(code) {
                 }
             }
         });
-        console.log(maxCounts);
-        console.log(playerStats);
         updateDomText($('#stat-coward'), playerStats.coward);
         updateDomText($('#stat-optimist'), playerStats.optimist);
         updateDomText($('#stat-pessimist'), playerStats.pessimist);
     });
-    //displayPlayerStats(values);
 }
 
 function displayGameStats(code) {
@@ -131,8 +130,30 @@ function displayGameStats(code) {
 }
 
 function displayAllStats(code) {
-    getPlayerStats(code);
+    displayPlayerStats(code);
     displayGameStats(code);
+}
+
+function rearrangeScoreboard(values) {
+}
+
+function displayScoreboard(code) {
+    let location = firebase.database().ref(code + '/players/');
+    let values = {};
+    location.on('value', function(snapshot) {
+        snapshot.forEach((childSnapshot) => {
+            let username = childSnapshot.key;
+            let userData = childSnapshot.val();
+            let gold = userData.gold;
+            values[username] = gold;
+            let position = $('#scoreboard').find('.' + username);
+            let goldUpdate = position.find('.gold');
+            updateDomText(goldUpdate, gold);
+            position = position.parent();
+        });
+    });
+    
+    rearrangeScoreboard(values);
 }
 // Get player stats
 // Compare player stats

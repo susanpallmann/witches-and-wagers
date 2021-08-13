@@ -85,14 +85,28 @@ function displayPlayers(code) {
 }
 
 function getPlayerStats(code) {
-    let coward = 0;
-    let optimist = 0;
-    let pessimist = 0;
+    let maxCounts = {
+        'coward' : 69,
+        'optimist' : 0,
+        'pessimist' : 0
+    };
+    let playerStats = {
+        'coward' : '',
+        'optimist' : '',
+        'pessimist' : ''
+    };
     let location = firebase.database().ref(code + '/players/');
     location.once('value', function(snapshot) {
         snapshot.forEach((childSnapshot) => {
             let userData = childSnapshot.val();
             let counts = userData.counts;
+            for (let stat in counts) {
+                console.log(counts[stat]);
+                console.log(maxCounts[`${stat}`]);
+                //if (counts[stat] > maxCounts[`${stat}`]) {
+                    
+                //}
+            }
             console.log(counts);
         });
     });

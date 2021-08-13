@@ -61,7 +61,6 @@ function trackGamePhase(key) {
 //    loc.update({'player': 'Skooz'});
 
 function updateRoomCode(code) {
-    
     $('#room-code').text(code);
 }
 

@@ -57,13 +57,14 @@ function trackGamePhase(key) {
     });
 }
 
-function updateRoomCode(key) {
-    var loc = firebase.database().ref('TEST/round/' + key);
-    loc.update({'player': 'Skooz'});
+//var loc = firebase.database().ref('TEST/round/' + key);
+//    loc.update({'player': 'Skooz'});
+
+function updateRoomCode(code) {
+    
+    $('#room-code').text(code);
 }
 
 $(document).ready(function() {
-    console.log('this ran');
-    trackGamePhase('player');
-    updateRoomCode('currentPlayer');
+    updateRoomCode('TEST');
 });

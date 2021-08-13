@@ -45,3 +45,18 @@
         // Create player in DB, make not VIP
             // Send username to DB, select random available avatar, send
             // Show avatar selection screen
+
+function updatePhase(val) {
+    $('#title').text("this worked");
+}
+
+function trackGamePhase(key) {
+    var phase = firebase.database().ref('TEST/round/currentPlayer/' + key);
+    phase.on('value', function(snapshot) {
+        updatePhase(snapshot.val());
+    });
+}
+
+$(document).ready(function() {
+    trackGamePhase('player');
+});

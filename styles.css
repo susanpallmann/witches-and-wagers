@@ -118,9 +118,10 @@ header nav ul li a.selected:active {
 #scoreboard {
   display: flex;
   flex-direction: row-reverse;
+  column-gap: 20px;
 }
 
-#scoreboard div {
+#scoreboard div[id*="pos"] {
   transition: all 0.2s;
 }
 

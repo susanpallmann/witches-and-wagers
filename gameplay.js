@@ -69,8 +69,10 @@ function updatePlayers(code) {
     location.on('value', function(snapshot) {
         snapshot.forEach((childSnapshot) => {
             var username = childSnapshot.key;
-            var vip = username.VIP.val();
-            var avatar = username.avatar.val();
+            var vip = username.VIP;
+            vip = vip.val();
+            var avatar = username.avatar;
+            avatar = avatar.val();
             console.log(username + " " + vip + " " + avatar);
         });
     });

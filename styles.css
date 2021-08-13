@@ -119,3 +119,9 @@ header nav ul li a.selected:active {
   display: flex;
   flex-direction: row;
 }
+
+#monster .image {
+  height: 725px;
+  width: 456px;
+  background-image: url('monster.png');
+}

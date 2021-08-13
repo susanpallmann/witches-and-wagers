@@ -86,17 +86,17 @@ function displayPlayers(code) {
 
 function getPlayerStats(code) {
     let location = firebase.database().ref(code + '/players/');
+    let maxCounts = {
+        'coward' : 0,
+        'optimist' : 0,
+        'pessimist' : 0
+    };
+    let playerStats = {
+        'coward' : '',
+        'optimist' : '',
+        'pessimist' : ''
+    };
     location.once('value', function(snapshot) {
-        let maxCounts = {
-            'coward' : 0,
-            'optimist' : 0,
-            'pessimist' : 0
-        };
-        let playerStats = {
-            'coward' : '',
-            'optimist' : '',
-            'pessimist' : ''
-        };
         snapshot.forEach((childSnapshot) => {
             let username = childSnapshot.key;
             let userData = childSnapshot.val();

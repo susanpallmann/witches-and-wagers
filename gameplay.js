@@ -60,11 +60,15 @@ function trackGamePhase(key) {
 //var loc = firebase.database().ref('TEST/round/' + key);
 //    loc.update({'player': 'Skooz'});
 
-function updateRoomCode(code) {
-    $('#room-code').text(code);
+function updateDomText(element, text) {
+    $(element).text(text);
 }
 
-function updatePlayers(code) {
+function displayRoomCode(code) {
+    updateDomText($('#room-code'), code);
+}
+
+function displayPlayers(code) {
     var location = firebase.database().ref(code + '/players/');
     location.on('value', function(snapshot) {
         let count = 1;
@@ -75,17 +79,23 @@ function updatePlayers(code) {
             var avatar = userData.avatar;
             console.log(username + " " + vip + " " + avatar);
             $('.player-' + count + '-avatar').each(function() {
-                $(this).text(avatar);
+                updateDomText($(this), avatar);
             });
             $('.player-' + count + '-name').each(function() {
-                $(this).text(username);
+                updateDomText($(this), username);
             });
             count++;
         });
     });
 }
 
+// Get player stats
+// Compare player stats
+// Update relevant stats
+
+
 $(document).ready(function() {
-    updateRoomCode('TEST');
-    updatePlayers('TEST');
+    displayRoomCode('TEST');
+    displayPlayers('TEST');
+   
 });

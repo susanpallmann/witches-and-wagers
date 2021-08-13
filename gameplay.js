@@ -135,6 +135,13 @@ function displayAllStats(code) {
 }
 
 function rearrangeScoreboard(values) {
+    for (let users in values) {
+        let username = values;
+        let score = values[users];
+        let position = $('#scoreboard').find('.' + username);
+        position = position.parent();
+        position.css('order', score);
+    }
 }
 
 function displayScoreboard(code) {
@@ -150,11 +157,10 @@ function displayScoreboard(code) {
             let position = $('#scoreboard').find('.' + username);
             let goldUpdate = position.find('.gold');
             updateDomText(goldUpdate, gold);
-            position = position.parent();
         });
     });
     
-    //rearrangeScoreboard(values);
+    rearrangeScoreboard(values);
 }
 // Get player stats
 // Compare player stats

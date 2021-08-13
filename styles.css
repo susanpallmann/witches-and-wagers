@@ -126,12 +126,10 @@ header nav ul li a.selected:active {
 }
 
 #scene {
-display: flex;
-flex-direction: row;
-}
-
-#monster {
-  margin: auto;
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+  justify-content: center;
 }
 
 #monster .image {
@@ -141,10 +139,6 @@ flex-direction: row;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-}
-
-#player {
-  margin: auto;
 }
 
 #player .image {

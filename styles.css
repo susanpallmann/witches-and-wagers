@@ -128,7 +128,7 @@ flex-direction: row;
 #monster .image {
   background-image: url('monster.gif');
   height: 375px;
-  width: 256px;
+  width: 356px;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -138,7 +138,7 @@ flex-direction: row;
 #player .image {
   background-image: url('monster.gif');
   height: 375px;
-  width: 256px;
+  width: 356px;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;

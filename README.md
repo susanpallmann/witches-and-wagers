@@ -1,2 +1,5 @@
-# witches-and-wagers
+# Witches & Wagers
 A backstabbing dungeon-themed party game.
+
+## Dev Diary
+* [x]test

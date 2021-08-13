@@ -135,12 +135,12 @@ function displayAllStats(code) {
 }
 
 function rearrangeScoreboard(values) {
-    let scores = values;
+    let values = values;
     console.log('this ran');
-    for (let score in scores) {
-        let username = score;
+    for (let gold in values) {
+        let username = gold;
         console.log(username);
-        let score = scores[score];
+        let score = values[gold];
         console.log(score);
         let position = $('#scoreboard').find('.' + username);
         position = position.parent();

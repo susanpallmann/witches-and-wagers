@@ -98,17 +98,18 @@ function getPlayerStats(code) {
     let location = firebase.database().ref(code + '/players/');
     location.once('value', function(snapshot) {
         snapshot.forEach((childSnapshot) => {
+            let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let counts = userData.counts;
             for (let stat in counts) {
-                console.log(counts[stat]);
-                console.log(maxCounts[`${stat}`]);
-                //if (counts[stat] > maxCounts[`${stat}`]) {
-                    
-                //}
+                if (counts[stat] > maxCounts[`${stat}`]) {
+                    maxCounts[`${stat}`] = counts[stat];
+                    playerStats[`${stat}`] = username;
+                }
             }
-            console.log(counts);
         });
+        console.log(maxCounts);
+        console.log(playerStats);
     });
     //displayPlayerStats(values);
 }

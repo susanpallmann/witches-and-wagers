@@ -121,7 +121,19 @@ header nav ul li a.selected:active {
 }
 
 #monster .image {
-  height: 725px;
-  width: 456px;
   background-image: url('monster.png');
+  height: 375px;
+  width: 256px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#player .image {
+  background-image: url('monster.png');
+  height: 375px;
+  width: 256px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }

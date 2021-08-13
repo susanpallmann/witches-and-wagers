@@ -110,9 +110,9 @@ function getPlayerStats(code) {
         });
         console.log(maxCounts);
         console.log(playerStats);
-        updateDomText($('#coward'), playerStats[coward]);
-        updateDomText($('#optimist'), playerStats[optimist]);
-        updateDomText($('#pessimist'), playerStats[pessimist]);
+        updateDomText($('#stat-coward'), playerStats[coward]);
+        updateDomText($('#stat-optimist'), playerStats[optimist]);
+        updateDomText($('#stat-pessimist'), playerStats[pessimist]);
     });
     //displayPlayerStats(values);
 }
@@ -125,8 +125,8 @@ function displayGameStats(code) {
         helper = helper.player;
         let hurter = trackers.hurter;
         hurter = hurter.player;
-        updateDomText($('#helper'), helper);
-        updateDomText($('#saboteur'), hurter);
+        updateDomText($('#stat-helper'), helper);
+        updateDomText($('#stat-saboteur'), hurter);
     });
 }
 

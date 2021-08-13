@@ -67,12 +67,19 @@ function updateRoomCode(code) {
 function updatePlayers(code) {
     var location = firebase.database().ref(code + '/players/');
     location.on('value', function(snapshot) {
+        let count = 1;
         snapshot.forEach((childSnapshot) => {
             var username = childSnapshot.key;
             var userData = childSnapshot.val();
             var vip = userData.VIP;
             var avatar = userData.avatar;
             console.log(username + " " + vip + " " + avatar);
+            $('.player-' + count + '-avatar').each(function() {
+                $(this).text(avatar);
+            });
+            $('.player-' + count + '-name').each(function() {
+                $(this).text(username);
+            });
         });
     });
 }

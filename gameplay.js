@@ -57,7 +57,13 @@ function trackGamePhase(key) {
     });
 }
 
+function updateRoomCode(key) {
+    var loc = firebase.database().ref('TEST/round/' + key);
+    loc.update({'player': 'Skooz2');
+}
+
 $(document).ready(function() {
     console.log('this ran');
     trackGamePhase('player');
+    updateRoomCode('currentPlayer');
 });

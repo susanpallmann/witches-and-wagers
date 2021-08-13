@@ -136,4 +136,7 @@ header nav ul li a.selected:active {
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }

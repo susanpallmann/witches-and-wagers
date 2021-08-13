@@ -135,9 +135,12 @@ function displayAllStats(code) {
 }
 
 function rearrangeScoreboard(values) {
+    console.log('this ran');
     for (let users in values) {
         let username = values;
+        console.log(username);
         let score = values[users];
+        console.log(score);
         let position = $('#scoreboard').find('.' + username);
         position = position.parent();
         position.css('order', score);

@@ -145,6 +145,7 @@ function displayScoreboard(code) {
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let gold = userData.gold;
+            console.log(gold);
             values[username] = gold;
             let position = $('#scoreboard').find('.player-container');
             let goldUpdate = position.child('.gold');

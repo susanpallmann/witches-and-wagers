@@ -119,6 +119,7 @@ header nav ul li a.selected:active {
   display: flex;
   flex-direction: row-reverse;
   column-gap: 20px;
+  justify-content: center;
 }
 
 #scoreboard div[id*="pos"] {

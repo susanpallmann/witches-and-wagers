@@ -110,6 +110,9 @@ function getPlayerStats(code) {
         });
         console.log(maxCounts);
         console.log(playerStats);
+        updateDomText($('#coward'), playerStats[coward]);
+        updateDomText($('#optimist'), playerStats[optimist]);
+        updateDomText($('#pessimist'), playerStats[pessimist]);
     });
     //displayPlayerStats(values);
 }

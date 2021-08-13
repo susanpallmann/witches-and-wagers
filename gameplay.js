@@ -46,12 +46,8 @@
             // Send username to DB, select random available avatar, send
             // Show avatar selection screen
 
-function updatePhase(val) {
-    $('#name').text("this worked " + val);
-}
-
 function trackGamePhase(key) {
-    var phase = firebase.database().ref('TEST/round/currentPlayer/' + key);
+    let phase = firebase.database().ref('TEST/round/currentPlayer/' + key);
     phase.on('value', function(snapshot) {
         updatePhase(snapshot.val());
     });
@@ -69,14 +65,14 @@ function displayRoomCode(code) {
 }
 
 function displayPlayers(code) {
-    var location = firebase.database().ref(code + '/players/');
+    let location = firebase.database().ref(code + '/players/');
     location.on('value', function(snapshot) {
         let count = 1;
         snapshot.forEach((childSnapshot) => {
-            var username = childSnapshot.key;
-            var userData = childSnapshot.val();
-            var vip = userData.VIP;
-            var avatar = userData.avatar;
+            let username = childSnapshot.key;
+            let userData = childSnapshot.val();
+            let vip = userData.VIP;
+            let avatar = userData.avatar;
             console.log(username + " " + vip + " " + avatar);
             $('.player-' + count + '-avatar').each(function() {
                 updateDomText($(this), avatar);
@@ -89,6 +85,38 @@ function displayPlayers(code) {
     });
 }
 
+function getPlayerStats(code) {
+    let coward = 0;
+    let optimist = 0;
+    let pessimist = 0;
+    let location = firebase.database().ref(code + '/players/');
+    location.once('value', function(snapshot) {
+        snapshot.forEach((childSnapshot) => {
+            let userData = childSnapshot.val();
+            let counts = userData.counts;
+            console.log(counts);
+        }
+    });
+    //displayPlayerStats(values);
+}
+
+function displayGameStats(code) {
+    let location = firebase.database().ref(code + '/trackers/');
+    location.once("value", function(snapshot) {
+        let trackers = snapshot.val();
+        let helper = trackers.helper;
+        helper = helper.player;
+        let hurter = trackers.hurter;
+        hurter = hurter.player;
+        updateDomText($('#helper'), helper);
+        updateDomText($('#saboteur'), hurter);
+    });
+}
+
+function displayAllStats(code) {
+    getPlayerStats(code);
+    displayGameStats(code);
+}
 // Get player stats
 // Compare player stats
 // Update relevant stats
@@ -97,5 +125,5 @@ function displayPlayers(code) {
 $(document).ready(function() {
     displayRoomCode('TEST');
     displayPlayers('TEST');
-   
+    displayAllStats('TEST');
 });

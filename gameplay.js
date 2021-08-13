@@ -47,7 +47,7 @@
             // Show avatar selection screen
 
 function updatePhase(val) {
-    $('#title').text("this worked " + val);
+    $('#name').text("this worked " + val);
 }
 
 function trackGamePhase(key) {

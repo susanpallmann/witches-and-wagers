@@ -120,6 +120,11 @@ header nav ul li a.selected:active {
   flex-direction: row;
 }
 
+#scene {
+display: flex;
+flex-direction: row;
+}
+
 #monster .image {
   background-image: url('monster.gif');
   height: 375px;

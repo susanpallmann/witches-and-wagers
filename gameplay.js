@@ -80,6 +80,7 @@ function updatePlayers(code) {
             $('.player-' + count + '-name').each(function() {
                 $(this).text(username);
             });
+            count++;
         });
     });
 }

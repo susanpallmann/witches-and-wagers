@@ -1,6 +1,8 @@
 # Witches & Wagers
 A backstabbing dungeon-themed party game.
 
+https://susanpallmann.github.io/witches-and-wagers/
+
 ## Dev Diary
 - [x] 08/13/21: 
 

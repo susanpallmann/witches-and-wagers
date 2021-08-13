@@ -130,7 +130,7 @@ header nav ul li a.selected:active {
 }
 
 #player .image {
-  background-image: url('monster.png');
+  background-image: url('monster.gif');
   height: 375px;
   width: 256px;
   background-size: contain;

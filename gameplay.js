@@ -72,10 +72,11 @@ function updatePlayers(code) {
             var vip = username.VIP;
             var avatar = username.avatar;
             console.log(username + " " + vip + " " + avatar);
-        }
+        });
     });
 }
 
 $(document).ready(function() {
     updateRoomCode('TEST');
+    updatePlayers('TEST');
 });

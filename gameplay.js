@@ -135,7 +135,6 @@ function displayAllStats(code) {
 }
 
 function rearrangeScoreboard(values) {
-    let values = values;
     console.log('this ran');
     for (let gold in values) {
         let username = gold;

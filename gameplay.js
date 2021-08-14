@@ -226,23 +226,29 @@ function createCardDom(location, cardInfo) {
     $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`);
 }
 
-function sortLoadingCards(values) {
+function sortLoadingCards(values, creator) {
     let monster = values.monster;
     let player = values.player;
+    let location;
+    if (creator == 'playerItems') {
+        location = $('#cards-in-play-2');
+    } else if (creator == 'audienceItems') {
+        location = $('#cards-in-play-1');
+    }
     clearCardsDom($('#cards-in-play-1'));
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
-            createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
+            createCardDom(location,{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
         }
     }
 }
                        
-function loadCardDisplay(code) {
+function loadCardDisplay(code, creator) {
     // Grabs directory location
-    let location = firebase.database().ref(code + '/round/audienceItems/');
+    let location = firebase.database().ref(code + '/round/' + creator + '/');
      // Initializing values variable for use later
     let values = {};
     // Take an ongoing snapshot to allow for continuous updates
@@ -256,7 +262,7 @@ function loadCardDisplay(code) {
             cardsArray = Object.keys(cards);
             values[label] = cardsArray;
         });
-        sortLoadingCards(values);
+        sortLoadingCards(values, creator);
     });
 }
 
@@ -272,5 +278,6 @@ $(document).ready(function() {
     displayAllStats('TEST');
     // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
-    loadCardDisplay('TEST');
+    loadCardDisplay('TEST', 'playerItems');
+    loadCardDisplay('TEST', 'audienceItems');
 });

@@ -15,3 +15,11 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Initialized databse in web project.
   * Started getting all real-time updated fields set up in-project - focused on database reading and DOM updating.
   * Minor styling (for my sanity).
+- [X] 08/14/21:
+
+  * Updated database dummy to include "winner"
+
+
+## To Do
+- [ ] Finish creating database read/display functions
+- [ ] Create database write function(s)

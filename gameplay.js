@@ -221,6 +221,8 @@ function clearCardsDom(location) {
 function createCardDom(location, cardInfo) {
     let number = cardInfo.number;
     let assigned = cardInfo.assigned;
+    let cardLookup = deck[number];
+    let cardSprite = cardLookup[2];
     $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${number}.png')"><div class="card-number">${number}</div></div>`);
 }
 

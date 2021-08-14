@@ -230,9 +230,9 @@ function sortLoadingCards(values, creator) {
     let monster = values.monster;
     let player = values.player;
     let location;
-    if (creator == 'playerItems') {
+    if (creator === 'playerItems') {
         location = $('#cards-in-play-2');
-    } else if (creator == 'audienceItems') {
+    } else if (creator === 'audienceItems') {
         location = $('#cards-in-play-1');
     }
     clearCardsDom(location);

@@ -231,9 +231,9 @@ function sortLoadingCards(values, creator) {
     let player = values.player;
     let location;
     if (creator === 'playerItems') {
-        location = '#cards-in-play-2';
+        location = 'cards-in-play-2';
     } else if (creator === 'audienceItems') {
-        location = '#cards-in-play-1';
+        location = 'cards-in-play-1';
     }
     clearCardsDom(location);
     console.log('deleted at ' + location);

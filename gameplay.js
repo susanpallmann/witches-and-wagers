@@ -236,12 +236,13 @@ function sortLoadingCards(values, creator) {
         location = $('#cards-in-play-1');
     }
     clearCardsDom(location);
+    console.log('deleted at ' + location);
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
             createCardDom(location,{'number' : thisCardsArray[i], 
-                                                 'assigned' : thisActor});
+                                    'assigned' : thisActor});
         }
     }
 }

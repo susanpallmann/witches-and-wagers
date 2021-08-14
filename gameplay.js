@@ -253,7 +253,7 @@ function loadCardDisplay(code) {
             cardsArray.push(Object.keys(cards));
             values[label] = cardsArray;
         });
-        console.log(values);
+        sortLoadingCards(values);
     });
 }
 

@@ -221,7 +221,7 @@ function clearCardsDom(location) {
 function createCardDom(location, cardInfo) {
     let number = cardInfo.number;
     let assigned = cardInfo.assigned;
-    $(location).append(`<div class="card ${assigned}" style="background-image: url('${number}.png')"><div class="card-number">${number}</div></div>`);
+    $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${number}.png')"><div class="card-number">${number}</div></div>`);
 }
 
 function sortLoadingCards(values) {
@@ -230,6 +230,7 @@ function sortLoadingCards(values) {
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
+        console.log(thisCardsArray);
         for (let i = 0; i < thisCardsArray.length; i++) {
             clearCardsDom($('#cards-in-play-1'));
             createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 

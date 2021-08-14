@@ -228,7 +228,7 @@ function loadCardDisplay(code) {
             let cards = childSnapshot.val();
             let cardsArray = [];
             for (let card in cards) {
-                cardsArray.push(Object.keys(cards));
+                cardsArray.push(Object.keys(card));
             }
             values[label] = cardsArray;
         });

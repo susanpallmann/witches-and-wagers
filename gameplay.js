@@ -227,12 +227,12 @@ function createCardDom(location, cardInfo) {
 function sortLoadingCards(values) {
     let monster = values.monster;
     let player = values.player;
+    clearCardsDom($('#cards-in-play-1'));
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         console.log(thisCardsArray);
         for (let i = 0; i < thisCardsArray.length; i++) {
-            clearCardsDom($('#cards-in-play-1'));
             createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
         }

@@ -280,6 +280,8 @@ $(document).ready(function() {
     displayAllStats('TEST');
     // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
-    loadCardDisplay('TEST', 'playerItems');
     loadCardDisplay('TEST', 'audienceItems');
+    loadCardDisplay('TEST', 'playerItems');
 });
+
+//Letmecommitdamnit

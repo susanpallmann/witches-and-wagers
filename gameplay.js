@@ -235,7 +235,7 @@ function sortLoadingCards(values, creator) {
     } else if (creator == 'audienceItems') {
         location = $('#cards-in-play-1');
     }
-    clearCardsDom($('#cards-in-play-1'));
+    clearCardsDom(location);
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];

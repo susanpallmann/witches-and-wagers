@@ -230,10 +230,11 @@ function sortLoadingCards(values) {
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
-        for (let i = 0; i < thisCardsArray.length; i++);
-        clearCardsDom($('#cards-in-play-1'));
-        createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
-                                             'assigned' : thisActor});
+        for (let i = 0; i < thisCardsArray.length; i++) {
+            clearCardsDom($('#cards-in-play-1'));
+            createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
+                                                 'assigned' : thisActor});
+        }
     }
 }
                        

@@ -186,6 +186,7 @@ header nav ul li a.selected:active {
 
 #cards-in-play-2 {
   position: absolute;
+  width: 100%;
 }
 
 #bets {

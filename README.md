@@ -21,5 +21,9 @@ https://susanpallmann.github.io/witches-and-wagers/
 
 
 ## To Do
+- [ ] Create card deck array
+- [ ] Add "deck" to database/database dummy
+- [ ] Create card flashing animation
 - [ ] Finish creating database read/display functions
+- [ ] Create player-size database read/display functions
 - [ ] Create database write function(s)

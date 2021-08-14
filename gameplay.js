@@ -223,7 +223,7 @@ function createCardDom(location, cardInfo) {
     let assigned = cardInfo.assigned;
     let cardLookup = deck[number];
     let cardSprite = cardLookup[2];
-    $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${number}.png')"><div class="card-number">${number}</div></div>`);
+    $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`);
 }
 
 function sortLoadingCards(values) {

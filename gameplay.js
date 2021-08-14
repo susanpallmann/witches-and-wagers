@@ -241,7 +241,7 @@ function sortLoadingCards(values, creator) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
-            createCardDom(location,{'number' : thisCardsArray[i], 
+            createCardDom($(location),{'number' : thisCardsArray[i], 
                                     'assigned' : thisActor});
         }
     }

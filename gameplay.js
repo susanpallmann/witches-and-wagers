@@ -233,7 +233,6 @@ function sortLoadingCards(values) {
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
-        console.log(thisCardsArray);
         for (let i = 0; i < thisCardsArray.length; i++) {
             createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});

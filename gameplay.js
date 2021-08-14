@@ -214,6 +214,29 @@ function displayScoreboard(code) {
     });
 }
 
+function clearCardsDom(location) {
+    $(location).empty();
+}
+
+function createCardDom(location, cardInfo) {
+    let number = cardInfo.number;
+    let assigned = cardInfo.assigned;
+    $(location).append(`<div class="card ${assigned}" style="background-image: url('${number}.png')"><div class="card-number">${number}</div></div>`);
+}
+
+function sortLoadingCards(values) {
+    let monster = values.monster;
+    let player = values.player;
+    for (let actor in values) {
+        let thisActor = actor;
+        let thisCardsArray = values[actor];
+        for (let i = 0; i < thisCardsArray.length; i++);
+        clearCardsDom($('#cards-in-play-1'));
+        createCardDom($('#cards-in-play-1'),{'number' : thisCardsArray[i], 
+                                             'assigned' : thisActor});
+    }
+}
+                       
 function loadCardDisplay(code) {
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/audienceItems/');

@@ -252,7 +252,7 @@ function loadCardDisplay(code) {
             let label = childSnapshot.key;
             let cards = childSnapshot.val();
             let cardsArray = [];
-            cardsArray.push(Object.keys(cards));
+            cardsArray = Object.keys(cards);
             values[label] = cardsArray;
         });
         sortLoadingCards(values);

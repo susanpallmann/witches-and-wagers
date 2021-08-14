@@ -214,6 +214,28 @@ function displayScoreboard(code) {
     });
 }
 
+function loadCardDisplay(code) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/audienceItems/');
+     // Initializing values variable for use later
+    let values = {};
+    // Take an ongoing snapshot to allow for continuous updates
+    location.on('value', function(snapshot) {
+        // For each (monster and player)
+        snapshot.forEach((childSnapshot) => {
+            // Save some information to variables
+            let label = childSnapshot.key;
+            let cards = childSnapshot.val();
+            let cardsArray = [];
+            for (let card in cards) {
+                cardsArray.push(Object.keys(cards));
+            }
+            values[label] = cardsArray;
+        });
+        console.log(values);
+    });
+}
+
 // When document loads
 $(document).ready(function() {
     // For now calls all of the "starter" functions just for testing. Going to also write
@@ -226,4 +248,5 @@ $(document).ready(function() {
     displayAllStats('TEST');
     // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
+    loadCardDisplay('TEST');
 });

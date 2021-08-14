@@ -160,7 +160,7 @@ header nav ul li a.selected:active {
   width: 222px;
   background-size: contain;
   background-repeat: no-repeat;
-  position: relative;
+  position: absolute;
 }
 
 .card-number {

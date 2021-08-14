@@ -161,6 +161,8 @@ header nav ul li a.selected:active {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
+  left: calc(50% - 111px);
+  right: calc(50% - 111px);
 }
 
 .card-number {
@@ -179,6 +181,7 @@ header nav ul li a.selected:active {
 
 #cards-in-play-1 {
   position: absolute;
+  width: 100%;
 }
 
 #cards-in-play-2 {

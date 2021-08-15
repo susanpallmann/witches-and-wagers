@@ -225,12 +225,11 @@ function createCardDom(location, cardInfo) {
     let cardSprite = cardLookup.sprite;
     let fadeDirectionL;
     let fadeDirectionR;
+    let
     if (assigned === "player") {
-        fadeDirectionL = 0;
-        fadeDirectionR = 100;
+        fadeDirectionL = 25;
     } else {
-        fadeDirectionL = 100;
-        fadeDirectionR = 0;
+        fadeDirectionL = 75;
     }
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .css('opacity', 0)
@@ -242,8 +241,9 @@ function createCardDom(location, cardInfo) {
         .animate({
             opacity: 0,
             left: fadeDirectionL + '%',
-            right: `calc(${fadeDirectionR}% -222px)`
-        }, 250);
+            right: fadeDirectionR + '%';
+        }, 250)
+        .hide();
 }
 
 function queueCards(values, creator) {

@@ -243,7 +243,8 @@ function createCardDom(location, cardInfo) {
             opacity: 0,
             left: fadeDirectionL + '%',
             right: 'calc(' + fadeDirectionR + '% -222px)'
-        }, 250);
+        }, 250)
+        .remove();
 }
 
 function queueCards(values, creator) {

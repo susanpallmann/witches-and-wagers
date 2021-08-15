@@ -193,3 +193,10 @@ header nav ul li a.selected:active {
 #bets {
   position: absolute;
 }
+
+div[id=*"avatar"] {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 70px;
+}

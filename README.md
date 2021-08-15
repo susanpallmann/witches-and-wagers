@@ -17,12 +17,15 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Minor styling (for my sanity).
 - [X] 08/14/21:
 
-  * Updated database dummy to include "winner"
+  * Updated database dummy to include "winner".
+  * Restructured database to make a function simpler (from my phone, at that).
+  * Created placeholder deck array.
+  * Added deck to database dummy.
+  * Started card flashing animation (focused on loading and DOM card assembly).
 
 
 ## To Do
-- [ ] Create card deck array
-- [ ] Add "deck" to database/database dummy
+- [ ] Create final card deck array
 - [ ] Create card flashing animation
 - [ ] Finish creating database read/display functions
 - [ ] Create player-size database read/display functions

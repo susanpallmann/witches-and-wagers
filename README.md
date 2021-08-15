@@ -22,6 +22,7 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Created placeholder deck array.
   * Added deck to database dummy.
   * Started card flashing animation (focused on loading and DOM card assembly).
+  * Restructured deck to object format rather than array (it was the right thing to do).
 
 
 ## To Do

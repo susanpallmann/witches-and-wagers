@@ -259,7 +259,7 @@ function queueCards(values, creator) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
-            $('#' + location).delay(1000).queue(function() {
+            $('#' + location).delay(1200).queue(function() {
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
                 $.dequeue( this );
@@ -303,5 +303,3 @@ $(document).ready(function() {
     loadCardDisplay('TEST', 'audienceItems');
     //loadCardDisplay('TEST', 'playerItems');
 });
-
-//Letmecommitdamnit

@@ -223,8 +223,11 @@ function createCardDom(location, cardInfo) {
     let assigned = cardInfo.assigned;
     let cardLookup = deck[number];
     let cardSprite = cardLookup.sprite;
-    $(location).append(`<div id="card-${number}" class="card ${assigned} fade-in-out" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`);
-    $(`#card-${number}`).delay(250).removeClass('fade-in-out');
+    $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
+        .hide()
+        .appendTo($(location))
+        .delay(250)
+        .fadeIn(250);
 }
 
 function queueCards(values, creator) {

@@ -242,7 +242,7 @@ function createCardDom(location, cardInfo) {
             left: fadeDirectionL + '%',
             right: fadeDirectionR + '%'
         }, 250)
-    .fadeOut();
+    .fadeOut(0);
 }
 
 function queueCards(values, creator) {

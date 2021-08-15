@@ -242,7 +242,7 @@ function createCardDom(location, cardInfo) {
         .animate({
             opacity: 0,
             left: fadeDirectionL + '%',
-            right: `calc('${fadeDirectionR}% -222px)`
+            right: `calc(${fadeDirectionR}% -222px)`
         }, 250)
         .remove();
 }

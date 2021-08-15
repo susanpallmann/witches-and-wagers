@@ -194,7 +194,7 @@ header nav ul li a.selected:active {
   position: absolute;
 }
 
-div[class=*"avatar"] {
+div[class*="avatar"] {
   background-size: contain;
   background-repeat: no-repeat;
   height: 70px;

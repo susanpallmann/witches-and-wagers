@@ -26,9 +26,18 @@ https://susanpallmann.github.io/witches-and-wagers/
 - [X] 08/15/21:
 
   * Created card flashing animation
+  * Added in placeholder avatars, adjusted code to populate avatars correctly.
+  * Wrote some early styling.
+
+- [ ] 08/16/21 - 08/23/21:
+
+  * Enjoy vacation. :)
 
 ## To Do
 - [ ] Create final card deck array
 - [ ] Finish creating database read/display functions
+   - [ ] Populate monster & player names and scores
+   - [ ] Show bets and distribution, both anonymous and named
+- [ ] Rewrite player display to exclude player slots not in use
 - [ ] Create player-side database read/display functions
 - [ ] Create database write function(s)

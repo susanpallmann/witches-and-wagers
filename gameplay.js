@@ -227,7 +227,7 @@ function createCardDom(location, cardInfo) {
     if (assigned === "player") {
         fadeDirection = 0;
     } else {
-        fadeDirection = 100;
+        fadeDirection = 80;
     }
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .css('opacity', 0)

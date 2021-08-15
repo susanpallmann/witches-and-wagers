@@ -201,6 +201,12 @@ div[class*="avatar"] {
   width: 70px;
 }
 
+div[class*="-name"] {
+  font-family: "Carter One", sans-serif;
+  font-size: 1.2em;
+  padding: 0.5em 0;
+}
+
 .player-1-avatar {
   background-color: #FF7A7A;
 }

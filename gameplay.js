@@ -240,10 +240,10 @@ function queueCards(values, creator) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
-            setTimeout(function(){
+            $('#' + location).delay(1000).queue(function() {
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
-                                    'assigned' : thisActor});
-                }, 1000);
+                                                 'assigned' : thisActor});
+            });
         }
     }
 }

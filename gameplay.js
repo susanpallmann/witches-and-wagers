@@ -223,11 +223,10 @@ function createCardDom(location, cardInfo) {
     let assigned = cardInfo.assigned;
     let cardLookup = deck[number];
     let cardSprite = cardLookup.sprite;
-    console.log(location + ' ' + number);
-    $(location).append(`<div class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`);
+    $(location).append(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`);
 }
 
-function sortLoadingCards(values, creator) {
+function queueCards(values, creator) {
     let monster = values.monster;
     let player = values.player;
     let location;
@@ -237,13 +236,14 @@ function sortLoadingCards(values, creator) {
         location = 'cards-in-play-1';
     }
     clearCardsDom(location);
-    console.log('deleted at ' + location);
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
         for (let i = 0; i < thisCardsArray.length; i++) {
-            createCardDom($('#' + location),{'number' : thisCardsArray[i], 
+            setTimeout(function(){
+                createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                     'assigned' : thisActor});
+                }, 1000);
         }
     }
 }
@@ -264,7 +264,7 @@ function loadCardDisplay(code, creator) {
             cardsArray = Object.keys(cards);
             values[label] = cardsArray;
         });
-        sortLoadingCards(values, creator);
+        queueCards(values, creator);
     });
 }
 

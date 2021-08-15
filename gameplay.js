@@ -243,6 +243,7 @@ function queueCards(values, creator) {
             $('#' + location).delay(1000).queue(function() {
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
+                $.dequeue( this );
             });
         }
     }

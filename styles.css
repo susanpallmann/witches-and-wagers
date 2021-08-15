@@ -163,6 +163,7 @@ header nav ul li a.selected:active {
   position: absolute;
   left: calc(50% - 111px);
   right: calc(50% - 111px);
+  transition: all 0.2s;
 }
 
 .card-number {
@@ -191,4 +192,8 @@ header nav ul li a.selected:active {
 
 #bets {
   position: absolute;
+}
+
+fade-in-out {
+  opacity: 0;
 }

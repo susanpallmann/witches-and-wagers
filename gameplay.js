@@ -223,11 +223,14 @@ function createCardDom(location, cardInfo) {
     let assigned = cardInfo.assigned;
     let cardLookup = deck[number];
     let cardSprite = cardLookup.sprite;
-    let fadeDirection;
+    let fadeDirectionL;
+    let fadeDirectionR;
     if (assigned === "player") {
-        fadeDirection = 'left';
+        fadeDirectionL = 0;
+        fadeDirectionR = 100;
     } else {
-        'right';
+        fadeDirectionL = 100;
+        fadeDirectionR = 0;
     }
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .css('opacity', 0)
@@ -238,7 +241,8 @@ function createCardDom(location, cardInfo) {
         .delay(500)
         .animate({
             opacity: 0,
-            `${fadeDirection}`: 0
+            left: 0,
+            right: 0
         }, 250);
 }
 

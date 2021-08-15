@@ -241,8 +241,8 @@ function createCardDom(location, cardInfo) {
             opacity: 0,
             left: fadeDirectionL + '%',
             right: fadeDirectionR + '%'
-        }, 250)
-        .hide();
+        }, 250);
+    $('#card-' + number).hide();
 }
 
 function queueCards(values, creator) {

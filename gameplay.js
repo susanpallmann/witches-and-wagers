@@ -225,7 +225,6 @@ function createCardDom(location, cardInfo) {
     let cardSprite = cardLookup.sprite;
     let fadeDirectionL;
     let fadeDirectionR;
-    let
     if (assigned === "player") {
         fadeDirectionL = 25;
     } else {

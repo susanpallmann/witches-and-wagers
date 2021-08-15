@@ -200,3 +200,35 @@ div[class*="avatar"] {
   height: 70px;
   width: 70px;
 }
+
+.player-1-avatar {
+  background-color: #FF7A7A;
+}
+
+.player-2-avatar {
+  background-color: #87D8E5;
+}
+
+.player-3-avatar {
+  background-color: #FFD088;
+}
+
+.player-4-avatar {
+  background-color: #88E587;
+}
+
+.player-5-avatar {
+  background-color: #CB91FF;
+}
+
+.player-6-avatar {
+  background-color: #87E9CC;
+}
+
+.player-7-avatar {
+  background-color: #FFF3E1;
+}
+
+.player-8-avatar {
+  background-color: #FFA7D3;
+}

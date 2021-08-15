@@ -223,11 +223,21 @@ function createCardDom(location, cardInfo) {
     let assigned = cardInfo.assigned;
     let cardLookup = deck[number];
     let cardSprite = cardLookup.sprite;
+    let fadeDirection;
+    if (assigned === "player") {
+        fadeDirection = 0;
+    } else {
+        100;
+    }
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .hide()
         .appendTo($(location))
         .delay(250)
-        .fadeIn(250);
+        .fadeIn(250)
+        .animate({
+            opacity: 0,
+            left: fadeDirection
+        });
 }
 
 function queueCards(values, creator) {

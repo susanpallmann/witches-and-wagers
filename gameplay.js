@@ -234,10 +234,11 @@ function createCardDom(location, cardInfo) {
         .appendTo($(location))
         .delay(250)
         .fadeIn(250)
+        .delay(500)
         .animate({
             opacity: 0,
             left: fadeDirection
-        });
+        }, 250);
 }
 
 function queueCards(values, creator) {

@@ -89,7 +89,7 @@ function displayPlayers(code) {
             // Update each instance of player avatar elements
             $('.player-' + count + '-avatar').each(function() {
                 $(this).parent().addClass(username);
-                $(this).css('background image', `url('avatars/${avatar}.png')`);
+                $(this).css('background-image', `url('avatars/${avatar}.png')`);
                 //updateDomText($(this), avatar);
             });
             // Update each instance of player username elements

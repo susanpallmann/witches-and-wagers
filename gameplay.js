@@ -88,7 +88,7 @@ function displayPlayers(code) {
             let avatar = userData.avatar;
             // Update each instance of player avatar elements
             $('.player-' + count + '-avatar').each(function() {
-                $(this).parent().addClass(username).css('background image', `url('avatars/${avatar}.png')`;
+                $(this).parent().addClass(username).css('background image', `url('avatars/${avatar}.png')`);
                 //updateDomText($(this), avatar);
             });
             // Update each instance of player username elements

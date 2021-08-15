@@ -23,11 +23,12 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Added deck to database dummy.
   * Started card flashing animation (focused on loading and DOM card assembly).
   * Restructured deck to object format rather than array (it was the right thing to do).
+- [X] 08/15/21:
 
+  * Created card flashing animation
 
 ## To Do
 - [ ] Create final card deck array
-- [ ] Create card flashing animation
 - [ ] Finish creating database read/display functions
 - [ ] Create player-size database read/display functions
 - [ ] Create database write function(s)

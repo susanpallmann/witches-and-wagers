@@ -241,8 +241,8 @@ function createCardDom(location, cardInfo) {
         .delay(500)
         .animate({
             opacity: 0,
-            left: fadeDirectionL,
-            right: fadeDirectionR
+            left: fadeDirectionL + '%',
+            right: fadeDirectionR + '%'
         }, 250);
 }
 

@@ -234,12 +234,12 @@ function createCardDom(location, cardInfo) {
         .appendTo($(location))
         .animate({
             opacity: 1
-        }, 250)
+        }, 200)
         .delay(500)
         .animate({
             opacity: 0,
             left: fadeDirection + '%',
-        }, 250)
+        }, 200)
     .fadeOut(0);
 }
 

@@ -124,6 +124,10 @@ header nav ul li a.selected:active {
 
 #scoreboard div[id*="pos"] {
   transition: all 0.2s;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 #scene {
@@ -213,6 +217,7 @@ div[class*="-name"] {
   font-size: 2em;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
+  margin-top: 10px;
 }
 
 .player-1-avatar {

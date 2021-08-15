@@ -232,7 +232,6 @@ function createCardDom(location, cardInfo) {
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .css('opacity', 0)
         .appendTo($(location))
-        .delay(250)
         .animate({
             opacity: 1
         }, 250)

@@ -29,9 +29,13 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Added in placeholder avatars, adjusted code to populate avatars correctly.
   * Wrote some early styling.
 
-- [ ] 08/16/21 - 08/23/21:
+- [X] 08/16/21 - 08/24/21:
 
   * Enjoy vacation. :)
+
+- [ ] 08/25/21:
+
+  * Add monster and player names to the scene
 
 ## To Do
 - [ ] Create final card deck array

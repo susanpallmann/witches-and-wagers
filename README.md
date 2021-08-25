@@ -38,6 +38,7 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Add monster and player names to the scene
 
 ## To Do
+- [ ] Comment your old code, you lunatic
 - [ ] Create final card deck array
 - [ ] Finish creating database read/display functions
    - [ ] Populate monster & player names and scores

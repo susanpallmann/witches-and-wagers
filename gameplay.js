@@ -78,7 +78,11 @@ function displayActorScores(code) {
     location.on('value', function(snapshot) {
         let round = snapshot.val();
         let monster = round.currentMonster;
-        console.log(monster);
+        let player = round.currentPlayer;
+        updateDomText($('#monster .name'), monster.monster);
+        updateDomText($('#player .name'), player.player);
+        updateDomText($('#monster .score'), monster.score);
+        updateDomText($('#player .score'), player.score);
     });
 }
 

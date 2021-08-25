@@ -251,3 +251,21 @@ div[class*="-name"] {
 .player-8-avatar {
   background-color: #FFA7D3;
 }
+
+.name {
+  font-family: "Carter One", sans-serif;
+  color: #ffd88d;
+  font-size: 2em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
+  margin-top: 10px;
+}
+
+.score {
+  font-family: "Carter One", sans-serif;
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
+  margin-top: 30px;
+}

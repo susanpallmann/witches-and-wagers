@@ -316,4 +316,6 @@ $(document).ready(function() {
     displayScoreboard('TEST');
     //loadCardDisplay('TEST', 'audienceItems');
     loadCardDisplay('TEST', 'playerItems');
+    // TODO: Call during play phase when fight is introduced
+    displayActorScores('TEST');
 });

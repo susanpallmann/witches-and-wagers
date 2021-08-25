@@ -69,6 +69,21 @@ function displayRoomCode(code) {
     updateDomText($('#room-code'), code);
 }
 
+// Function to display player and monster's current scores in the game's fight scene
+// TODO: consider making this a "once" if we figure out how to reuse a snapshot function
+function displayActorScores(code) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/');
+    // Takes ongoing snapshot
+    location.on('value', function(snapshot) {
+        let monster = snapshot.currentMonster;
+        let monsterScore = monster.score;
+        let player = snapshot.currentPlayer;
+        let playerScore = player.score;
+        console.log(monsterScore);
+    });
+}
+
 // Function to update all player info containers with current usernames, avatars, and VIP status
 // if applicable. We may want to turn this off once the game gets going since those things will
 // no longer be editable (TODO)

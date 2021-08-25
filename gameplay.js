@@ -76,9 +76,9 @@ function displayActorScores(code) {
     let location = firebase.database().ref(code + '/round/');
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
-        let monster = snapshot.currentMonster;
+        let monster = snapshot.currentMonster.val();
         let monsterScore = monster.score;
-        let player = snapshot.currentPlayer;
+        let player = snapshot.currentPlayer.val();
         let playerScore = player.score;
         console.log(monsterScore);
     });

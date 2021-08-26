@@ -4,13 +4,10 @@ A backstabbing dungeon-themed party game.
 https://susanpallmann.github.io/witches-and-wagers/
 
 ## Contents
-[Project Plan](#project-plan)
-
-[Dev Resources](#dev-resources)
-
-[To Do](#to-do)
-
-[Dev Diary](#dev-diary)
+- [Project Plan](#project-plan)
+- [Dev Resources](#dev-resources)
+- [To Do](#to-do)
+- [Dev Diary](#dev-diary)
 
 ## Project Plan
 - [Gameplay Logic (Google Doc)](https://docs.google.com/document/d/1f_4MNYwZ1uQ96jU5jy9jnCGe85VRp2VgsE4S7wsvh5I/edit?usp=sharing)

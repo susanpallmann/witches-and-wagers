@@ -45,6 +45,7 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Improved the readme a little.
 
 ## To Do
+- [ ] Draw some new avatars in the new style
 - [ ] Comment your old code, you lunatic
 - [ ] Create final card deck array
 - [ ] Finish creating database read/display functions

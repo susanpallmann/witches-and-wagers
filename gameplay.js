@@ -315,6 +315,8 @@ let TEST = {
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
 
+// Function to populate database with a test data set
+// Also a decent model for future database write functions
 function setTestData(code) {
     let location = firebase.database().ref('TEST');
     location.update(code);
@@ -500,21 +502,30 @@ function displayScoreboard(code) {
     });
 }
 
+// Empties a location, written specifically for the card animation
 function clearCardsDom(location) {
     $(location).empty();
 }
 
+// Animates cards as they show up during specific parts of a round, queued by queueCards()
 function createCardDom(location, cardInfo) {
+    // Pulling out some information from cardInfo
     let number = cardInfo.number;
     let assigned = cardInfo.assigned;
+    // Finds the requested card in our deck object (see deck.js)
     let cardLookup = deck[number];
+    // Looks up sprite from deck object
     let cardSprite = cardLookup.sprite;
+    // Determines direction to animate based on if the card affects the player or monster
     let fadeDirection;
     if (assigned === "player") {
         fadeDirection = 0;
     } else {
         fadeDirection = 80;
     }
+    // Appends card and animates effect
+    // TODO: May want to consider having animation of movement be a set distance and use
+    // absolute pixel positioning since CSS percentages can be weird in some viewports
     $(`<div id="card-${number}" class="card ${assigned}" style="background-image: url('cards/${cardSprite}.png')"><div class="card-number">${number}</div></div>`)
         .css('opacity', 0)
         .appendTo($(location))
@@ -529,21 +540,31 @@ function createCardDom(location, cardInfo) {
     .fadeOut(0);
 }
 
+// Queues cards given an object containing cards and who played the card (audience or player)
+// Note this does not assign the literal player who played the card because this information is
+// not needed for this animation
 function queueCards(values, creator) {
     let monster = values.monster;
     let player = values.player;
     let location;
+    // Depending on who played the card, changes location the card is appended to
     if (creator === 'playerItems') {
         location = 'cards-in-play-2';
     } else if (creator === 'audienceItems') {
         location = 'cards-in-play-1';
     }
+    // Empties the location if it isn't already
     clearCardsDom(location);
+    // For each actor (player or monster), note this deals with assignment rather than the group
+    // that played the card - this function is only called for one specific group at a time
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
+        // For each card assigned to this actor
         for (let i = 0; i < thisCardsArray.length; i++) {
+            // Delay 1.2 seconds
             $('#' + location).delay(1200).queue(function() {
+                // Create a card in the determined location with a number and actor
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
                 $.dequeue( this );
@@ -551,7 +572,9 @@ function queueCards(values, creator) {
         }
     }
 }
-                       
+      
+// Loads all cards in play by either audience or player (indicated by creator parameter) for
+// the round, sends thse cards on to queue for animation
 function loadCardDisplay(code, creator) {
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/' + creator + '/');
@@ -568,6 +591,7 @@ function loadCardDisplay(code, creator) {
             cardsArray = Object.keys(cards);
             values[label] = cardsArray;
         });
+        // Sends values object to queue for animation
         queueCards(values, creator);
     });
 }
@@ -588,5 +612,6 @@ $(document).ready(function() {
     loadCardDisplay('TEST', 'playerItems');
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');
+    // Loads test data set to database in case anything changed
     setTestData(TEST);
 });

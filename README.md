@@ -5,8 +5,11 @@ https://susanpallmann.github.io/witches-and-wagers/
 
 ## Contents
 [Project Plan](#project-plan)
+
 [Dev Resources](#dev-resources)
+
 [To Do](#to-do)
+
 [Dev Diary](#dev-diary)
 
 ## Project Plan

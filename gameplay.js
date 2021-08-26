@@ -223,7 +223,12 @@ let TEST = {
                 "44" : 44
             },
             // Items used on the player, by ID
-            "player" : [ 1, 2, 3, 4 ]
+            "player" : {
+                "1" : 1,
+                "2" : 2,
+                "3" : 3,
+                "4" : 4
+            }
         }
     },
     // Stores stats for end of game that aren't specifically calculated in a user's data

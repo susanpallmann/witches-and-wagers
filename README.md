@@ -3,7 +3,7 @@ A backstabbing dungeon-themed party game.
 
 https://susanpallmann.github.io/witches-and-wagers/
 
-## Resources Used
+## Resources
 - [Google Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
 - [jQuery](https://jquery.com/)
 

@@ -43,15 +43,16 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Added monster and player scores to the scene.
   * Some minor CSS styling improvements.
   * Improved the readme a little.
+  * Added a basic function to re-add dummy database entry in case I mess up something.
 
 ## To Do
-- [ ] Draw some new avatars in the new style
-   - [ ] Wisp
 - [ ] Comment your old code, you lunatic
-- [ ] Create final card deck array
 - [ ] Finish creating database read/display functions
    - [X] Populate monster & player names and scores
    - [ ] Show bets and distribution, both anonymous and named
 - [ ] Rewrite player display to exclude player slots not in use
-- [ ] Create player-side database read/display functions
 - [ ] Create database write function(s)
+- [ ] Create player-side database read/display functions
+- [ ] Draw some new avatars in the new style
+   - [ ] Wisp
+- [ ] Create final card deck array

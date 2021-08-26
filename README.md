@@ -44,6 +44,7 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Some minor CSS styling improvements.
   * Improved the readme a little.
   * Added a basic function to re-add dummy database entry in case I mess up something.
+  * Commented some old code.
 
 - [X] 08/26/21:
 
@@ -57,6 +58,7 @@ https://susanpallmann.github.io/witches-and-wagers/
 - [ ] Rewrite player display to exclude player slots not in use
 - [ ] Create database write function(s)
 - [ ] Create player-side database read/display functions
+- [ ] Address all current code debt (TODOs)
 - [ ] Design prototypes for host and client screens using logic flow diagram
 - [ ] Create show/hide functionality based on design (stitch it all together)
 - [ ] Draw some new avatars in the new style

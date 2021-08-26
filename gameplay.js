@@ -502,7 +502,7 @@ function loadCardDisplay(code, creator) {
 }
 
 function setTestData(code) {
-    let location = firebase.database().ref(code);
+    let location = firebase.database().ref('TEST');
     location.update(TEST);
 }
 

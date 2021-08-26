@@ -37,15 +37,18 @@ https://susanpallmann.github.io/witches-and-wagers/
 
   * Enjoy vacation. :)
 
-- [ ] 08/25/21:
+- [X] 08/25/21:
 
-  * Add monster and player names to the scene
+  * Added monster and player names to the scene.
+  * Added monster and player scores to the scene.
+  * Some minor CSS styling improvements.
+  * Improved the readme a little.
 
 ## To Do
 - [ ] Comment your old code, you lunatic
 - [ ] Create final card deck array
 - [ ] Finish creating database read/display functions
-   - [ ] Populate monster & player names and scores
+   - [X] Populate monster & player names and scores
    - [ ] Show bets and distribution, both anonymous and named
 - [ ] Rewrite player display to exclude player slots not in use
 - [ ] Create player-side database read/display functions

@@ -53,6 +53,8 @@ https://susanpallmann.github.io/witches-and-wagers/
 - [ ] Rewrite player display to exclude player slots not in use
 - [ ] Create database write function(s)
 - [ ] Create player-side database read/display functions
+- [ ] Design prototypes for host and client screens using logic flow diagram
+- [ ] Create show/hide functionality based on design (stitch it all together)
 - [ ] Draw some new avatars in the new style
    - [ ] Wisp
 - [ ] Create final card deck array

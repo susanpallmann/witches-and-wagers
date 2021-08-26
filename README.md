@@ -45,6 +45,10 @@ https://susanpallmann.github.io/witches-and-wagers/
   * Improved the readme a little.
   * Added a basic function to re-add dummy database entry in case I mess up something.
 
+- [X] 08/26/21:
+
+  * Fixed a bug with the card animation caused by my database export from yesterday.
+
 ## To Do
 - [ ] Comment your old code, you lunatic
 - [ ] Finish creating database read/display functions

@@ -1,3 +1,200 @@
+// Dummy Database Information to Imitate a Game
+let TEST = {
+    "deck" : {
+        "45" : 45
+    },
+    "phase" : "showAll",
+    "players" : {
+        "Auben" : {
+            "VIP" : "no",
+            "apparel" : {
+                "34" : 34
+            },
+            "avatar" : 2,
+            "counts" : {
+                "coward" : 2,
+                "optimist" : 1,
+                "pessimist" : 2
+            },
+            "gold" : 13,
+            "inventory" : {
+                "24" : 24,
+                "25" : 25,
+                "26" : 26,
+                "27" : 27
+            },
+            "weapon" : {
+                "35" : 35
+            }
+        },
+        "Jules" : {
+            "VIP" : "no",
+            "apparel" : {
+                "42" : 42
+            },
+            "avatar" : 6,
+            "counts" : {
+                  "coward" : 6,
+                  "optimist" : 6,
+                  "pessimist" : 6
+            },
+            "gold" : 2,
+            "inventory" : {
+                  "8" : 8,
+                  "9" : 9,
+                  "10" : 10,
+                  "11" : 11
+            },
+            "weapon" : {
+                "43" : 43
+            }
+        },
+        "Magpie" : {
+            "VIP" : "no",
+            "apparel" : {
+                "40" : 40
+            },
+            "avatar" : 5,
+            "counts" : {
+                "coward" : 7,
+                "optimist" : 7,
+                "pessimist" : 7
+            },
+            "gold" : 7,
+            "inventory" : {
+                "12" : 12,
+                "13" : 13,
+                "14" : 14,
+                "15" : 15
+            },
+            "weapon" : {
+                "41" : 41
+            }
+        },
+        "Skooz" : {
+            "VIP" : "yes",
+            "apparel" : {
+                  "32" : 32
+            },
+            "avatar" : 1,
+            "counts" : {
+                "coward" : 1,
+                "optimist" : 3,
+                "pessimist" : 4
+            },
+            "gold" : 15,
+            "inventory" : {
+                "28" : 28,
+                "29" : 29,
+                "30" : 30,
+                "31" : 31
+            },
+            "weapon" : {
+                "33" : 33
+            }
+        },
+        "Tangerine" : {
+            "VIP" : "no",
+            "apparel" : {
+                "36" : 36
+            },
+            "avatar" : 3,
+            "counts" : {
+                "coward" : 0,
+                "optimist" : 0,
+                "pessimist" : 0
+            },
+            "gold" : 0,
+            "inventory" : {
+                "20" : 20,
+                "21" : 21,
+                "22" : 22,
+                "23" : 23
+            },
+            "weapon" : {
+                "37" : 37
+            }
+        },
+        "UH82CIT" : {
+            "VIP" : "no",
+            "apparel" : {
+                "38" : 38
+            },
+            "avatar" : 4,
+            "counts" : {
+                "coward" : 5,
+                "optimist" : 5,
+                "pessimist" : 5
+            },
+            "gold" : 20,
+            "inventory" : {
+                "16" : 16,
+                "17" : 17,
+                "18" : 18,
+                "19" : 19
+            },
+            "weapon" : {
+                "39" : 39
+            }
+      }
+    },
+    "round" : {
+        "audienceItems" : {
+            "monster" : {
+                "7" : 7
+            },
+            "player" : {
+                "5" : 5,
+                "6" : 6
+            }
+        },
+        "bets" : {
+            "flee" : {
+                "Magpie" : 4
+            },
+            "loss" : {
+                "Tangerine" : 2
+            },
+            "pass" : {
+                "Jules" : 0
+            },
+            "win" : {
+                "Auben" : 5,
+                "UH82CIT" : 2
+            }
+        },
+        "currentMonster" : {
+            "attributes" : {
+                "appearance" : 1
+            },
+            "monster" : "Example Monster Name",
+            "score" : 15
+        },
+        "currentPlayer" : {
+            "player" : "Skooz",
+            "score" : 0
+        },
+        "phase" : "showAll",
+        "playerItems" : {
+            "monster" : {
+                "44" : 44
+            },
+            "player" : [ null, 1, 2, 3, 4 ]
+        }
+    },
+    "trackers" : {
+        "helper" : {
+            "amount" : 15,
+            "player" : "Skooz"
+        },
+        "hurter" : {
+            "amount" : 10,
+            "player" : "Auben"
+        }
+    },
+    "winner" : "UH82CIT"
+};
+
 // Generate Room Code
     // Create random sequence of letters
     // Check if that sequence is already in play
@@ -304,6 +501,11 @@ function loadCardDisplay(code, creator) {
     });
 }
 
+function setTestData(code) {
+    let location = firebase.database().ref(code + '/');
+    location.set(TEST);
+}
+
 // When document loads
 $(document).ready(function() {
     // For now calls all of the "starter" functions just for testing. Going to also write
@@ -320,4 +522,5 @@ $(document).ready(function() {
     loadCardDisplay('TEST', 'playerItems');
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');
+    setTestData(TEST);
 });

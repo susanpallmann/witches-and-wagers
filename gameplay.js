@@ -1,28 +1,49 @@
-// Dummy Database Information to Imitate a Game
+/* ----------------------------------------------------------------------------------------------*/
+/*                     THE BELOW IS EXTREMELY BORING DUMMY DATABASE ENTRY                        */
+/* ----------------------------------------------------------------------------------------------*/
+
+// Dummy database entry to simulate an in-progress game in case I mess up something
+// I guess I'll comment it just for posterity, but it won't be fun to read
+// This is alphabetized because that's how Firebase displays the information; this was
+// exported directly from Firebase - it would normally be structured more intuitively.
 let TEST = {
+    // Stores which cards are not in any player's hand, lists cards by ID
     "deck" : {
         "45" : 45
     },
+    // Shows current game phase, this controls what is visible on all screens
     "phase" : "showAll",
+    // Lists current players and certain statuses; I'll comment the first entry
     "players" : {
+        // Stored by username
         "Auben" : {
+            // If player was first to join or not
             "VIP" : "no",
+            // Apparel currently equipped to this player, lists cards by ID
             "apparel" : {
                 "34" : 34
             },
+            // Avatar selected, number corresponds to an image
             "avatar" : 2,
+            // Stores counts for determining player statistics at the end of the game
             "counts" : {
+                // Number of successful flee attempts
                 "coward" : 2,
+                // Number of bets in favor of a person
                 "optimist" : 1,
+                // Number of bets against a person
                 "pessimist" : 2
             },
+            // Amount of gold
             "gold" : 13,
+            // Cards currently in inventory, lists cards by ID
             "inventory" : {
                 "24" : 24,
                 "25" : 25,
                 "26" : 26,
                 "27" : 27
             },
+            // Weapon currently equipped to this player, lists cards by ID
             "weapon" : {
                 "35" : 35
             }
@@ -138,20 +159,30 @@ let TEST = {
             }
       }
     },
+    // Once the game is in "play" state, there are rounds of play, best indicated
+    // by a different active player
+    // Information here is updated/replaced each round
     "round" : {
+        // Stores items in play by audience members (i.e. not the active player)
         "audienceItems" : {
+            // Items used on monster, by ID
             "monster" : {
                 "7" : 7
             },
+            // Items used on player, by ID
             "player" : {
                 "5" : 5,
                 "6" : 6
             }
         },
+        // Wagers in play by audience members
         "bets" : {
+            // Bets that the player will successfully flee the round
             "flee" : {
+                // Stores player and wager amount
                 "Magpie" : 4
             },
+            // Etc.
             "loss" : {
                 "Tangerine" : 2
             },
@@ -163,37 +194,59 @@ let TEST = {
                 "UH82CIT" : 2
             }
         },
+        // Stores the current monster and some attributes
         "currentMonster" : {
             "attributes" : {
+                // Which monster appearance to use
                 "appearance" : 1
             },
+            // Generated monster name (related to appearance and strength)
             "monster" : "Example Monster Name",
+            // Strength score, generated randomly on the front end, modified in the
+            // front end as cards are added to play
             "score" : 15
         },
+        // Stores the current player and a few attributes (but not exhaustive)
         "currentPlayer" : {
+            // Player name
             "player" : "Skooz",
+            // Strength score, to be calculated from items equipped, and then modified
+            // in the front end as cards are added to play
             "score" : 0
         },
+        // Shows round phase, this is a subphase of the game's "play" phase
         "phase" : "showAll",
+        // Stores items in play by the active player
         "playerItems" : {
+            // Items used on the monster, by ID
             "monster" : {
                 "44" : 44
             },
-            "player" : [ null, 1, 2, 3, 4 ]
+            // Items used on the player, by ID
+            "player" : [ 1, 2, 3, 4 ]
         }
     },
+    // Stores stats for end of game that aren't specifically calculated in a user's data
+    // These are updated as rounds progress
     "trackers" : {
+        // Player who has aided another player the most
         "helper" : {
             "amount" : 15,
             "player" : "Skooz"
         },
+        // Player who has sabotaged another player the most
         "hurter" : {
             "amount" : 10,
             "player" : "Auben"
         }
     },
+    // Winner, if one exists
     "winner" : "UH82CIT"
 };
+
+/* ----------------------------------------------------------------------------------------------*/
+/*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
+/* ----------------------------------------------------------------------------------------------*/
 
 // Generate Room Code
     // Create random sequence of letters
@@ -243,14 +296,27 @@ let TEST = {
             // Send username to DB, select random available avatar, send
             // Show avatar selection screen
 
-/* END PSEUDOCODE, START REAL CODE */
+/* ----------------------------------------------------------------------------------------------*/
+/*                               FRONT-END ONLY LOGIC, NO DATABASE                               */
+/* ----------------------------------------------------------------------------------------------*/
 
-// Example of a database update for future reference
-//var loc = firebase.database().ref('TEST/round/' + key);
-//    loc.update({'player': 'Skooz'});
+// Nothing here yet, I'm not really sure it's fair to have this section if I'm lumping "game display"
+// in with reading the database. TBD, TODO
+
+// Still, probably would be nice to keep things like the monster generator somewhere special. Got 
+// to have SOME flair if I'm building this whole thing in JavaScript, right?
 
 /* ----------------------------------------------------------------------------------------------*/
-/*  THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE                        */
+/*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
+/* ----------------------------------------------------------------------------------------------*/
+
+function setTestData(code) {
+    let location = firebase.database().ref('TEST');
+    location.update(code);
+}
+
+/* ----------------------------------------------------------------------------------------------*/
+/*             THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE             */
 /* ----------------------------------------------------------------------------------------------*/
 
 // Reusable function to change the text in a provided DOM element
@@ -499,11 +565,6 @@ function loadCardDisplay(code, creator) {
         });
         queueCards(values, creator);
     });
-}
-
-function setTestData(code) {
-    let location = firebase.database().ref('TEST');
-    location.update(code);
 }
 
 // When document loads

@@ -4,9 +4,10 @@ A backstabbing dungeon-themed party game.
 https://susanpallmann.github.io/witches-and-wagers/
 
 ## Project Plan
-- [Gameplay Logic Google Doc](https://docs.google.com/document/d/1f_4MNYwZ1uQ96jU5jy9jnCGe85VRp2VgsE4S7wsvh5I/edit?usp=sharing)
-- [Gameplay Logic Miro Board](https://miro.com/app/board/o9J_l2-v3mI=/)
-- [Database Structure Google Doc](https://docs.google.com/document/d/10EucJKtGXdxRgWEyUUHI-u_hpfNFlF82tKnT0N_PWjo/edit?usp=sharing)
+- [Gameplay Logic (Google Doc)](https://docs.google.com/document/d/1f_4MNYwZ1uQ96jU5jy9jnCGe85VRp2VgsE4S7wsvh5I/edit?usp=sharing)
+- [Gameplay Logic (Miro Board)](https://miro.com/app/board/o9J_l2-v3mI=/)
+- [Database Structure (Google Doc)](https://docs.google.com/document/d/10EucJKtGXdxRgWEyUUHI-u_hpfNFlF82tKnT0N_PWjo/edit?usp=sharing)
+- Gameplay Design Prototype (Adobe XD) - *Not Started*
 
 ## Dev Resources
 - [Google Firebase Realtime Database](https://firebase.google.com/products/realtime-database)

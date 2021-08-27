@@ -20,10 +20,7 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Finish creating database read/display functions
-   - [X] Populate monster & player names and scores
-   - [ ] Show bets and distribution, both anonymous and named
-- [ ] Rewrite player display to exclude player slots not in use
+- [ ] Rewrite how players' avatars and names are displayed to not require existing slots
 - [ ] Create database write function(s)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)
@@ -39,7 +36,10 @@ A backstabbing dungeon-themed party game.
 
 - [X] 08/27/21:
 
-  * Added wager totals by outcome (another read/display function)
+  * Added wager totals by outcome (another read/display function).
+  * Added wager amounts and names.
+  * Added wager name hide/show toggle function.
+  * This completes all database read/game display functions for the host screen.
   * Some minor CSS styling improvements.
 
 - [X] 08/26/21:

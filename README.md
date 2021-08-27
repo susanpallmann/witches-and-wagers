@@ -5,7 +5,7 @@ A backstabbing dungeon-themed party game.
 
 
 **Personal Achievements**
-- [X] Successfully coded for 7 consecutive days (excluding vacation)
+- [X] Successfully coded for 7 consecutive days (excluding vacation) without burning out
 
 ## Contents
 1. [Project Plan](#project-plan)

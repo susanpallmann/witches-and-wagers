@@ -660,7 +660,9 @@ $(document).ready(function() {
     displayBets('TEST');
     $(document).delay(1200).queue(function() {
         toggleBetNames();
+        $.dequeue(this);
     }).delay(1200).queue(function() {
         toggleBetNames();
+        $.dequeue(this);
     });
 });

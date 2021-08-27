@@ -642,5 +642,5 @@ $(document).ready(function() {
     displayActorScores('TEST');
     // Loads test data set to database in case anything changed
     setTestData(TEST);
-    displayBetAmounts('TEST;
+    displayBetAmounts('TEST');
 });

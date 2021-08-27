@@ -370,11 +370,15 @@ function displayBets(code) {
 }
 
 // Toggles visibility of owners of each wager when called (since bets are anonymous at first)
-function toggleBetOwners(code) {
-    if ($('bet-players').css('opacity') == 0) {
-        console.log('opacity is 0');
+function toggleBetNames() {
+    if ($('bet-players').is(':visible')) {
+        $('bet-players').each(function() {
+            $(this).fadeOut();
+        });
     } else {
-        console.log('opacity is not 0');
+        $('bet-players').each(function() {
+            $(this).fadeIn();
+        });
     }
 }
 
@@ -654,4 +658,9 @@ $(document).ready(function() {
     // Loads test data set to database in case anything changed
     setTestData(TEST);
     displayBets('TEST');
+    $(document).delay(2000).queue(function() {
+        toggleBetNames();
+    }).delay(2000).queue(function() {
+        toggleBetNames();
+    });
 });

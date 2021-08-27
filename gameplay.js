@@ -657,11 +657,12 @@ $(document).ready(function() {
     displayActorScores('TEST');
     // Loads test data set to database in case anything changed
     setTestData(TEST);
+    // Loads all bet information
     displayBets('TEST');
-    $(document).queue(function() {
-        toggleBetNames();
-        $.dequeue(this);
-    }).delay(1200).queue(function() {
+    // Hides names and personal bet amounts
+    toggleBetNames();
+    $(document).delay(1200).queue(function() {
+        // Reveals names and personal bet amounts
         toggleBetNames();
         $.dequeue(this);
     });

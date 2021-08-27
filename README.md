@@ -37,6 +37,11 @@ A backstabbing dungeon-themed party game.
 
 ## Dev Diary
 
+- [X] 08/27/21:
+
+  * Added wager totals by outcome (another read/display function)
+  * Some minor CSS styling improvements.
+
 - [X] 08/26/21:
 
   * Fixed a bug with the card animation caused by my database export from yesterday.

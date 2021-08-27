@@ -361,7 +361,7 @@ function displayBets(code) {
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
-                $(`#${outcome} .bet-players`).append(`<div>${wager}</div><div class="small-gold">${wagers[wager]}</div>`);
+                $(`#${outcome} .bet-players`).append(`<div class="bet-container"><div>${wager}</div><div class="small-gold">${wagers[wager]}</div></div>`);
             }
             // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);

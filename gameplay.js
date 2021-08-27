@@ -373,6 +373,8 @@ function displayBets(code) {
 function toggleBetOwners(code) {
     if ($('bet-players').css('opacity') == 0) {
         console.log('opacity is 0');
+    } else {
+        console.log('opacity is not 0');
     }
 }
 

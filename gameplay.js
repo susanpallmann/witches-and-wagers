@@ -359,7 +359,7 @@ function displayBets(code) {
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
-                $(`#${outcome} .named-bets`).append(`<div>${wager}</div><div class="gold">${wagers[wager]}</div>`);
+                $(`#${outcome} .bet-players`).append(`<div>${wager}</div><div class="gold">${wagers[wager]}</div>`);
             }
             // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);
@@ -369,7 +369,7 @@ function displayBets(code) {
 
 // Toggles visibility of owners of each wager when called (since bets are anonymous at first)
 function toggleBetOwners(code) {
-    if ($('named-bets').css('opacity') == 0) {
+    if ($('bet-players').css('opacity') == 0) {
         console.log('opacity is 0');
     }
 }

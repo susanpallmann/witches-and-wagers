@@ -20,7 +20,7 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Rewrite how players' avatars and names are displayed to not require existing slots
+- [ ] Rewrite how players' avatars and names are displayed to not require existing slots in the DOM
 - [ ] Create database write function(s)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)

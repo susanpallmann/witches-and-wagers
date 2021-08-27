@@ -340,12 +340,15 @@ function displayRoomCode(code) {
 }
 
 // Retrieves wagers on each outcome from database and adds them together, then updates the correct
-// field with the total
-function displayBetAmounts(code) {
+// field with the total.
+// This also loads names and amounts from specific players; I wanted to have them separate but I'm
+// merging them to avoid rewriting 90% of the same code
+function displayBets(code) {
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/bets/');
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
+        // For each bet outcome
         snapshot.forEach((childSnapshot) => {
             // Save information to variables
             let outcome = childSnapshot.key;
@@ -356,18 +359,19 @@ function displayBetAmounts(code) {
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
+                $(`#${outcome} .named-bets`).append(`<div>${wager}</div><div class="gold">${wagers[wager]}</div>`);
             }
+            // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);
         });
     });
 }
 
-// Retrieves owners of each wager from database and shows their names and bet amounts on screen
-function displayBetOwners(code) {
-}
-
 // Toggles visibility of owners of each wager when called (since bets are anonymous at first)
 function toggleBetOwners(code) {
+    if ($('named-bets').css('opacity') == 0) {
+        console.log('opacity is 0');
+    }
 }
 
 // Function to display player and monster's current scores in the game's fight scene
@@ -645,5 +649,5 @@ $(document).ready(function() {
     displayActorScores('TEST');
     // Loads test data set to database in case anything changed
     setTestData(TEST);
-    displayBetAmounts('TEST');
+    displayBets('TEST');
 });

@@ -610,7 +610,7 @@ function queueCards(values, creator) {
                 // Create a card in the determined location with a number and actor
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
-                $.dequeue( this );
+                $.dequeue(this);
             });
         }
     }

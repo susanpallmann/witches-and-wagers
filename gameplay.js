@@ -658,5 +658,9 @@ $(document).ready(function() {
     // Loads test data set to database in case anything changed
     setTestData(TEST);
     displayBets('TEST');
-    toggleBetNames();
+    $(document).delay(1200).queue(function() {
+        toggleBetNames();
+    }).delay(1200).queue(function() {
+        toggleBetNames();
+    });
 });

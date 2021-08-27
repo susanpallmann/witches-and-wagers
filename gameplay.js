@@ -350,8 +350,11 @@ function displayBetAmounts(code) {
             // Save information to variables
             let outcome = childSnapshot.key;
             let wagers = childSnapshot.val();
-            let total;
+            // Initializing a total variable outside of the loop
+            let total = 0;
+            // For each wager listed
             for (let wager in wagers) {
+                // Add to total
                 let total = total + wagers[wager];
             }
             updateDomText($(`#${outcome} .gold`), total);

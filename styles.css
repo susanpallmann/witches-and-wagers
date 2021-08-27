@@ -194,10 +194,6 @@ header nav ul li a.selected:active {
   width: 100%;
 }
 
-#bets {
-  position: absolute;
-}
-
 div[class*="avatar"] {
   background-size: contain;
   background-repeat: no-repeat;
@@ -280,6 +276,7 @@ div[class*="-name"] {
 }
 
 #bets {
+  position: absolute;
   display: flex;
   flex-direction: row;
   width: 100%;

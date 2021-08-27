@@ -300,3 +300,14 @@ div[class*="-name"] {
   width: 100%;
   text-align: center;
 }
+
+.bet-players {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.bet-container {
+  margin: 10px;
+}

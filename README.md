@@ -3,6 +3,8 @@ A backstabbing dungeon-themed party game.
 
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
+
+**Personal Achievements**
 - [X] Successfully coded for 7 consecutive days (excluding vacation)
 
 ## Contents

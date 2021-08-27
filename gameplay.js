@@ -355,11 +355,13 @@ function displayBets(code) {
             let wagers = childSnapshot.val();
             // Initializing a total variable outside of the loop
             let total = 0;
+            // Clear container of any previous information if it exists
+            $(`#${outcome} .bet-players`).empty();
             // For each wager listed
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
-                $(`#${outcome} .bet-players`).append(`<div>${wager}</div><div class="gold">${wagers[wager]}</div>`);
+                $(`#${outcome} .bet-players`).append(`<div>${wager}</div><div class="small-gold">${wagers[wager]}</div>`);
             }
             // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);

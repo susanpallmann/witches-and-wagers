@@ -216,6 +216,7 @@ div[class*="-name"] {
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .small-gold {
@@ -224,7 +225,8 @@ div[class*="-name"] {
   font-size: 1em;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .player-1-avatar {
@@ -292,7 +294,6 @@ div[class*="-name"] {
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
   margin-top: 30px;
-  
 }
 
 #win, #loss, #flee {

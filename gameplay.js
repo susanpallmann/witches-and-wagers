@@ -373,7 +373,7 @@ function displayBets(code) {
 function toggleBetNames() {
     if ($('.bet-players').is(':visible')) {
         $('.bet-players').each(function(index) {
-            $(this).fadeOut();
+            $(this).hide();
         });
     } else {
         $('.bet-players').each(function(index) {

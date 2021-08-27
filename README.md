@@ -3,7 +3,7 @@ A backstabbing dungeon-themed party game.
 
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
-- [X] 7 consecutive days of work (excluding vacation)
+- [X] Successfully worked on for 7 consecutive days (excluding vacation)
 
 ## Contents
 1. [Project Plan](#project-plan)

@@ -371,12 +371,12 @@ function displayBets(code) {
 
 // Toggles visibility of owners of each wager when called (since bets are anonymous at first)
 function toggleBetNames() {
-    if ($('bet-players').is(':visible')) {
-        $('bet-players').each(function() {
+    if ($('.bet-players').is(':visible')) {
+        $('.bet-players').each(function(index) {
             $(this).fadeOut();
         });
     } else {
-        $('bet-players').each(function() {
+        $('.bet-players').each(function(index) {
             $(this).fadeIn();
         });
     }

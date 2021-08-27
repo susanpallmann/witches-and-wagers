@@ -355,7 +355,7 @@ function displayBetAmounts(code) {
             // For each wager listed
             for (let wager in wagers) {
                 // Add to total
-                let total = total + wagers[wager];
+                total = total + wagers[wager];
             }
             updateDomText($(`#${outcome} .gold`), total);
         });

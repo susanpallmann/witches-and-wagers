@@ -661,7 +661,7 @@ $(document).ready(function() {
     displayBets('TEST');
     // Hides names and personal bet amounts
     toggleBetNames();
-    $(document).delay(1200).queue(function() {
+    $(document).delay(800).queue(function() {
         // Reveals names and personal bet amounts
         toggleBetNames();
         $.dequeue(this);

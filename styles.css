@@ -211,7 +211,7 @@ div[class*="-name"] {
   padding: 0.5em 0;
 }
 
-#scoreboard .gold {
+.gold {
   font-family: "Carter One", sans-serif;
   color: #ffd88d;
   font-size: 2em;

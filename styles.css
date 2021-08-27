@@ -220,6 +220,15 @@ div[class*="-name"] {
   margin-top: 10px;
 }
 
+.small-gold {
+  font-family: "Carter One", sans-serif;
+  color: #ffffff;
+  font-size: 1em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
+  margin-top: 10px;
+}
+
 .player-1-avatar {
   background-color: #FF7A7A;
 }

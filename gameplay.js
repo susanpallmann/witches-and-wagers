@@ -352,9 +352,9 @@ function displayBetAmounts(code) {
             let wagers = childSnapshot.val();
             let total;
             for (let wager in wagers) {
-                console.log(wagers[wager]);
-                console.log(wager);
+                let total = total + wagers[wager];
             }
+            updateDomText($(`#${outcome} .gold`), total);
         });
     });
 }

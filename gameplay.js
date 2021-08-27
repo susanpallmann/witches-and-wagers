@@ -339,6 +339,34 @@ function displayRoomCode(code) {
     updateDomText($('#room-code'), code);
 }
 
+// Retrieves wagers on each outcome from database and adds them together, then updates the correct
+// field with the total
+function displayBetAmounts(code) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/bets/');
+    // Takes ongoing snapshot
+    location.on('value', function(snapshot) {
+        snapshot.forEach((childSnapshot) => {
+            // Save information to variables
+            let outcome = childSnapshot.key;
+            let wagers = childSnapshot.val();
+            let total;
+            for (let wager in wagers) {
+                console.log(wagers[wager]);
+                console.log(wager);
+            }
+        });
+    });
+}
+
+// Retrieves owners of each wager from database and shows their names and bet amounts on screen
+function displayBetOwners(code) {
+}
+
+// Toggles visibility of owners of each wager when called (since bets are anonymous at first)
+function toggleBetOwners(code) {
+}
+
 // Function to display player and monster's current scores in the game's fight scene
 // TODO: consider making this a "once" if we figure out how to reuse a snapshot function
 function displayActorScores(code) {
@@ -614,4 +642,5 @@ $(document).ready(function() {
     displayActorScores('TEST');
     // Loads test data set to database in case anything changed
     setTestData(TEST);
+    displayBetAmounts('TEST;
 });

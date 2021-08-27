@@ -187,11 +187,13 @@ header nav ul li a.selected:active {
 #cards-in-play-1 {
   position: absolute;
   width: 100%;
+  z-index: 2;
 }
 
 #cards-in-play-2 {
   position: absolute;
   width: 100%;
+  z-index: 2;
 }
 
 div[class*="avatar"] {

@@ -31,9 +31,6 @@ A backstabbing dungeon-themed party game.
 - [ ] Design prototypes for host and client screens using logic flow diagram
 - [ ] Create show/hide functionality based on design (stitch it all together)
 - [ ] Draw some new avatars in the new style
-   - [ ] Wisp
-   - [ ] Treant
-   - [ ] Black Cat
 - [ ] Create final card deck array
 
 ## Dev Diary

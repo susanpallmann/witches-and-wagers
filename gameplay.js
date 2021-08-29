@@ -517,14 +517,14 @@ function displayAllStats(code) {
 
 // Function to make sure player placement on the scoreboard corresponds with their place in
 // the game, uses CSS flexbox and order to achieve result
-// TODO: think through how to animate this swap
 function rearrangeScoreboard(values) {
     // For each record passed in
     for (let record in values) {
         // Create some variables
         let username = record;
         let score = values[record];
-        let position = $('#scoreboard').find('.' + username).css('order', score);
+        console.log(username);
+        $('#scoreboard').find('.' + username).css('order', score);
         // position = position.parent();
         // Apply the amount of gold as CSS order property, since parent is row-reverse, high
         // values will show first

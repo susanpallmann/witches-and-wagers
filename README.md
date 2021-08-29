@@ -51,6 +51,10 @@ A backstabbing dungeon-themed party game.
 
 ## Dev Diary
 
+- [X] 08/29/21:
+
+  * Added detail to immediate to-do list in preparation for a full-day
+
 - [X] 08/28/21:
 
   * Rewrote how players' avatars and names are displayed to not require existing slots in the DOM.

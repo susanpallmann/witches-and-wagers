@@ -250,6 +250,12 @@ let TEST = {
 };
 
 /* ----------------------------------------------------------------------------------------------*/
+/*               GLOBAL VARIABLES FOR STORING PLAYER INFORMATION IN THE FRONT-END                */
+/* ----------------------------------------------------------------------------------------------*/
+
+let players = {};
+
+/* ----------------------------------------------------------------------------------------------*/
 /*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
 /* ----------------------------------------------------------------------------------------------*/
 
@@ -652,7 +658,6 @@ function loadCardDisplay(code, creator) {
 $(document).ready(function() {
     // Initializing a variable to store player names and avatars to the front-end rather
     // than rereading the database all the time
-    let players = {};
     // For now calls all of the "starter" functions just for testing. Going to also write
     // a little about when these should be called in the end
     // TODO: Call when setup phase begins

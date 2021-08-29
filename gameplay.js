@@ -530,10 +530,12 @@ function displayScoreboard(code) {
             let position = $('#scoreboard').find('.' + username);
             let storedPlayerData = players[username];
             console.log(storedPlayerData);
+            let storedAvatar = storedPlayerData.avatar;
+            let storedUsername = storedPlayerData.username;
             $('#scoreboard').append(`
                 <div class="pos-">
-                    ${$(storedPlayerData.avatar)}
-                    ${$(storedPlayerData.username)}
+                    ${storedAvatar}
+                    ${storedUsername}
                     <div class="gold">${gold}</div>
                 </div>
             `);

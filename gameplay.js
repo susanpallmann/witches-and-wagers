@@ -311,6 +311,8 @@ let TEST = {
 // Still, probably would be nice to keep things like the monster generator somewhere special. Got 
 // to have SOME flair if I'm building this whole thing in JavaScript, right?
 
+let test = $(`<div class="player-1-avatar" style="background-image: url('avatars/2.png');"></div>`);
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
@@ -666,5 +668,5 @@ $(document).ready(function() {
         toggleBetNames();
         $.dequeue(this);
     });
-    $('#setup').append('<div class="player-1-avatar"></div>');
+    $('#setup').append(test);
 });

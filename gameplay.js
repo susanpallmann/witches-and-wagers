@@ -556,9 +556,9 @@ function displayScoreboard(code) {
             $('#scoreboard').children('.' + username).append(storedPlayerData.username.clone()); 
             $('#scoreboard').children('.' + username).append(`<div class="gold">${gold}</div>`);
         });
+        // Call rearrangeScoreboard to update CSS order properties
+        rearrangeScoreboard(values);
     });
-    // Call rearrangeScoreboard to update CSS order properties
-    rearrangeScoreboard(values);
 }
 
 // Empties a location, written specifically for the card animation

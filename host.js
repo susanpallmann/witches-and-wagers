@@ -69,8 +69,16 @@ let players = {};
 function generateMonster() {
     let monster = {};
     let randomMonster = Math.floor(Math.random() * Object.keys(monsters).length) + 1;
-    console.log(Object.keys(monsters).length);
-    console.log(monsters[randomMonster]);
+    let monsterData = monsters[randomMonster];
+    let monsterName = monsterData.name;
+    let monsterStrength = monsterData.baseStrength;
+    let monsterPrefix = monsterData.prefix;
+    if (monsterPrefix) {
+    } else {
+        monsterPrefix = '';
+    }
+    let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
+    console.log(generatedStrength);
     return monster;
 }
 

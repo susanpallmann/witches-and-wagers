@@ -524,11 +524,11 @@ function rearrangeScoreboard(values) {
         // Create some variables
         let username = record;
         let score = values[record];
-        let position = $('#scoreboard').find('.' + username);
-        //position = position.parent();
+        let position = $('#scoreboard').find('.' + username).css('order', score);
+        // position = position.parent();
         // Apply the amount of gold as CSS order property, since parent is row-reverse, high
         // values will show first
-        position.css('order', score);
+        // position.css('order', score);
     }
 }
 

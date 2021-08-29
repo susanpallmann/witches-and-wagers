@@ -79,6 +79,32 @@ function generateMonster() {
     }
     let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
     console.log(generatedStrength);
+    monsterStrength = Math.round(monsterStrength * generatedStrength);
+    let strengthPrefix;
+    switch (generatedStrength) {
+        case 0:
+            strengthPrefix = 'pitiful';
+            break;
+        case <0.5:
+            strengthPrefix = 'weak';
+            break;
+        case <1:
+            strengthPrefix = 'lesser';
+            break;
+        case 1:
+            strengthPrefix = '';
+            break;
+        case <1.5:
+            strengthPrefix = 'greater';
+            break;
+        case <2:
+            strengthPrefix = 'enlightened';
+            break;
+        case 2:
+            strengthPrefix = 'apocolyptic';
+            break;
+    }
+    console.log(strengthPrefix);
     return monster;
 }
 

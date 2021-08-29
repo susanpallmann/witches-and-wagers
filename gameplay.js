@@ -666,4 +666,5 @@ $(document).ready(function() {
         toggleBetNames();
         $.dequeue(this);
     });
+    $('#setup').append('<div class="player-1-avatar"></div>');
 });

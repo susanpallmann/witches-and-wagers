@@ -415,6 +415,8 @@ function displayPlayers(code) {
     location.on('value', function(snapshot) {
         // Iteration counter
         let count = 1;
+        // Clearing existing data
+        $('#setup-players').empty();
         // For each player
         snapshot.forEach((childSnapshot) => {
             // Save information to variables
@@ -432,7 +434,6 @@ function displayPlayers(code) {
             let storedPlayerData = players[username];
             
             // Appending avatar and username to the DOM
-            $('#setup-players').empty();
             $('#setup-players').append(storedPlayerData.avatar);
             $('#setup-players').append(storedPlayerData.username);
 
@@ -530,8 +531,8 @@ function displayScoreboard(code) {
             let storedPlayerData = players[username];
             $('#scoreboard').append(`
                 <div class="pos-">
-                    ${storedPlayerData.avatar}
-                    ${storedPlayerData.username}
+                    ${storedPlayerData['avatar']}
+                    ${storedPlayerData['username']}
                     <div class="gold">${gold}</div>
                 </div>
             `);

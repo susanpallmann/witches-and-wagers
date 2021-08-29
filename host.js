@@ -527,4 +527,7 @@ $(document).ready(function() {
         toggleBetNames();
         $.dequeue(this);
     });
+    
+    // Generate a test monster (TODO)
+    generateMonster();
 });

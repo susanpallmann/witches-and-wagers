@@ -24,7 +24,24 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
+- [ ] Create "common.js" and "client.js"
+- [ ] Rename gameplay.js to "primary.js"
+- [ ] Create "monsters.js"
 - [ ] Create database write function(s)
+   - [ ] Room code creator
+   - [ ] Room code empty
+   - [ ] Monster generator
+   - [ ] New Players Button
+   - [ ] Same Players Button
+   - [ ] Pay Player After Round
+   - [ ] Bet Payouts
+   - [ ] Update Winner
+   - [ ] Update Game Phase
+   - [ ] Update Round Phase
+- [ ] Edit database structure to include missing things:
+   - [ ] Comments by players in the end outro
+   - [ ] Comment by current playing during play round
+- [ ] Create non-database front-end functions (things like timers)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)
 - [ ] Design prototypes for host and client screens using logic flow diagram

@@ -519,6 +519,7 @@ function displayScoreboard(code) {
     let values = {};
     // Take an ongoing snapshot to allow for continuous updates
     location.on('value', function(snapshot) {
+        $('#scoreboard').empty();
         // For each player
         snapshot.forEach((childSnapshot) => {
             // Save some information to variables
@@ -533,7 +534,7 @@ function displayScoreboard(code) {
             let storedAvatar = storedPlayerData.avatar;
             let storedUsername = storedPlayerData.username;
             $('#scoreboard').append(`
-                <div class="pos-">
+                <div>
                     ${storedAvatar}
                     ${storedUsername}
                     <div class="gold">${gold}</div>

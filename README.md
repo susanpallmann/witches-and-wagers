@@ -38,7 +38,7 @@ A backstabbing dungeon-themed party game.
 
   * Rewrote how players' avatars and names are displayed to not require existing slots in the DOM.
   * Fixed wager amounts to show avatars instead of names using the refactored avatar system.
-  * Doesn't look like much but this took a while. :)
+  * It might not look like much, but refactoring and bug-fixing took a while.
 
 - [X] 08/27/21:
 

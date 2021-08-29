@@ -24,9 +24,6 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Create "common.js" and "client.js"
-- [ ] Rename gameplay.js to "primary.js"
-- [ ] Create "monsters.js"
 - [ ] Create database write function(s)
    - [ ] Room code creator
    - [ ] Room code empty
@@ -53,7 +50,10 @@ A backstabbing dungeon-themed party game.
 
 - [X] 08/29/21:
 
-  * Added detail to immediate to-do list in preparation for a full-day
+  * Added detail to immediate to-do list in preparation for a full-day.
+  * Created "common.js" and "client.js".
+  * Renamed gameplay.js to "primary.js".
+  * Created "monsters.js".
 
 - [X] 08/28/21:
 

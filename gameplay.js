@@ -311,8 +311,6 @@ let TEST = {
 // Still, probably would be nice to keep things like the monster generator somewhere special. Got 
 // to have SOME flair if I'm building this whole thing in JavaScript, right?
 
-let test = $(`<div class="player-1-avatar" style="background-image: url('avatars/2.png');"></div>`);
-
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
@@ -418,17 +416,26 @@ function displayPlayers(code) {
             let userData = childSnapshot.val();
             let vip = userData.VIP;
             let avatar = userData.avatar;
+            
+            players[username] = {
+                "avatar" : $(`<div class="player-${count}-avatar" style="background-image: url('avatars/${avatar}.png')"></div>`)
+            }
+            
+            let storedPlayerData = players[username];
+            $('#setup-players').append(storedPlayerData.avatar);
+            $('#setup-players').append(`<div class="player-1-name">${username}</div>`);
+            /*
             // Update each instance of player avatar elements
             $('.player-' + count + '-avatar').each(function() {
                 $(this).parent().addClass(username);
                 $(this).css('background-image', `url('avatars/${avatar}.png')`);
-                //updateDomText($(this), avatar);
             });
             // Update each instance of player username elements
             $('.player-' + count + '-name').each(function() {
                 $(this).parent().addClass(username);
                 updateDomText($(this), username);
             });
+            */
             // Increase iteration counter
             count++;
         });
@@ -643,6 +650,9 @@ function loadCardDisplay(code, creator) {
 
 // When document loads
 $(document).ready(function() {
+    // Initializing a variable to store player names and avatars to the front-end rather
+    // than rereading the database all the time
+    let players = {};
     // For now calls all of the "starter" functions just for testing. Going to also write
     // a little about when these should be called in the end
     // TODO: Call when setup phase begins
@@ -668,5 +678,5 @@ $(document).ready(function() {
         toggleBetNames();
         $.dequeue(this);
     });
-    $('#setup').append(test);
+    //$('#setup').append(test);
 });

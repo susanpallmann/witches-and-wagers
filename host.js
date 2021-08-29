@@ -99,29 +99,39 @@ function displayRoomCode(code) {
 // This also loads names and amounts from specific players; I wanted to have them separate but I'm
 // merging them to avoid rewriting 90% of the same code
 function displayBets(code) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/bets/');
+    
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
+        
         // For each bet outcome
         snapshot.forEach((childSnapshot) => {
+            
             // Save information to variables
             let outcome = childSnapshot.key;
             let wagers = childSnapshot.val();
+            
             // Initializing a total variable outside of the loop
             let total = 0;
+            
             // Clear container of any previous information if it exists
             $(`#${outcome} .bet-players`).empty();
+            
             // For each wager listed
             for (let wager in wagers) {
+                
                 // Add to total
                 total = total + wagers[wager];
+                
                 // Show individual bets and avatars
                 let storedPlayerData = players[wager];
                 $(`#${outcome} .bet-players`).append(`<div class="bet-container ${wager}"></div>`);
                 $(`#${outcome} .bet-players .bet-container.${wager}`).append(storedPlayerData.avatar.clone());
                 $(`#${outcome} .bet-players .bet-container.${wager}`).append(`<div class="small-gold">${wagers[wager]}</div>`);
             }
+            
             // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);
         });
@@ -129,12 +139,22 @@ function displayBets(code) {
 }
 
 // Toggles visibility of owners of each wager when called (since bets are anonymous at first)
+// Difference in animation is intentional - fade in when appearing, vanish immediately when 
+// disappearing
 function toggleBetNames() {
+    
+    // If individual bets are already visible
     if ($('.bet-players').is(':visible')) {
+        
+        // Hide them
         $('.bet-players').each(function(index) {
             $(this).hide();
         });
+        
+    // Otherwise
     } else {
+        
+        // Make them visible again
         $('.bet-players').each(function(index) {
             $(this).fadeIn();
         });
@@ -144,13 +164,21 @@ function toggleBetNames() {
 // Function to display player and monster's current scores in the game's fight scene
 // TODO: consider making this a "once" if we figure out how to reuse a snapshot function
 function displayActorScores(code) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/');
+    
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
+        
+        // Stores information about the current round
         let round = snapshot.val();
+        
+        // Retrieving information about monster and current player from snapshot
         let monster = round.currentMonster;
         let player = round.currentPlayer;
+        
+        // Updating DOM accordingly (hope to make this a single call in the future TODO)
         updateDomText($('#monster .name'), monster.monster);
         updateDomText($('#player .name'), player.player);
         updateDomText($('#monster .score'), monster.score);
@@ -162,22 +190,30 @@ function displayActorScores(code) {
 // if applicable. We may want to turn this off once the game gets going since those things will
 // no longer be editable (TODO)
 function displayPlayers(code) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/players/');
+    
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
+        
         // Iteration counter
         let count = 1;
+        
         // Clearing existing data
         $('#setup-players').empty();
+        
         // For each player
         snapshot.forEach((childSnapshot) => {
+            
             // Save information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let vip = userData.VIP;
             let avatar = userData.avatar;
             
+            // Creating a base DOM object based on the player data to update the players global variable
+            // TODO: need a function to remove a player from this if they leave the game
             players[username] = {
                 "avatar" : $(`<div class="player-${count}-avatar" style="background-image: url('avatars/${avatar}.png')"></div>`),
                 "username" : $(`<div class="player-1-name">${username}</div>`)
@@ -200,38 +236,49 @@ function displayPlayers(code) {
 // different process to get this information, some calculation needed)
 function displayPlayerStats(code) {
     // Grabs directory location
+    
     let location = firebase.database().ref(code + '/players/');
+    
     // Saves maximum score per category, starts at 0
     let maxCounts = {
         'coward' : 0,
         'optimist' : 0,
         'pessimist' : 0
     };
+    
     // Saves actual user each score belongs to, starts empty
     let playerStats = {
         'coward' : '',
         'optimist' : '',
         'pessimist' : ''
     };
+    
     // Takes a snapshot one time (this information won't update visually)
     location.once('value', function(snapshot) {
+        
         // For each player
         snapshot.forEach((childSnapshot) => {
+            
             // Save information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let counts = userData.counts;
+            
             // Iterate through user's stats (saved under "counts")
             for (let stat in counts) {
+                
                 // If the score in the given statistic is greater than what's saved in maxCounts
                 if (counts[stat] > maxCounts[`${stat}`]) {
+                    
                     // Update maxCounts with new high score
                     maxCounts[`${stat}`] = counts[stat];
+                    
                     // Update playerStats with the corresponding username
                     playerStats[`${stat}`] = username;
                 }
             }
         });
+        
         // Update DOM elements accordingly
         updateDomText($('#stat-coward'), playerStats.coward);
         updateDomText($('#stat-optimist'), playerStats.optimist);
@@ -241,16 +288,20 @@ function displayPlayerStats(code) {
 
 // Function to display stats stored by the game overall (not under specific players)
 function displayGameStats(code) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/trackers/');
+    
     // Takes a snapshot one time (this information won't update visually)
     location.once("value", function(snapshot) {
+        
         // Save information to variables
         let trackers = snapshot.val();
         let helper = trackers.helper;
         helper = helper.player;
         let hurter = trackers.hurter;
         hurter = hurter.player;
+        
         // Update DOM elements accordingly
         updateDomText($('#stat-helper'), helper);
         updateDomText($('#stat-saboteur'), hurter);
@@ -267,37 +318,45 @@ function displayAllStats(code) {
 // Function to make sure player placement on the scoreboard corresponds with their place in
 // the game, uses CSS flexbox and order to achieve result
 function rearrangeScoreboard(values) {
+    
     // For each record passed in
     for (let record in values) {
+        
         // Create some variables
         let username = record;
         let score = values[record];
-        console.log(username);
-        $('#scoreboard').find('.' + username).css('order', score);
-        // position = position.parent();
+        
         // Apply the amount of gold as CSS order property, since parent is row-reverse, high
         // values will show first
-        // position.css('order', score);
+        $('#scoreboard').find('.' + username).css('order', score);
     }
 }
 
 // Function to update scoreboard with active players and their respective scores
 function displayScoreboard(code) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/players/');
+    
     // Initializing values variable for use later
     let values = {};
+    
     // Take an ongoing snapshot to allow for continuous updates
     location.on('value', function(snapshot) {
         $('#scoreboard').empty();
+        
         // For each player
         snapshot.forEach((childSnapshot) => {
+            
             // Save some information to variables
             let username = childSnapshot.key;
             let userData = childSnapshot.val();
             let gold = userData.gold;
+            
             // Add gold amount and username to "values" object
             values[username] = gold;
+            
+            // Visually update scoreboard in the DOM
             let position = $('#scoreboard').find('.' + username);
             let storedPlayerData = players[username];
             $('#scoreboard').append(`<div class="player-container ${username}"></div>`);
@@ -305,6 +364,7 @@ function displayScoreboard(code) {
             $('#scoreboard').children('.' + username).append(storedPlayerData.username.clone()); 
             $('#scoreboard').children('.' + username).append(`<div class="gold">${gold}</div>`);
         });
+        
         // Call rearrangeScoreboard to update CSS order properties
         rearrangeScoreboard(values);
     });
@@ -317,13 +377,17 @@ function clearCardsDom(location) {
 
 // Animates cards as they show up during specific parts of a round, queued by queueCards()
 function createCardDom(location, cardInfo) {
+    
     // Pulling out some information from cardInfo
     let number = cardInfo.number;
     let assigned = cardInfo.assigned;
+    
     // Finds the requested card in our deck object (see deck.js)
     let cardLookup = deck[number];
+    
     // Looks up sprite from deck object
     let cardSprite = cardLookup.sprite;
+    
     // Determines direction to animate based on if the card affects the player or monster
     let fadeDirection;
     if (assigned === "player") {
@@ -331,6 +395,7 @@ function createCardDom(location, cardInfo) {
     } else {
         fadeDirection = 80;
     }
+    
     // Appends card and animates effect
     // TODO: May want to consider having animation of movement be a set distance and use
     // absolute pixel positioning since CSS percentages can be weird in some viewports
@@ -355,23 +420,29 @@ function queueCards(values, creator) {
     let monster = values.monster;
     let player = values.player;
     let location;
+    
     // Depending on who played the card, changes location the card is appended to
     if (creator === 'playerItems') {
         location = 'cards-in-play-2';
     } else if (creator === 'audienceItems') {
         location = 'cards-in-play-1';
     }
-    // Empties the location if it isn't already
+    
+    // Empties the location of cards
     clearCardsDom(location);
+    
     // For each actor (player or monster), note this deals with assignment rather than the group
     // that played the card - this function is only called for one specific group at a time
     for (let actor in values) {
         let thisActor = actor;
         let thisCardsArray = values[actor];
+        
         // For each card assigned to this actor
         for (let i = 0; i < thisCardsArray.length; i++) {
+            
             // Delay 1.2 seconds
             $('#' + location).delay(1200).queue(function() {
+                
                 // Create a card in the determined location with a number and actor
                 createCardDom($('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
@@ -384,14 +455,19 @@ function queueCards(values, creator) {
 // Loads all cards in play by either audience or player (indicated by creator parameter) for
 // the round, sends thse cards on to queue for animation
 function loadCardDisplay(code, creator) {
+    
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/' + creator + '/');
+    
      // Initializing values variable for use later
     let values = {};
+    
     // Take an ongoing snapshot to allow for continuous updates
     location.on('value', function(snapshot) {
+        
         // For each (monster and player)
         snapshot.forEach((childSnapshot) => {
+            
             // Save some information to variables
             let label = childSnapshot.key;
             let cards = childSnapshot.val();
@@ -399,6 +475,7 @@ function loadCardDisplay(code, creator) {
             cardsArray = Object.keys(cards);
             values[label] = cardsArray;
         });
+        
         // Sends values object to queue for animation
         queueCards(values, creator);
     });
@@ -406,29 +483,39 @@ function loadCardDisplay(code, creator) {
 
 // When document loads
 $(document).ready(function() {
+    
     // Initializing a variable to store player names and avatars to the front-end rather
     // than rereading the database all the time
     // For now calls all of the "starter" functions just for testing. Going to also write
     // a little about when these should be called in the end
     // TODO: Call when setup phase begins
     displayRoomCode('TEST');
+    
     // TODO: Call when setup phase begins
     displayPlayers('TEST');
+    
     // TODO: Call when outro phase begins
     displayAllStats('TEST');
+    
     // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
+    
     //loadCardDisplay('TEST', 'audienceItems');
     loadCardDisplay('TEST', 'playerItems');
+    
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');
+    
     // Loads test data set to database in case anything changed
     setTestData(TEST);
+    
     // Loads all bet information
     displayBets('TEST');
+    
     // Hides names and personal bet amounts
     toggleBetNames();
     $(document).delay(800).queue(function() {
+        
         // Reveals names and personal bet amounts
         toggleBetNames();
         $.dequeue(this);

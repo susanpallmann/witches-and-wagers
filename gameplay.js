@@ -536,8 +536,8 @@ function displayScoreboard(code) {
             let storedUsername = storedPlayerData.username.clone();
             $('#scoreboard').append(`
                 <div>
-                    ${storedAvatar}
-                    ${storedUsername}
+                    ${storedPlayerData.avatar.clone()}
+                    ${storedPlayerData.username.clone()}
                     <div class="gold">${gold}</div>
                 </div>
             `);

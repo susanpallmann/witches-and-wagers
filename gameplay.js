@@ -532,8 +532,8 @@ function displayScoreboard(code) {
             console.log(storedPlayerData);
             $('#scoreboard').append(`
                 <div class="pos-">
-                    ${storedPlayerData.avatar}
-                    ${storedPlayerData.username}
+                    ${$(storedPlayerData.avatar)}
+                    ${$(storedPlayerData.username)}
                     <div class="gold">${gold}</div>
                 </div>
             `);

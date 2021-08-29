@@ -66,6 +66,13 @@ let players = {};
 // Still, probably would be nice to keep things like the monster generator somewhere special. Got 
 // to have SOME flair if I'm building this whole thing in JavaScript, right?
 
+function generateMonster() {
+    let monster = {};
+    let randomMonster = Math.floor(Math.random() * monsters.length);
+    console.log(monsters[randomMonster]);
+    return monster;
+}
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/

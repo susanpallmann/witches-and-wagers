@@ -52,8 +52,10 @@ A backstabbing dungeon-themed party game.
 
   * Added detail to immediate to-do list in preparation for a full-day.
   * Created "common.js" and "client.js".
+  * Moved dummy data to common.js.
   * Renamed gameplay.js to "primary.js".
   * Created "monsters.js".
+  * Improved some code comments, added line-breaks for ease of reading.
 
 - [X] 08/28/21:
 

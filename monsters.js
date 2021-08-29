@@ -1,3 +1,6 @@
 let monsters = {
-  1 : "stone golem"
+  1 : {
+    "name" : "stone golem",
+    "prefix" : null,
+    "baseStrength" : 10
 };

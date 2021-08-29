@@ -534,9 +534,9 @@ function displayScoreboard(code) {
             let storedAvatar = storedPlayerData.avatar.clone();
             let storedUsername = storedPlayerData.username.clone();
             $('#scoreboard').append(`<div class="player-container ${username}"></div>`);
-            $('#scoreboard').children('.player-container ' + username).append(storedPlayerData.avatar.clone());
-            $('#scoreboard').children('.player-container ' + username).append(storedPlayerData.username.clone()); 
-            $('#scoreboard').children('.player-container ' + username).append(`<div class="gold">${gold}</div>`);
+            $('#scoreboard').children('.' + username).append(storedPlayerData.avatar.clone());
+            $('#scoreboard').children('.' + username).append(storedPlayerData.username.clone()); 
+            $('#scoreboard').children('.' + username).append(`<div class="gold">${gold}</div>`);
         });
     });
 }

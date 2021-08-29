@@ -1,3 +1,3 @@
 let monsters = {
-  0 : "stone golem"
+  1 : "stone golem"
 };

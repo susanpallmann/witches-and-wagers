@@ -68,7 +68,8 @@ let players = {};
 
 function generateMonster() {
     let monster = {};
-    let randomMonster = Math.floor(Math.random() * monsters.length);
+    let randomMonster = Math.floor(Math.random() * monsters.length());
+    console.log(monsters.length());
     console.log(monsters.randomMonster);
     return monster;
 }

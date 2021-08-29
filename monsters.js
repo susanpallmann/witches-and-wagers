@@ -3,4 +3,5 @@ let monsters = {
     "name" : "stone golem",
     "prefix" : null,
     "baseStrength" : 10
+  }
 };

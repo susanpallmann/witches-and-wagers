@@ -86,12 +86,13 @@ function generateMonster() {
     } else if (generatedStrength < 0.5) {
         strengthPrefix = 'weak';
     } else if (generatedStrength < 1) {
-        strengthPrefix = '';
+        strengthPrefix = 'lesser';
     } else if (generatedStrength == 1) {
-        strengthPrefix = 'greater';
+        strengthPrefix = '';
     } else if (generatedStrength < 1.5) {
-        strengthPrefix = 'enlightened';
+        strengthPrefix = 'greater';
     } else if (generatedStrength < 2) {
+        strengthPrefix = 'enlightened';
     } else {
         strengthPrefix = 'apocolyptic';
     }

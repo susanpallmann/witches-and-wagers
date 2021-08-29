@@ -435,6 +435,7 @@ function displayPlayers(code) {
             
             // Appending avatar and username to the DOM
             $('#setup-players').append(storedPlayerData.avatar);
+            $('#setup-players').append(storedPlayerData.avatar);
             $('#setup-players').append(storedPlayerData.username);
 
             // Increase iteration counter

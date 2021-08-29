@@ -424,24 +424,18 @@ function displayPlayers(code) {
             let avatar = userData.avatar;
             
             players[username] = {
-                "avatar" : $(`<div class="player-${count}-avatar" style="background-image: url('avatars/${avatar}.png')"></div>`)
+                "avatar" : $(`<div class="player-${count}-avatar" style="background-image: url('avatars/${avatar}.png')"></div>`),
+                "username" : $(`<div class="player-1-name">${username}</div>`)
             }
             
+            // Retrieves specific player's information
             let storedPlayerData = players[username];
+            
+            // Appending avatar and username to the DOM
+            $('#setup-players').empty();
             $('#setup-players').append(storedPlayerData.avatar);
-            $('#setup-players').append(`<div class="player-1-name">${username}</div>`);
-            /*
-            // Update each instance of player avatar elements
-            $('.player-' + count + '-avatar').each(function() {
-                $(this).parent().addClass(username);
-                $(this).css('background-image', `url('avatars/${avatar}.png')`);
-            });
-            // Update each instance of player username elements
-            $('.player-' + count + '-name').each(function() {
-                $(this).parent().addClass(username);
-                updateDomText($(this), username);
-            });
-            */
+            $('#setup-players').append(storedPlayerData.username);
+
             // Increase iteration counter
             count++;
         });
@@ -516,23 +510,6 @@ function displayAllStats(code) {
     displayGameStats(code);
 }
 
-// Function to make sure player placement on the scoreboard corresponds with their place in
-// the game, uses CSS flexbox and order to achieve result
-// TODO: think through how to animate this swap
-function rearrangeScoreboard(values) {
-    // For each record passed in
-    for (let record in values) {
-        // Create some variables
-        let username = record;
-        let score = values[record];
-        let position = $('#scoreboard').find('.' + username);
-        position = position.parent();
-        // Apply the amount of gold as CSS order property, since parent is row-reverse, high
-        // values will show first
-        position.css('order', score);
-    }
-}
-
 // Function to update scoreboard with active players and their respective scores
 function displayScoreboard(code) {
     // Grabs directory location
@@ -550,13 +527,15 @@ function displayScoreboard(code) {
             // Add gold amount and username to "values" object
             values[username] = gold;
             let position = $('#scoreboard').find('.' + username);
-            let goldUpdate = position.find('.gold');
-            // Display amount of gold in the DOM (player name/avatar is already handled by 
-            // displayPlayers function)
-            updateDomText(goldUpdate, gold);
+            let storedPlayerData = players[username];
+            $('#scoreboard').append(`
+                <div class="pos-">
+                    ${storedPlayerData.avatar}
+                    ${storedPlayerData.username}
+                    <div class="gold">${gold}</div>
+                </div>
+            `);
         });
-        // Call rearrangeScoreboard to update CSS order properties
-        rearrangeScoreboard(values);
     });
 }
 

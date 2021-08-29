@@ -367,6 +367,8 @@ function displayBets(code) {
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
+                // Show individual bets and avatars
+                let storedPlayerData = players[wager];
                 $(`#${outcome} .bet-players`).append(`<div class="bet-container"></div>`);
                 $(`#${outcome} .bet-players .bet-container`).append(storedPlayerData.avatar.clone());
                 $(`#${outcome} .bet-players .bet-container`).append(`<div class="small-gold">${wagers[wager]}</div>`);

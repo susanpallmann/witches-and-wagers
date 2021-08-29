@@ -5,7 +5,7 @@ A backstabbing dungeon-themed party game.
 
 
 **Personal Achievements**
-- [X] Successfully coded for 7 consecutive days (excluding vacation) without burning out
+- [X] Successfully coded for 8 consecutive days (excluding vacation) without burning out
 
 ## Contents
 1. [Project Plan](#project-plan)
@@ -24,7 +24,6 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Rewrite how players' avatars and names are displayed to not require existing slots in the DOM
 - [ ] Create database write function(s)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)
@@ -34,6 +33,12 @@ A backstabbing dungeon-themed party game.
 - [ ] Create final card deck array
 
 ## Dev Diary
+
+- [X] 08/28/21:
+
+  * Rewrote how players' avatars and names are displayed to not require existing slots in the DOM.
+  * Fixed wager amounts to show avatars instead of names using the refactored avatar system.
+  * Doesn't look like much but this took a while. :)
 
 - [X] 08/27/21:
 

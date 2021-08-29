@@ -367,7 +367,9 @@ function displayBets(code) {
             for (let wager in wagers) {
                 // Add to total
                 total = total + wagers[wager];
-                $(`#${outcome} .bet-players`).append(`<div class="bet-container"><div>${wager}</div><div class="small-gold">${wagers[wager]}</div></div>`);
+                $(`#${outcome} .bet-players`).append(`<div class="bet-container"></div>`);
+                $(`#${outcome} .bet-players .bet-container`).append(storedPlayerData.avatar.clone());
+                $(`#${outcome} .bet-players .bet-container`).append(`<div class="small-gold">${wagers[wager]}</div>`);
             }
             // Updates the dom to reflect totals
             updateDomText($(`#${outcome} .gold`), total);
@@ -530,9 +532,6 @@ function displayScoreboard(code) {
             values[username] = gold;
             let position = $('#scoreboard').find('.' + username);
             let storedPlayerData = players[username];
-            console.log(storedPlayerData);
-            let storedAvatar = storedPlayerData.avatar.clone();
-            let storedUsername = storedPlayerData.username.clone();
             $('#scoreboard').append(`<div class="player-container ${username}"></div>`);
             $('#scoreboard').children('.' + username).append(storedPlayerData.avatar.clone());
             $('#scoreboard').children('.' + username).append(storedPlayerData.username.clone()); 

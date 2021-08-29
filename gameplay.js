@@ -525,7 +525,7 @@ function rearrangeScoreboard(values) {
         let username = record;
         let score = values[record];
         let position = $('#scoreboard').find('.' + username);
-        position = position.parent();
+        //position = position.parent();
         // Apply the amount of gold as CSS order property, since parent is row-reverse, high
         // values will show first
         position.css('order', score);

@@ -515,6 +515,23 @@ function displayAllStats(code) {
     displayGameStats(code);
 }
 
+// Function to make sure player placement on the scoreboard corresponds with their place in
+// the game, uses CSS flexbox and order to achieve result
+// TODO: think through how to animate this swap
+function rearrangeScoreboard(values) {
+    // For each record passed in
+    for (let record in values) {
+        // Create some variables
+        let username = record;
+        let score = values[record];
+        let position = $('#scoreboard').find('.' + username);
+        position = position.parent();
+        // Apply the amount of gold as CSS order property, since parent is row-reverse, high
+        // values will show first
+        position.css('order', score);
+    }
+}
+
 // Function to update scoreboard with active players and their respective scores
 function displayScoreboard(code) {
     // Grabs directory location
@@ -540,6 +557,8 @@ function displayScoreboard(code) {
             $('#scoreboard').children('.' + username).append(`<div class="gold">${gold}</div>`);
         });
     });
+    // Call rearrangeScoreboard to update CSS order properties
+    rearrangeScoreboard(values);
 }
 
 // Empties a location, written specifically for the card animation
@@ -665,5 +684,4 @@ $(document).ready(function() {
         toggleBetNames();
         $.dequeue(this);
     });
-    //$('#setup').append(test);
 });

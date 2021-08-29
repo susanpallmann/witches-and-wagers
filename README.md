@@ -57,6 +57,7 @@ A backstabbing dungeon-themed party game.
   * Created "monsters.js".
   * Improved some code comments, added line-breaks for ease of reading.
   * I'd kill a man to add headers to an IDE.
+  * Started monster generator function (not finished).
 
 - [X] 08/28/21:
 

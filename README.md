@@ -56,6 +56,7 @@ A backstabbing dungeon-themed party game.
   * Renamed gameplay.js to "primary.js".
   * Created "monsters.js".
   * Improved some code comments, added line-breaks for ease of reading.
+  * I'd kill a man to add headers to an IDE.
 
 - [X] 08/28/21:
 

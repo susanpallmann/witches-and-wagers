@@ -1,22 +1,57 @@
 /* ----------------------------------------------------------------------------------------------*/
-/*               GLOBAL VARIABLES FOR STORING PLAYER INFORMATION IN THE FRONT-END                */
+/*                    GLOBAL VARIABLES FOR GLOBAL INFORMATION IN THE FRONT-END                   */
 /* ----------------------------------------------------------------------------------------------*/
 
 let players = {};
+let roomCode;
 
 /* ----------------------------------------------------------------------------------------------*/
 /*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
 /* ----------------------------------------------------------------------------------------------*/
 
-// Generate Room Code
-    // Create random sequence of letters
-    // Check if that sequence is already in play
-    // That is, check if sequence exists, and then check game status for not in use
-        // If not, use it, create game in DB
-            // Empty the DB directory at this location
-            // Set phase to "setup"
-            // Start Update Display Game Phase listener
-        // If so, repeat this (Generate Room Code)
+// Generates initial room code
+function generateRoomCode(code) {
+    // Recursive function to check if the room code is complete and generate random letters if not.
+    // If the string isn't yet 4 characters long
+    if (code.length < 4) {
+        // Generate a random number between 0 and 25
+        var tempNum = Math.floor(Math.random() * 25);
+        // Convert this new value to an ascii character (uppercase)
+        var tempLetter = String.fromCharCode(65 + tempNum);
+        // Add the new value to the existing room code
+        roomCode =  code + tempLetter;
+        console.log(roomCode);
+        // Run this function again to check if the code is complete (length of 4)
+        generateRoomCode(roomCode);
+        
+    // If the string is 4 characters
+    } else {
+        
+        // End function
+        // Passes the finalized code into the verifyRoomCode function
+        verifyRoomCode(roomCode);
+        console.log(verifyRoomCode(roomCode));
+        console.log(roomCode);
+    }
+}
+
+// Function to check if the room key passed into it (key) is already an in-session game in the database
+function verifyRoomCode(code) {
+    // Checks that specific location in the database and takes a snapshot
+    firebase.database().ref(code).once("value", snapshot => {
+        // If the snapshot exists already
+        if (snapshot.exists()) {
+            // Rerun the code generator and try again
+            generateRoomCode();
+            return true;
+        // If the snapshot doesn't exist, we can set up the lobby
+        } else {
+            // Calls function lobbySetup
+            // TODO
+            return false;
+        }
+    });
+}
 
 // Update Display Game Phase
     // Check current phase in DB
@@ -557,4 +592,8 @@ $(document).ready(function() {
     
     // Generate a test monster (TODO)
     generateMonster();
+    
+    // Test room code generator
+    generateRoomCode('');
+    generateRoomCode('TEST');
 });

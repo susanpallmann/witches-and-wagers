@@ -48,6 +48,10 @@ A backstabbing dungeon-themed party game.
 
 ## Dev Diary
 
+- [X] 08/30/21:
+
+  * ...
+
 - [X] 08/29/21:
 
   * Added detail to immediate to-do list in preparation for a full-day.

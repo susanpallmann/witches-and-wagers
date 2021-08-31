@@ -66,6 +66,7 @@ function generateMonster() {
     
     // Randomly generating a strength modifier (to multiply the monster's base strength)
     let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
+    console.log(generatedStrength);
 
     // Store monster data
     let monsterData = monsters[randomMonster];
@@ -104,6 +105,7 @@ function generateMonster() {
         strengthPrefix = 'apocolyptic ';
     }
     
+    console.log(Math.round(monsterData.strength * generatedStrength));
     // Filling our object with our data
     monster = {
         "attributes" : {

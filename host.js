@@ -176,33 +176,52 @@ function verifyRoomCode(code) {
 }
 
 // Creates a new lobby with either new or existing players, returns values to send to database
-    function createLobby(code, players) {
+    function createLobby(code, existPlayers) {
         let newDeck = {};
+        let playerData = {};
+        let trackerPlaceholder = null;
         
         for (let i = 1; i < Object.keys(deck).length + 1; i++) {
             newDeck[i] = i;
+        }
+        
+        if (players === null) {
+            newGame['phase'] = 'setup';
+        } else {
+            newGame['phase'] = 'tutorial';
+            trackerPlaceholder = Object.keys(existPlayers)[0];
+            for (let player in existPlayers) {
+                let thisPlayerData = existPlayers[player];
+                playerData[player] = {
+                    'VIP' = thisPlayerData.VIP,
+                    'counts' = {
+                        'coward' : 0,
+                        'optimist' : 0,
+                        'pessimist' : 0
+                    },
+                    'gold' : 0
+                };
+            }
         }
         
         let newGame = {
             'deck' : newDeck,
             'trackers' : {
                 'helper' : {
-                    amount: 0
+                    'amount': 0,
+                    'player' : trackerPlaceholder
                 },
                 'hurter' : {
-                    amount: 0
+                    'amount': 0,
+                    'player' : trackerPlaceholder
                 }
             },
             'round' : {
                 'phase' : 'inactive'
-            }
+            },
+            'players' : playerData
         };
         
-        if (players === null) {
-            newGame['phase'] = 'setup';
-        } else {
-            newGame['phase'] = 'tutorial';
-        }
         return newGame;
     }
 
@@ -734,4 +753,12 @@ $(document).ready(function() {
     
     // Testing new lobby object generation
     console.log(createLobby('TEST', null));
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/players');
+    
+    // Takes ongoing snapshot
+    location.on('value', function(snapshot) {
+        console.log(createLobby('TEST', snapshot.val()));
+    });
 });

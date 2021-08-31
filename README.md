@@ -70,6 +70,7 @@ map, and I will note what to do better for future projects.
 
   * Refactored monster generator to be a bit smaller, removed some unneeded variables.
   * Fixed a previously unnoticed bug in generating monster's appearance.
+  * Made the monster appearance pull from database, when it hadn't before.
 
 - [X] 08/29/21:
 

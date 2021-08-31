@@ -9,7 +9,8 @@ A backstabbing dungeon-themed party game.
 
 
 **Notes**
-I now recognize that the Dev Diary would have been better served as a series of Issues. However, I do not want to
+
+I now recognize that the "Dev Diary" would have been better served as a series of Issues. However, I do not want to
 translate almost two weeks' worth of work into a bunch of Issues that can't be backdated, so for this project I
 will just be using Issues to keep track of ideas/thoughts as they pop up that weren't a part of the expected road 
 map.

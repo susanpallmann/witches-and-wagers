@@ -846,7 +846,7 @@ $(document).ready(function() {
     
     // Player payout post-round success; 5 to test
     currentPlayer = 'Skooz';
-    let testPay = setPlayerPay(5);
+    let testPay = setPlayerPay(15);
     
     adjustGold('TEST', `${currentPlayer}`, testPay);
 

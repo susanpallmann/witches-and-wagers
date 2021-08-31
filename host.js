@@ -157,23 +157,22 @@ function generateRoomCode(code, currentLocation) {
 // I realize this reads the database but I want to keep it near generateRoomCode function
 function verifyRoomCode(code, currentLocation) {
     console.log('this should run second');
+    
     // Checks that specific location in the database and takes a snapshot
     firebase.database().ref(code).once("value", snapshot => {
 
         // If the snapshot exists already
         if (snapshot.exists()) {
-            console.log(code + ' exists');
             // Rerun the code generator and try again
             generateRoomCode('', currentLocation);
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {
             
-            // TODO generate lobby here; keeping console log until I need this to actually work
-            console.log(code + ' does not exist in DB, make lobby');
-            
+            // Generate lobby
             if (currentLocation === null) {
                 
+                // Create empty game with no players
                 createLobby(code, currentLocation);
             } else {
             
@@ -182,6 +181,7 @@ function verifyRoomCode(code, currentLocation) {
 
                 // Takes ongoing snapshot
                 location.on('value', function(snapshot) {
+                    
                     // Creates game with same players
                     createLobby(code, snapshot.val());
                 });
@@ -762,11 +762,10 @@ $(document).ready(function() {
     // Update game phase
     databaseWrite('TEST', '', {'phase':'showAll'});
     
-    // Testing new lobby object generation
-    //console.log(createLobby('TEST', null));
+    // New game, new players
+    generateRoomCode('', null));
     
-    //let testCode = generateRoomCode('', verifyRoomCode);
-    console.log(generateRoomCode('', null));
-    console.log(generateRoomCode('', 'TEST'));
+    // New game, existing players
+    generateRoomCode('', 'TEST'));
 
 });

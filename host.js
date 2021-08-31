@@ -756,10 +756,10 @@ $(document).ready(function() {
     databaseWrite('TEST', '/round', {'phase':'showAll'});
     
     // New game, new players
-    //generateRoomCode('', null);
+    generateRoomCode('', null);
     
     // New game, existing players
-    //generateRoomCode('', 'TEST');
+    generateRoomCode('', 'TEST');
     
     // Update game winner
     //databaseWrite('TEST', '', {'winner':'UH82CIT'});
@@ -768,10 +768,10 @@ $(document).ready(function() {
     currentPlayer = 'Skooz';
     let testPay = setPlayerPay(5);
     
-    //adjustGold('TEST', `${currentPlayer}`, testPay);
+    adjustGold('TEST', `${currentPlayer}`, testPay);
 
-    // Bets payout
-    //playerBetPayout('TEST', 'win');
+    Bets payout
+    playerBetPayout('TEST', 'win');
     
 });
 // test

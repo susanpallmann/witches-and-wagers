@@ -49,7 +49,7 @@ A backstabbing dungeon-themed party game.
 
 ## Dev Diary
 
-- [X] 08/30/21:
+- [X] 08/30/21 - 08/31/21:
 
   * Adapted old room code generator code to new program.
   * Created a function to write/delete database entries at provided location.
@@ -60,6 +60,8 @@ A backstabbing dungeon-themed party game.
   * Created new/same player new game functionality.
   * Created room code emptier functionality.
   * Created game phase update functionality.
+  * Created round phase update functionality.
+  * Lots and lots and lots of debugging.
 
 - [X] 08/29/21:
 

@@ -32,17 +32,6 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [X] Create database write function(s)
-   - [X] Room code generator
-   - [X] Room code empty
-   - [X] Monster generator
-   - [X] New Players Button
-   - [X] Same Players Button
-   - [X] Pay Player After Round (logic not planned, empty function for now)
-   - [X] Bet Payouts
-   - [X] Update Winner
-   - [X] Update Game Phase
-   - [X] Update Round Phase
 - [ ] Create non-database front-end functions (things like timers)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)

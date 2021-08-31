@@ -32,7 +32,6 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Clean and comment all code from yesterday night (less bad than I thought it would be).
 - [ ] Create database write function(s)
    - [X] Room code generator (doesn't create room yet)
    - [X] Room code empty
@@ -59,6 +58,7 @@ map, and I will note what to do better for future projects.
   * Refactored monster generator to be a bit smaller, removed some unneeded variables.
   * Fixed a previously unnoticed bug in generating monster's appearance.
   * Made the monster appearance pull from database, when it hadn't before.
+  * Cleaned and commented all code from yesterday night (it was less bad than I thought it would be).
 
 - [X] 08/30/21 - 08/31/21:
 

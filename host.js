@@ -163,7 +163,7 @@ function verifyRoomCode(code) {
         
         // If the snapshot exists already
         if (snapshot.exists()) {
-            
+            console.log(code + ' exists');
             // Rerun the code generator and try again
             generateRoomCode('');
             
@@ -744,10 +744,6 @@ $(document).ready(function() {
     // Generate a test monster (TODO)
     console.log(generateMonster());
     console.log(generateMonster());
-    
-    // Test room code generator
-    //generateRoomCode('');
-    //generateRoomCode('TEST');
     
     // Update game phase
     databaseWrite('TEST', '', {'phase':'showAll'});

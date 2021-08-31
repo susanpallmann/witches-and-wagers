@@ -178,7 +178,7 @@ function verifyRoomCode(code) {
 
 // Creates a new lobby (set of values) with either new or existing players
     function createLobby(callback, existPlayers) {
-        let roomCode = callback('');
+        let roomCode = callback('', verifyRoomCode);
         let newGame = {};
         let newDeck = {};
         let playerData = {};

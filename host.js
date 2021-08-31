@@ -176,7 +176,8 @@ function verifyRoomCode(code) {
 }
 
 // Creates a new lobby (set of values) with either new or existing players
-    function createLobby(code, existPlayers) {
+    function createLobby(callback, existPlayers) {
+        let roomCode = callback('');
         let newGame = {};
         let newDeck = {};
         let playerData = {};
@@ -225,7 +226,7 @@ function verifyRoomCode(code) {
             'phase' : gamePhase
         };
         
-        databaseWrite(code, '', newGame);
+        databaseWrite(roomCode, '', newGame);
     }
 
 /* ----------------------------------------------------------------------------------------------*/
@@ -762,6 +763,6 @@ $(document).ready(function() {
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
         // Creates game with same players
-        createLobby(newRoomCode, snapshot.val());
+        createLobby(generateRoomCode, snapshot.val());
     });
 });

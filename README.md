@@ -33,16 +33,16 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 - [ ] Create database write function(s)
-   - [X] Room code generator (doesn't create room yet)
+   - [X] Room code generator
    - [X] Room code empty
-   - [X] Monster generator (doesn't update database yet)
-   - [X] New Players Button (started)
-   - [X] Same Players Button (started)
+   - [X] Monster generator
+   - [X] New Players Button
+   - [X] Same Players Button
    - [ ] Pay Player After Round
    - [ ] Bet Payouts
-   - [ ] Update Winner
+   - [X] Update Winner
    - [X] Update Game Phase
-   - [ ] Update Round Phase
+   - [X] Update Round Phase
 - [ ] Create non-database front-end functions (things like timers)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)
@@ -59,6 +59,8 @@ map, and I will note what to do better for future projects.
   * Fixed a previously unnoticed bug in generating monster's appearance.
   * Made the monster appearance pull from database, when it hadn't before.
   * Cleaned and commented all code from yesterday night (it was less bad than I thought it would be).
+  * Created write winner functionality.
+  * 
 
 - [X] 08/30/21 - 08/31/21:
 

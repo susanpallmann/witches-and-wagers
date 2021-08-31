@@ -50,7 +50,10 @@ A backstabbing dungeon-themed party game.
 
 - [X] 08/30/21:
 
-  * ...
+  * Adapted old room code generator code to new program.
+  * Created a function to write/delete database entries at provided location.
+  * Finalized monster generator to return monster data. Doesn't update database.
+  * More commenting and code maintenance.
 
 - [X] 08/29/21:
 

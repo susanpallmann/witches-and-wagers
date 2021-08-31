@@ -697,7 +697,7 @@ $(document).ready(function() {
     generateRoomCode('TEST');
     
     // Update game phase
-    databaseWrite('TEST', '/phase', 'test');
-    databaseWrite('TEST', '/phase', 'showAll');
+    databaseWrite('TEST', '', {'phase':'test'});
+    databaseWrite('TEST', '', {'phase':'showAll'});
     
 });

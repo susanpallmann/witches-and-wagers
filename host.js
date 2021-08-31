@@ -11,6 +11,7 @@ let roomCode;
 
 // Generates initial room code
 function generateRoomCode(code) {
+    console.log(code);
     // Recursive function to check if the room code is complete and generate random letters if not.
     // If the string isn't yet 4 characters long
     if (code.length < 4) {

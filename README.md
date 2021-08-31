@@ -24,6 +24,7 @@ A backstabbing dungeon-themed party game.
 - [jQuery](https://jquery.com/)
 
 ## To Do
+- [ ] Clean and comment all code from yesterday night (because it's a mess).
 - [ ] Create database write function(s)
    - [X] Room code generator (doesn't create room yet)
    - [X] Room code empty

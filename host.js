@@ -14,6 +14,7 @@ let roomCode;
         // If setup, show setup
         // If tutorial, show tutorial
         // If play, check round phase, update accordingly
+            // inactive, not in session
             // intro, show monster and player, respective scores
             // bets, prompt users to place bets, timer for 60 sec
             // showBets, show bet distributions and amounts
@@ -173,6 +174,37 @@ function verifyRoomCode(code) {
         }
     });
 }
+
+// Creates a new lobby with either new or existing players, returns values to send to database
+    function createLobby(code, players) {
+        let newDeck = {};
+        
+        for (let i = 0; i < Object.keys(deck).length; i++) {
+            newDeck[i] = i;
+        }
+        
+        let newGame = {
+            'deck' : newDeck,
+            'trackers' : {
+                'helper' : {
+                    amount: 0
+                },
+                'hurter' : {
+                    amount: 0
+                }
+            },
+            'round' : {
+                'phase' : 'inactive'
+            }
+        };
+        
+        if (players === null) {
+            newGame['phase'] = 'setup';
+        } else {
+            newGame['phase'] = 'tutorial';
+        }
+        return newGame;
+    }
 
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
@@ -697,7 +729,8 @@ $(document).ready(function() {
     generateRoomCode('TEST');
     
     // Update game phase
-    databaseWrite('TEST', '', {'phase':'test'});
     databaseWrite('TEST', '', {'phase':'showAll'});
     
+    // Testing new lobby object generation
+    console.log(createLobby('TEST', null));
 });

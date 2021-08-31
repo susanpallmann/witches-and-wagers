@@ -181,15 +181,16 @@ function verifyRoomCode(code) {
         let newDeck = {};
         let playerData = {};
         let trackerPlaceholder = null;
+        let gamePhase = null;
         
         for (let i = 1; i < Object.keys(deck).length + 1; i++) {
             newDeck[i] = i;
         }
         
         if (existPlayers === null) {
-            newGame['phase'] = 'setup';
+            gamePhase = 'setup';
         } else {
-            newGame['phase'] = 'tutorial';
+            gamePhase = 'tutorial';
             trackerPlaceholder = Object.keys(existPlayers)[0];
             for (let player in existPlayers) {
                 let thisPlayerData = existPlayers[player];
@@ -220,7 +221,8 @@ function verifyRoomCode(code) {
             'round' : {
                 'phase' : 'inactive'
             },
-            'players' : playerData
+            'players' : playerData,
+            'phase' : gamePhase
         };
         
         return newGame;

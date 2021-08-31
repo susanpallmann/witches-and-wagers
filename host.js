@@ -310,9 +310,6 @@ function playerBetPayout(code, outcome) {
 /* ----------------------------------------------------------------------------------------------*/
 
 // Reusable function to change the text in a provided DOM element
-// Making this more in case we switch to React or anything similar down the road
-// Consider making this instead take an object as parameter and effectively "queue" DOM changes
-// to avoid having to call this function 80 times in a row (TODO)
 function updateDomText(element, text) {
     $(element).text(text);
 }
@@ -390,14 +387,13 @@ function toggleBetNames() {
 }
 
 // Function to display player and monster's current scores in the game's fight scene
-// TODO: consider making this a "once" if we figure out how to reuse a snapshot function
 function displayActorScores(code) {
     
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/');
     
     // Takes ongoing snapshot
-    location.on('value', function(snapshot) {
+    location.once('value', function(snapshot) {
         
         // Stores information about the current round
         let round = snapshot.val();
@@ -407,7 +403,7 @@ function displayActorScores(code) {
         let player = round.currentPlayer;
         let monsterAtt = monster.attributes;
         
-        // Updating DOM accordingly (hope to make this a single call in the future TODO)
+        // Updating DOM accordingly
         updateDomText($('#monster .name'), monster.monster);
         updateDomText($('#player .name'), player.player);
         updateDomText($('#monster .score'), monster.score);
@@ -417,8 +413,7 @@ function displayActorScores(code) {
 }
 
 // Function to update all player info containers with current usernames, avatars, and VIP status
-// if applicable. We may want to turn this off once the game gets going since those things will
-// no longer be editable (TODO)
+// if applicable.
 function displayPlayers(code) {
     
     // Grabs directory location
@@ -777,6 +772,9 @@ $(document).ready(function() {
 
     // Bets payout
     //playerBetPayout('TEST', 'win');
+    
+    // Test remove player
+    databaseWrite('TEST', '/players/', {'Skooz': null});
     
 });
 // test

@@ -793,6 +793,10 @@ $(document).ready(function() {
     
     // New game, existing players
     //generateRoomCode('', 'TEST');
+    
+    // Update game winnter
+    databaseWrite('TEST', '', {'winner':'test'});
+    databaseWrite('TEST', '', {'winner':'UH82CIT'});
 
 });
 // test

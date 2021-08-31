@@ -125,7 +125,7 @@ function generateMonster() {
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 function generateRoomCode(code, callback) {
-    
+    console.log('this should run first');
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
         
@@ -156,7 +156,7 @@ function generateRoomCode(code, callback) {
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 // I realize this reads the database but I want to keep it near generateRoomCode function
 function verifyRoomCode(code) {
-    
+    console.log('this should run second');
     // Checks that specific location in the database and takes a snapshot
     firebase.database().ref(code).once("value", snapshot => {
 
@@ -752,7 +752,7 @@ $(document).ready(function() {
     //console.log(createLobby('TEST', null));
     
     //let testCode = generateRoomCode('', verifyRoomCode);
-    console.log(generateRoomCode('', verifyRoomCode));
+    console.log('third ' + generateRoomCode('', verifyRoomCode));
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');

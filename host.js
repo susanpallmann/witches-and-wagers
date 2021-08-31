@@ -760,6 +760,6 @@ $(document).ready(function() {
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
         // Creates game with same players
-        createLobby(testCode, snapshot.val());
+        //createLobby(testCode, snapshot.val());
     });
 });

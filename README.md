@@ -56,7 +56,10 @@ A backstabbing dungeon-themed party game.
   * Finalized monster generator to return monster data. Doesn't update database.
   * More commenting and code maintenance.
   * Removed obsolete HTML elements from index.html.
-  * 
+  * Completed room code generator with database functionalty.
+  * Created new/same player new game functionality.
+  * Created room code emptier functionality.
+  * Created game phase update functionality.
 
 - [X] 08/29/21:
 

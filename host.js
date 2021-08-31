@@ -361,12 +361,14 @@ function displayActorScores(code) {
         // Retrieving information about monster and current player from snapshot
         let monster = round.currentMonster;
         let player = round.currentPlayer;
+        let monsterAtt = monster.attributes;
         
         // Updating DOM accordingly (hope to make this a single call in the future TODO)
         updateDomText($('#monster .name'), monster.monster);
         updateDomText($('#player .name'), player.player);
         updateDomText($('#monster .score'), monster.score);
         updateDomText($('#player .score'), player.score);
+        $('#monster .image').css('background-image', `url('/monsters/${monsterAtt.appearance}.gif')`);
     });
 }
 

@@ -68,6 +68,9 @@ map, and I will note what to do better for future projects.
   * Created round phase update functionality.
   * Lots and lots and lots of debugging.
 
+  * Refactored monster generator to be a bit smaller, removed some unneeded variables.
+  * Fixed a previously unnoticed bug in generating monster's appearance.
+
 - [X] 08/29/21:
 
   * Added detail to immediate to-do list in preparation for a full-day.

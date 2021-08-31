@@ -70,6 +70,7 @@ function generateMonster() {
 
     // Store monster data
     let monsterData = monsters[randomMonster];
+    console.log(monsterData);
     
     // Getting monster prefix (like "a" or "the") if it exists, and adding a space if so
     let monsterPrefix = monsterData.prefix;
@@ -112,7 +113,7 @@ function generateMonster() {
             "appearance" : monsters[randomMonster]
         },
         "monster" : monsterPrefix + strengthPrefix + monsterData.name,
-        "score" : Math.round(monsterData.strength * generatedStrength)
+        "score" : Math.round(monsterData.baseStrength * generatedStrength)
     }
     
     // Returns values

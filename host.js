@@ -773,9 +773,6 @@ $(document).ready(function() {
     // Bets payout
     //playerBetPayout('TEST', 'win');
     
-    // Test remove player
-    databaseWrite('TEST', '/players/', {'Skooz': null});
-    
 });
 // test
 // why

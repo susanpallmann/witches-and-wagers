@@ -124,7 +124,7 @@ function generateMonster() {
 
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-function generateRoomCode(code, callback) {
+function generateRoomCode(code) {
     
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -138,7 +138,7 @@ function generateRoomCode(code, callback) {
         roomCode =  code + newLetter;
 
         // Run this function again to check if the code is complete now (length of 4)
-        generateRoomCode(roomCode, callback);
+        generateRoomCode(roomCode);
         
     // If the string is 4 characters
     } else {
@@ -148,7 +148,7 @@ function generateRoomCode(code, callback) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
-        callback(roomCode);
+        verifyRoomCode(roomCode);
     }
     return roomCode;
 }
@@ -165,7 +165,7 @@ function verifyRoomCode(code) {
         if (snapshot.val()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
-            generateRoomCode('', verifyRoomCode);
+            generateRoomCode('');
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {
@@ -177,8 +177,8 @@ function verifyRoomCode(code) {
 }
 
 // Creates a new lobby (set of values) with either new or existing players
-    function createLobby(callback, existPlayers) {
-        let roomCode = callback('', verifyRoomCode);
+    function createLobby(code, existPlayers) {
+        let roomCode = code;
         let newGame = {};
         let newDeck = {};
         let playerData = {};
@@ -751,12 +751,14 @@ $(document).ready(function() {
     // Testing new lobby object generation
     //console.log(createLobby('TEST', null));
     
+    let testCode = generateRoomCode('');
+    
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');
     
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
         // Creates game with same players
-        createLobby(generateRoomCode, snapshot.val());
+        createLobby(testCode, snapshot.val());
     });
 });

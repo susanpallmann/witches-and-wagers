@@ -33,7 +33,6 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [ ] Consider moving some functions to common.js from main.js
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
 

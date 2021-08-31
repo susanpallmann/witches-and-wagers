@@ -753,12 +753,15 @@ $(document).ready(function() {
     // Testing new lobby object generation
     //console.log(createLobby('TEST', null));
     
+    // Generate room code
+    let newRoomCode = generateRoomCode('');
+    
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');
     
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
         // Creates game with same players
-        createLobby('TESU', snapshot.val());
+        createLobby(newRoomCode, snapshot.val());
     });
 });

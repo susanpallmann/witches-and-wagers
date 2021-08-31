@@ -76,6 +76,7 @@ map, and I will note what to do better for future projects.
      * databaseWrite
      * adjustGold
   * Also moved global variables to common.js, just in case they are needed in both host and client functions.
+  * Started remove player functionality, but it is complex (part of code debt).
 
 - [X] 08/30/21 - 08/31/21:
 

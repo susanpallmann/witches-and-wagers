@@ -127,8 +127,8 @@ function generateMonster() {
 }
 
 // Recursive function to check if the room code is complete and generate random letters if not
-// Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 function generateRoomCode(code, currentLocation) {
+    
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
         
@@ -156,8 +156,6 @@ function generateRoomCode(code, currentLocation) {
 }
 
 // Function to check if the room key passed into it (key) is already an in-session game in the database
-// Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-// I realize this reads the database but I want to keep it near generateRoomCode function
 function verifyRoomCode(code, currentLocation) {
     
     // Checks that specific location in the database and takes a snapshot
@@ -165,6 +163,7 @@ function verifyRoomCode(code, currentLocation) {
 
         // If the snapshot exists already
         if (snapshot.exists()) {
+            
             // Rerun the code generator and try again
             generateRoomCode('', currentLocation);
             
@@ -172,10 +171,13 @@ function verifyRoomCode(code, currentLocation) {
         } else {
             
             // Generate lobby
+            // If no players were provided
             if (currentLocation === null) {
                 
                 // Create empty game with no players
                 createLobby(code, currentLocation);
+                
+            // If players were provided
             } else {
             
                 // Grabs directory location
@@ -184,7 +186,7 @@ function verifyRoomCode(code, currentLocation) {
                 // Takes ongoing snapshot
                 location.on('value', function(snapshot) {
                     
-                    // Creates game with same players
+                    // Creates game with same players at this room code location
                     createLobby(code, snapshot.val());
                 });
             }
@@ -193,58 +195,75 @@ function verifyRoomCode(code, currentLocation) {
 }
 
 // Creates a new lobby (set of values) with either new or existing players
-    function createLobby(code, existPlayers) {
-        let roomCode = code;
-        let newGame = {};
-        let newDeck = {};
-        let playerData = {};
-        let trackerPlaceholder = null;
-        let gamePhase = null;
-        
-        for (let i = 1; i < Object.keys(deck).length + 1; i++) {
-            newDeck[i] = i;
-        }
-        
-        if (existPlayers === null) {
-            gamePhase = 'setup';
-        } else {
-            gamePhase = 'tutorial';
-            trackerPlaceholder = Object.keys(existPlayers)[0];
-            for (let player in existPlayers) {
-                let thisPlayerData = existPlayers[player];
-                playerData[player] = {
-                    'VIP' : thisPlayerData.VIP,
-                    'counts' : {
-                        'coward' : 0,
-                        'optimist' : 0,
-                        'pessimist' : 0
-                    },
-                    'gold' : 0
-                };
-            }
-        }
-        
-        newGame = {
-            'deck' : newDeck,
-            'trackers' : {
-                'helper' : {
-                    'amount': 0,
-                    'player' : trackerPlaceholder
-                },
-                'hurter' : {
-                    'amount': 0,
-                    'player' : trackerPlaceholder
-                }
-            },
-            'round' : {
-                'phase' : 'inactive'
-            },
-            'players' : playerData,
-            'phase' : gamePhase
-        };
-        
-        databaseWrite(roomCode, '', newGame);
+function createLobby(code, existPlayers) {
+    
+    // Initialize some variables for storage
+    let roomCode = code;
+    let newGame = {};
+    let newDeck = {};
+    let playerData = {};
+    let trackerPlaceholder = null;
+    let gamePhase = null;
+
+    // Create fresh deck from deck.js for new database entry
+    for (let i = 1; i < Object.keys(deck).length + 1; i++) {
+        newDeck[i] = i;
     }
+
+    // If there are no players provided
+    if (existPlayers === null) {
+        
+        // We want to enter the setup phase
+        gamePhase = 'setup';
+        
+    // If there were players provided
+    } else {
+        // We can skip setup
+        gamePhase = 'tutorial';
+        
+        // Assigning a random first player to the tracker variables
+        trackerPlaceholder = Object.keys(existPlayers)[0];
+        
+        // For each player provided
+        for (let player in existPlayers) {
+            
+            // Generate an empty data set
+            let thisPlayerData = existPlayers[player];
+            playerData[player] = {
+                'VIP' : thisPlayerData.VIP,
+                'counts' : {
+                    'coward' : 0,
+                    'optimist' : 0,
+                    'pessimist' : 0
+                },
+                'gold' : 0
+            };
+        }
+    }
+
+    // Create new game data with variables we've determined
+    newGame = {
+        'deck' : newDeck,
+        'trackers' : {
+            'helper' : {
+                'amount': 0,
+                'player' : trackerPlaceholder
+            },
+            'hurter' : {
+                'amount': 0,
+                'player' : trackerPlaceholder
+            }
+        },
+        'round' : {
+            'phase' : 'inactive'
+        },
+        'players' : playerData,
+        'phase' : gamePhase
+    };
+
+    // Send to database under room code provided
+    databaseWrite(roomCode, '', newGame);
+}
 
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */

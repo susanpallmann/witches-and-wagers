@@ -70,6 +70,10 @@ map, and I will note what to do better for future projects.
      * Checks if gold amount is the winning value or greater and changes game phase if so.
   * Created bet payout functionality.
   * This completes planned database write functions for the host screen.
+  * Moved some functions from host.js to common.js to be used by both host and client. These include:
+     * databaseWrite
+     * adjustGold
+  * Also moved global variables to common.js, just in case they are needed in both host and client functions.
 
 - [X] 08/30/21 - 08/31/21:
 

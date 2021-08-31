@@ -113,8 +113,6 @@ function generateMonster() {
     
     fullMonsterName = fullMonsterName.join(' ');
     
-    console.log(fullMonsterName);
-    
     // Filling our object with our data
     monster = {
         "attributes" : {

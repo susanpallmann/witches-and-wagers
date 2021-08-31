@@ -104,12 +104,21 @@ function generateMonster() {
         strengthPrefix = 'apocolyptic ';
     }
     
+    let fullMonsterName = monsterPrefix + strengthPrefix + monsterData.name;
+    let words = fullMonsterName.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    
+    console.log(words);
+    
     // Filling our object with our data
     monster = {
         "attributes" : {
             "appearance" : randomMonster
         },
-        "monster" : monsterPrefix + strengthPrefix + monsterData.name,
+        "monster" : fullMonsterName,
         "score" : Math.round(monsterData.baseStrength * generatedStrength)
     }
     

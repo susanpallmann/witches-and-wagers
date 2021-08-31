@@ -752,7 +752,7 @@ $(document).ready(function() {
     //console.log(createLobby('TEST', null));
     
     //let testCode = generateRoomCode('', verifyRoomCode);
-    console.log(generateRoomCode('', verifyRoomCode););
+    console.log(generateRoomCode('', verifyRoomCode));
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');

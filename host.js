@@ -148,6 +148,7 @@ function generateRoomCode(code, callback) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
+        console.log(callback(roomCode));
         return callback(roomCode);
     }
 }

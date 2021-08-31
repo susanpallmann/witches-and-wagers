@@ -48,7 +48,7 @@ let roomCode;
             // Show avatar selection screen
 
 /* ----------------------------------------------------------------------------------------------*/
-/*                               FRONT-END ONLY LOGIC, NO DATABASE                               */
+/*                           FRONT-END ONLY LOGIC, NO/LITTLE DATABASE                            */
 /* ----------------------------------------------------------------------------------------------*/
 
 // Generate a random monster for the round, returns monster information as an object
@@ -121,17 +121,6 @@ function generateMonster() {
     return monster;
 }
 
-/* ----------------------------------------------------------------------------------------------*/
-/*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
-/* ----------------------------------------------------------------------------------------------*/
-
-// Function to populate database with a test data set
-// Also a decent model for future database write functions
-function setTestData(code) {
-    let location = firebase.database().ref('TEST');
-    location.update(code);
-}
-
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 function generateRoomCode(code) {
@@ -164,6 +153,7 @@ function generateRoomCode(code) {
 
 // Function to check if the room key passed into it (key) is already an in-session game in the database
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
+// I realize this reads the database but I want to keep it near generateRoomCode function
 function verifyRoomCode(code) {
     
     // Checks that specific location in the database and takes a snapshot
@@ -182,6 +172,27 @@ function verifyRoomCode(code) {
             console.log(code + ' does not exist in DB, make lobby');
         }
     });
+}
+
+/* ----------------------------------------------------------------------------------------------*/
+/*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
+/* ----------------------------------------------------------------------------------------------*/
+
+// Function to populate database with a test data set
+// Also a decent model for future database write functions
+function setTestData(data) {
+    let location = firebase.database().ref('TEST');
+    location.update(data);
+}
+
+// Writes to a provided location under the room code a set of values, expecting an object
+function databaseWrite(code, location, values) {
+    
+    // Creates database location from parameters
+    let location = firebase.database().ref(code + location);
+    
+    // Sets that location to the provided value or values
+    location.update(values);
 }
 
 /* ----------------------------------------------------------------------------------------------*/
@@ -683,4 +694,7 @@ $(document).ready(function() {
     // Test room code generator
     //generateRoomCode('');
     generateRoomCode('TEST');
+    
+    // Test erase data
+    databaseWrite('TEST', '', null);
 });

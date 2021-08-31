@@ -273,6 +273,42 @@ function setPlayerPay(pay) {
     return pay;
 }
 
+// Function to pay players for their bets based on the outcome of the round
+function playerBetPayout(code, outcome) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/bets/');
+    
+    // Takes ongoing snapshot
+    location.on('value', function(snapshot) {
+        
+        // For each bet outcome
+        snapshot.forEach((childSnapshot) => {
+            
+            // Save information to variables
+            let outcomeLabel = childSnapshot.key;
+            let wagers = childSnapshot.val();
+            
+            // If wager was on correct outcome
+            if (outcomeLabel == outcome) {
+                
+                // Give player amount of gold wagered
+                for (let wager in wagers) {
+                    adjustGold(code, wager, wagers[wager]);
+                }
+                
+            // If wager was incorrect
+            } else {
+                
+                // Subtract amount of gold wagered from the player
+                for (let wager in wagers) {
+                    adjustGold(code, wager, -wagers[wager])
+                }
+            }
+        });
+        
+    });
+}
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
@@ -315,13 +351,19 @@ function adjustGold(code, player, amount) {
         // Takes ongoing snapshot
         location.once('value', function(snapshot) {
             
+            // If this addition is less than 0
+            if (snapshot.val() + amount < 0) {
+                
+                // Sets that location 0
+                location.set(0);
+            
             // If this addition is less than the amount of gold to win the game
-            if (snapshot.val() + amount < winningAmount) {
+            } else if (snapshot.val() + amount < winningAmount) {
                 
                 // Sets that location to the provided values added
                 location.set(snapshot.val() + amount);
-            
-            // If someone has won
+                
+            // If someone has won    
             } else {
                 
                 // Declare them the winner
@@ -849,6 +891,9 @@ $(document).ready(function() {
     
     adjustGold('TEST', `${currentPlayer}`, testPay);
 
+    // Bets payout
+    playerBetPayout('TEST', 'win');
+    
 });
 // test
 // why

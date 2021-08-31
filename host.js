@@ -179,7 +179,7 @@ function verifyRoomCode(code) {
     function createLobby(code, players) {
         let newDeck = {};
         
-        for (let i = 0; i < Object.keys(deck).length; i++) {
+        for (let i = 1; i < Object.keys(deck).length + 1; i++) {
             newDeck[i] = i;
         }
         

@@ -28,12 +28,12 @@ A backstabbing dungeon-themed party game.
    - [X] Room code generator (doesn't create room yet)
    - [X] Room code empty
    - [X] Monster generator (doesn't update database yet)
-   - [ ] New Players Button
-   - [ ] Same Players Button
+   - [X] New Players Button (started)
+   - [X] Same Players Button (started)
    - [ ] Pay Player After Round
    - [ ] Bet Payouts
    - [ ] Update Winner
-   - [ ] Update Game Phase
+   - [X] Update Game Phase
    - [ ] Update Round Phase
 - [ ] Edit database structure to include missing things:
    - [ ] Comments by players in the end outro

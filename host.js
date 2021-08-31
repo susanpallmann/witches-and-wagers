@@ -795,7 +795,6 @@ $(document).ready(function() {
     //generateRoomCode('', 'TEST');
     
     // Update game winnter
-    databaseWrite('TEST', '', {'winner':'test'});
     databaseWrite('TEST', '', {'winner':'UH82CIT'});
 
 });

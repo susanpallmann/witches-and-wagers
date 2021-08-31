@@ -884,16 +884,16 @@ $(document).ready(function() {
     //generateRoomCode('', 'TEST');
     
     // Update game winner
-    databaseWrite('TEST', '', {'winner':'UH82CIT'});
+    //databaseWrite('TEST', '', {'winner':'UH82CIT'});
     
     // Player payout post-round success; 5 to test
     currentPlayer = 'Skooz';
     let testPay = setPlayerPay(5);
     
-    adjustGold('TEST', `${currentPlayer}`, testPay);
+    //adjustGold('TEST', `${currentPlayer}`, testPay);
 
     // Bets payout
-    playerBetPayout('TEST', 'win');
+    //playerBetPayout('TEST', 'win');
     
 });
 // test

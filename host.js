@@ -9,57 +9,6 @@ let roomCode;
 /*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
 /* ----------------------------------------------------------------------------------------------*/
 
-// Generates initial room code
-function generateRoomCode(code) {
-    console.log('starting code is ' + code);
-    // Recursive function to check if the room code is complete and generate random letters if not.
-    // If the string isn't yet 4 characters long
-    if (code.length < 4) {
-        // Generate a random number between 0 and 25
-        //var tempNum = Math.floor(Math.random() * 25); DELETE
-        
-        let newLetter = Math.floor(Math.random() * 25);
-        newLetter = String.fromCharCode(65 + newLetter);
-        
-        // Convert this new value to an ascii character (uppercase)
-        //var tempLetter = String.fromCharCode(65 + tempNum); DELETE
-        
-        // Add the new value to the existing room code
-        roomCode =  code + newLetter;
-        console.log('room code so far is ' + roomCode);
-        // Run this function again to check if the code is complete (length of 4)
-        generateRoomCode(roomCode);
-        
-    // If the string is 4 characters
-    } else {
-        roomCode = code;
-        console.log('roomCode is set to ' + roomCode);
-        // End function
-        // Passes the finalized code into the verifyRoomCode function
-        verifyRoomCode(roomCode);
-    }
-}
-
-// Function to check if the room key passed into it (key) is already an in-session game in the database
-function verifyRoomCode(code) {
-    // Checks that specific location in the database and takes a snapshot
-    firebase.database().ref(code).once("value", snapshot => {
-        // If the snapshot exists already
-        if (snapshot.exists()) {
-            // Rerun the code generator and try again
-            console.log(code + ' exists in DB, try again');
-            generateRoomCode('');
-            return true;
-        // If the snapshot doesn't exist, we can set up the lobby
-        } else {
-            // Calls function lobbySetup
-            // TODO
-            console.log(code + ' does not exist in DB, make lobby');
-            return false;
-        }
-    });
-}
-
 // Update Display Game Phase
     // Check current phase in DB
         // If setup, show setup
@@ -79,10 +28,54 @@ function verifyRoomCode(code) {
             // scoreboard, show current point distribution
             // showAll, show everything (testing purposes)
         // If error, show error message
-        // If victory, show sequence
+        // If won, show sequence
         // If outro, show credits
         // If abandoned, show title screen (this shouldn't ever happen)
         // If showAll, show everything (testing purposes)
+
+/* ----------------------------------------------------------------------------------------------*/
+/*                                 GAME CONTROLLER FUNCTIONS                                     */
+/* ----------------------------------------------------------------------------------------------*/
+
+// Update Display Game Phase
+// TODO: more in depth commenting on what this shows on each screen/user segment per phase
+function updateGamePhase(newPhase) {
+    switch (newPhase) {
+            
+        // If title, show title sequence until CTA
+        case 'title':
+            break;
+            
+        // If setup, show setup screen (lobby join)
+        case 'setup':
+            break;
+            
+        // If tutorial, run tutorial sequence
+        case 'tutorial':
+            break;
+            
+        // If play, initiate play sequence (play has its own phase controller)
+        case 'play':
+            break;
+            
+        // If won, run victory sequence
+        case 'won':
+            break;
+            
+        // If outro, show credits and options to play again
+        case 'outro':
+            break;
+            
+        // Only for testing purposes, shows all at the same time
+        case 'showAll':
+            break;
+            
+        // Errors or if all else fails
+        case 'error':
+        default:
+            break;
+    }
+}
 
 // Player Joins
     // Check number of players in the game
@@ -151,6 +144,58 @@ function generateMonster() {
 function setTestData(code) {
     let location = firebase.database().ref('TEST');
     location.update(code);
+}
+
+// Recursive function to check if the room code is complete and generate random letters if not
+// Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
+function generateRoomCode(code) {
+    
+    // If the string isn't yet 4 characters long
+    if (code.length < 4) {
+        
+        // Generate a random number between 0 and 25
+        // Convert this new value to an ascii character (uppercase)
+        let newLetter = Math.floor(Math.random() * 25);
+        newLetter = String.fromCharCode(65 + newLetter);
+        
+        // Add the new value to the existing room code
+        roomCode =  code + newLetter;
+
+        // Run this function again to check if the code is complete now (length of 4)
+        generateRoomCode(roomCode);
+        
+    // If the string is 4 characters
+    } else {
+        
+        // Update roomCode global variable
+        roomCode = code;
+        
+        // End recursion
+        // Passes the 4-digit code into the verifyRoomCode function
+        verifyRoomCode(roomCode);
+    }
+}
+
+// Function to check if the room key passed into it (key) is already an in-session game in the database
+// Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
+function verifyRoomCode(code) {
+    
+    // Checks that specific location in the database and takes a snapshot
+    firebase.database().ref(code).once("value", snapshot => {
+        
+        // If the snapshot exists already
+        if (snapshot.exists()) {
+            
+            // Rerun the code generator and try again
+            generateRoomCode('');
+            
+        // If the snapshot doesn't exist, we can set up the lobby
+        } else {
+            
+            // TODO generate lobby here; keeping console log until I need this to actually work
+            console.log(code + ' does not exist in DB, make lobby');
+        }
+    });
 }
 
 /* ----------------------------------------------------------------------------------------------*/

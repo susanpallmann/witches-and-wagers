@@ -299,10 +299,10 @@ function databaseWrite(code, path, values) {
 // Function to get current gold amount at specified path and add the provided value
 function adjustGold(code, path, amount) {
     
-    // Creates database location from parameters
-    let location = firebase.database().ref(code + path);
+    // Grabs directory location
+    let location = firebase.database().ref(code + path + '/gold');
     
-    // If values is set to null
+    // If amount is set to null
     if (amount === null) {
         
         // Delete everything at this path
@@ -311,17 +311,12 @@ function adjustGold(code, path, amount) {
     // Otherwise
     } else {
         
-        // Grabs directory location
-        let location = firebase.database().ref(code + path + '/gold');
-    
         // Takes ongoing snapshot
         location.once('value', function(snapshot) {
             
-            console.log(snapshot.val());
+            // Sets that location to the provided values added
+            location.update(snapshot.val() + amount);
         });
-        
-        // Sets that location to the provided value or values
-        //location.update(amount);
     }
 }
 

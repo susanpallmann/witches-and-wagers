@@ -95,7 +95,7 @@ let TEST = {
                 "optimist" : 7,
                 "pessimist" : 7
             },
-            "gold" : 2,
+            "gold" : 7,
             "inventory" : {
                 "12" : 12,
                 "13" : 13,

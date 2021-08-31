@@ -683,7 +683,7 @@ $(document).ready(function() {
     displayActorScores('TEST');
     
     // Loads test data set to database in case anything changed
-    setTestData(TEST);
+    databaseWrite('TEST', '', TEST);
     
     // Loads all bet information
     displayBets('TEST');
@@ -706,5 +706,6 @@ $(document).ready(function() {
     generateRoomCode('TEST');
     
     // Test erase data
-   // databaseWrite('TEST', '', null);
+    // databaseWrite('TEST', '', null);
+    
 });

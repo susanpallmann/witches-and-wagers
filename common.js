@@ -47,7 +47,7 @@ let TEST = {
             },
             
             // Amount of gold
-            "gold" : 13,
+            "gold" : 4,
             
             // Cards currently in inventory, lists cards by ID
             "inventory" : {

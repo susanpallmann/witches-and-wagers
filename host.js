@@ -162,7 +162,7 @@ function verifyRoomCode(code) {
     firebase.database().ref(code).once("value", snapshot => {
 
         // If the snapshot exists already
-        if (snapshot.val()) {
+        if (snapshot.exists()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
             generateRoomCode('', verifyRoomCode);

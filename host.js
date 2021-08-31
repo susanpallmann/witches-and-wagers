@@ -186,10 +186,10 @@ function setTestData(data) {
 }
 
 // Writes to a provided location under the room code a set of values, expecting an object
-function databaseWrite(code, location, values) {
+function databaseWrite(code, path, values) {
     
     // Creates database location from parameters
-    let location = firebase.database().ref(code + location);
+    let location = firebase.database().ref(code + path);
     
     // Sets that location to the provided value or values
     location.update(values);

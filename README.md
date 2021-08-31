@@ -32,15 +32,27 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
+**Host**
 - [ ] Consider moving some functions to common.js from main.js
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
+
+**Client**
+- [ ] Create player-side HTML structure with each phase
 - [ ] Create player-side database read/display functions
-- [ ] Address all current code debt (TODOs)
+   - [ ] Load inventory, equipment
+   - [ ] Load gold amount
+   - [ ] Load avatar, name
+- [ ] Create player-side database update functions
+- [ ] Readdress all current code debt (TODOs)
+
+**Planning & Design**
 - [ ] Design prototypes for host and client screens using logic flow diagram
-- [ ] Create show/hide functionality based on design (stitch it all together)
 - [ ] Draw some new avatars in the new style
 - [ ] Create final card deck array
+
+**Common**
+- [ ] Create show/hide functionality based on design (stitch it all together)
 
 ## Dev Diary
 

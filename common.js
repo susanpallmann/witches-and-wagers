@@ -47,7 +47,7 @@ let TEST = {
             },
             
             // Amount of gold
-            "gold" : 4,
+            "gold" : 13,
             
             // Cards currently in inventory, lists cards by ID
             "inventory" : {
@@ -95,7 +95,7 @@ let TEST = {
                 "optimist" : 7,
                 "pessimist" : 7
             },
-            "gold" : 7,
+            "gold" : 2,
             "inventory" : {
                 "12" : 12,
                 "13" : 13,

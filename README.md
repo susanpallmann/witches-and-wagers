@@ -8,7 +8,7 @@ A backstabbing dungeon-themed party game.
 - [X] Successfully coded for 11 consecutive days (excluding vacation) without burning out
 
 
-**Notes**
+**On Issues**
 
 I now recognize that the "Dev Diary" would have been better served as a series of Issues. However, I do not want to
 translate almost two weeks' worth of work into a bunch of Issues that can't be backdated, so for this project I

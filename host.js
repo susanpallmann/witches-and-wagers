@@ -175,7 +175,7 @@ function verifyRoomCode(code) {
     });
 }
 
-// Creates a new lobby with either new or existing players, returns values to send to database
+// Creates a new lobby (set of values) with either new or existing players
     function createLobby(code, existPlayers) {
         let newGame = {};
         let newDeck = {};
@@ -225,7 +225,7 @@ function verifyRoomCode(code) {
             'phase' : gamePhase
         };
         
-        return newGame;
+        databaseWrite(code, '', newGame);
     }
 
 /* ----------------------------------------------------------------------------------------------*/
@@ -701,10 +701,6 @@ function updateGamePhase(newPhase) {
     }
 }
 
-
-
-
-
 // When document loads
 $(document).ready(function() {
     
@@ -755,13 +751,14 @@ $(document).ready(function() {
     databaseWrite('TEST', '', {'phase':'showAll'});
     
     // Testing new lobby object generation
-    console.log(createLobby('TEST', null));
+    //console.log(createLobby('TEST', null));
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');
     
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
-        console.log(createLobby('TEST', snapshot.val()));
+        // Creates game with same players
+        createLobby('TESU', snapshot.val()));
     });
 });

@@ -50,6 +50,7 @@ map, and I will note what to do better for future projects.
   * Fixed a previously unnoticed bug in generating monster's appearance.
   * Made the monster appearance pull from database, when it hadn't before.
   * Cleaned and commented all code from yesterday night (it was less bad than I thought it would be).
+  * Resolved issue calling for refactoring - decided code was ok as is.
   * Created write winner functionality.
   * Created player gold modification functionality.
      * If gold modification would result in a negative number, sets gold to 0.

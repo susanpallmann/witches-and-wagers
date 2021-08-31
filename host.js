@@ -33,6 +33,20 @@ let roomCode;
         // If abandoned, show title screen (this shouldn't ever happen)
         // If showAll, show everything (testing purposes)
 
+// Player Joins
+    // Check number of players in the game
+    // If number of players is 0,
+        // Create player in DB, make VIP
+            // Send username to DB, select random available avatar, send
+            // Show avatar selection screen
+    // If number of players is >8,
+        // Don't create player
+        // Show error message, room is full
+    // If not,
+        // Create player in DB, make not VIP
+            // Send username to DB, select random available avatar, send
+            // Show avatar selection screen
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                                 GAME CONTROLLER FUNCTIONS                                     */
 /* ----------------------------------------------------------------------------------------------*/
@@ -77,61 +91,77 @@ function updateGamePhase(newPhase) {
     }
 }
 
-// Player Joins
-    // Check number of players in the game
-    // If number of players is 0,
-        // Create player in DB, make VIP
-            // Send username to DB, select random available avatar, send
-            // Show avatar selection screen
-    // If number of players is >8,
-        // Don't create player
-        // Show error message, room is full
-    // If not,
-        // Create player in DB, make not VIP
-            // Send username to DB, select random available avatar, send
-            // Show avatar selection screen
-
 /* ----------------------------------------------------------------------------------------------*/
 /*                               FRONT-END ONLY LOGIC, NO DATABASE                               */
 /* ----------------------------------------------------------------------------------------------*/
 
-// Nothing here yet, I'm not really sure it's fair to have this section if I'm lumping "game display"
-// in with reading the database. TBD, TODO
-
-// Still, probably would be nice to keep things like the monster generator somewhere special. Got 
-// to have SOME flair if I'm building this whole thing in JavaScript, right?
-
+// Generate a random monster for the round, returns monster information as an object
 function generateMonster() {
+    
+    // Initialize variable
     let monster = {};
+    
+    // Choosing a random monster type from monsters object (monsters.js)
     let randomMonster = Math.floor(Math.random() * Object.keys(monsters).length) + 1;
     let monsterData = monsters[randomMonster];
+
+    // Listing monster attributes as additional variables
     let monsterName = monsterData.name;
     let monsterStrength = monsterData.baseStrength;
     let monsterPrefix = monsterData.prefix;
+    
+    // If monster has a prefix (like "a" or "the"), add a space after it
     if (monsterPrefix) {
+        monsterPrefix = monsterPrefix + ' ';
+        
+    // If monster doesn't have a prefix, leave the variable an empty string
     } else {
         monsterPrefix = '';
     }
+    
+    // Randomly generating a strength modifier (to multiply the monster's base strength)
     let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
-    console.log(generatedStrength);
     monsterStrength = Math.round(monsterStrength * generatedStrength);
+    
+    // Initializing a strength prefix variable
     let strengthPrefix;
+    
+    // Depending on the strength modifier, choosing a specific prefix
     if (generatedStrength == 0) {
-        strengthPrefix = 'pitiful';
+        strengthPrefix = 'pitiful ';
+        
     } else if (generatedStrength < 0.5) {
-        strengthPrefix = 'weak';
+        strengthPrefix = 'weak ';
+        
     } else if (generatedStrength < 1) {
-        strengthPrefix = 'lesser';
+        strengthPrefix = 'lesser ';
+        
     } else if (generatedStrength == 1) {
         strengthPrefix = '';
+        
     } else if (generatedStrength < 1.5) {
-        strengthPrefix = 'greater';
+        strengthPrefix = 'greater ';
+        
     } else if (generatedStrength < 2) {
-        strengthPrefix = 'enlightened';
+        strengthPrefix = 'enlightened ';
+        
     } else {
-        strengthPrefix = 'apocolyptic';
+        strengthPrefix = 'apocolyptic ';
     }
-    console.log(strengthPrefix);
+    
+    // Assembling a final form of the monster's name
+    let finalMonsterName = monsterPrefix + strengthPrefix + monsterName;
+    
+    // Filling our object with our data
+    monster = {
+        "attributes" : {
+            "appearance" : randomMonster
+        },
+        "monster" : finalMonsterName,
+        "score" : monsterStrength
+    }
+    
+    // Returns values
     return monster;
 }
 
@@ -643,7 +673,8 @@ $(document).ready(function() {
     });
     
     // Generate a test monster (TODO)
-    generateMonster();
+    console.log(generateMonster());
+    console.log(generateMonster());
     
     // Test room code generator
     //generateRoomCode('');

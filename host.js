@@ -696,5 +696,5 @@ $(document).ready(function() {
     generateRoomCode('TEST');
     
     // Test erase data
-    databaseWrite('TEST', '', null);
+    databaseWrite('TEST', '', {null});
 });

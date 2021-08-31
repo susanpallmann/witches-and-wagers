@@ -362,6 +362,25 @@ function adjustGold(code, player, amount) {
     }
 }
 
+function removePlayer(code, playerName) {
+    
+    // Takes player's inventory and adds back to deck
+    
+    // If player was VIP, reassign VIP
+    
+    // If player was in game-wide trackers, reassign/recalculate trackers
+    
+    // If player had bid items, return their items to the deck
+    
+    // If player had wagers, remove those
+    
+    // If player is currentPlayer, end round, give people their items back
+    // Find next player, start their turn
+    
+    // Deletes player under "players" in database
+    databaseWrite(code, '/players/', {'Skooz': null});   
+}
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                                 GAME CONTROLLER FUNCTIONS                                     */
 /* ----------------------------------------------------------------------------------------------*/

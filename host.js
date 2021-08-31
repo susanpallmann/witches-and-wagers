@@ -759,6 +759,6 @@ $(document).ready(function() {
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {
         // Creates game with same players
-        createLobby('TESU', snapshot.val()));
+        createLobby('TESU', snapshot.val());
     });
 });

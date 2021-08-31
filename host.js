@@ -11,7 +11,7 @@ let roomCode;
 
 // Generates initial room code
 function generateRoomCode(code) {
-    console.log(code);
+    console.log('starting code is ' + code);
     // Recursive function to check if the room code is complete and generate random letters if not.
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -21,7 +21,7 @@ function generateRoomCode(code) {
         var tempLetter = String.fromCharCode(65 + tempNum);
         // Add the new value to the existing room code
         roomCode =  code + tempLetter;
-        console.log(roomCode);
+        console.log('room code so far is ' + roomCode);
         // Run this function again to check if the code is complete (length of 4)
         generateRoomCode(roomCode);
         
@@ -31,8 +31,6 @@ function generateRoomCode(code) {
         // End function
         // Passes the finalized code into the verifyRoomCode function
         verifyRoomCode(roomCode);
-        console.log(verifyRoomCode(roomCode));
-        console.log(roomCode);
     }
 }
 
@@ -44,12 +42,14 @@ function verifyRoomCode(code) {
         if (snapshot.exists()) {
             // Rerun the code generator and try again
             generateRoomCode('');
+            console.log(code + ' exists in DB, try again');
             return true;
         // If the snapshot doesn't exist, we can set up the lobby
         } else {
             // Calls function lobbySetup
             // TODO
             return false;
+            console.log(code + ' does not exist in DB, make lobby');
         }
     });
 }

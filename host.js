@@ -760,14 +760,13 @@ $(document).ready(function() {
     // Update game phase
     databaseWrite('TEST', '', {'phase':'showAll'});
     
-    // Update game phase
-    databaseWrite('TEST', '/round', {'phase':'test'});
+    // Update round phase
     databaseWrite('TEST', '/round', {'phase':'showAll'});
     
     // New game, new players
-    generateRoomCode('', null);
+    //generateRoomCode('', null);
     
     // New game, existing players
-    generateRoomCode('', 'TEST');
+    //generateRoomCode('', 'TEST');
 
 });

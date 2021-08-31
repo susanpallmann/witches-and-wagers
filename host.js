@@ -780,4 +780,3 @@ $(document).ready(function() {
     //generateRoomCode('', 'TEST');
 
 });
-// work

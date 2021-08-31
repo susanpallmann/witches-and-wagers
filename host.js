@@ -751,7 +751,7 @@ $(document).ready(function() {
     // Testing new lobby object generation
     //console.log(createLobby('TEST', null));
     
-    let testCode = generateRoomCode('');
+    let testCode = generateRoomCode('', verifyRoomCode);
     console.log(testCode);
     
     // Grabs directory location

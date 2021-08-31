@@ -53,6 +53,9 @@ map, and I will note what to do better for future projects.
 **Common**
 - [ ] Create show/hide functionality based on design (stitch it all together)
 
+**Uncategorized**
+- [ ] Animate everything better
+
 ## Dev Diary
 
 - [X] 08/31/21:

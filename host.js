@@ -3,6 +3,7 @@
 /* ----------------------------------------------------------------------------------------------*/
 
 let players = {};
+let currentPlayer;
 let roomCode;
 
 /* ----------------------------------------------------------------------------------------------*/
@@ -265,6 +266,12 @@ function createLobby(code, existPlayers) {
     databaseWrite(roomCode, '', newGame);
 }
 
+// Function to determine player payout upon successfully defeating a monster
+// TODO Determine logic for this; never explicitly planned it
+function setPlayerPay(pay) {
+    return pay;
+}
+
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
@@ -288,6 +295,36 @@ function databaseWrite(code, path, values) {
         location.update(values);
     }
 }
+
+// Function to get current gold amount at specified path and add the provided value
+function adjustGold(code, path, amount) {
+    
+    // Creates database location from parameters
+    let location = firebase.database().ref(code + path);
+    
+    // If values is set to null
+    if (values === null) {
+        
+        // Delete everything at this path
+        location.set(values);
+        
+    // Otherwise
+    } else {
+        
+        // Grabs directory location
+        let location = firebase.database().ref(code + path + '/gold');
+    
+        // Takes ongoing snapshot
+        location.once('value', function(snapshot) {
+            
+            console.log(snapshot.val);
+        });
+        
+        // Sets that location to the provided value or values
+        //location.update(values);
+    }
+}
+
 
 /* ----------------------------------------------------------------------------------------------*/
 /*             THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE             */
@@ -794,8 +831,15 @@ $(document).ready(function() {
     // New game, existing players
     //generateRoomCode('', 'TEST');
     
-    // Update game winnter
+    // Update game winner
     databaseWrite('TEST', '', {'winner':'UH82CIT'});
+    
+    // Player payout post-round success; 5 to test
+    currentPlayer = 'Skooz';
+    let testPay = setPlayerPay(5);
+    
+    //databaseWrite('TEST', `/players/${currentPlayer}`, {'gold':testPay});
+    adjustGold('TEST', `/players/${currentPlayer}`, testPay);
 
 });
 // test

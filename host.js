@@ -105,7 +105,7 @@ function generateMonster() {
     }
     
     let fullMonsterName = monsterPrefix + strengthPrefix + monsterData.name;
-    let fullMonsterName = fullMonsterName.split(" ");
+    fullMonsterName = fullMonsterName.split(" ");
 
     for (let i = 0; i < fullMonsterName.length; i++) {
         fullMonsterName[i] = fullMonsterName[i][0].toUpperCase() + fullMonsterName[i].substr(1);

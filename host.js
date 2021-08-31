@@ -26,7 +26,7 @@ function generateRoomCode(code) {
         
     // If the string is 4 characters
     } else {
-        
+        roomCode = code;
         // End function
         // Passes the finalized code into the verifyRoomCode function
         verifyRoomCode(roomCode);

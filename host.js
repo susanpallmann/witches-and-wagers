@@ -274,6 +274,7 @@ function setPlayerPay(pay) {
 }
 
 // Function to pay players for their bets based on the outcome of the round
+// Outcomes can be "win", "loss", or "flee"
 function playerBetPayout(code, outcome) {
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/bets/');

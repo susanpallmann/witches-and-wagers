@@ -7,6 +7,13 @@ A backstabbing dungeon-themed party game.
 **Personal Achievements**
 - [X] Successfully coded for 11 consecutive days (excluding vacation) without burning out
 
+
+**Notes**
+I now recognize that the Dev Diary would have been better served as a series of Issues. However, I do not want to
+translate almost two weeks' worth of work into a bunch of Issues that can't be backdated, so for this project I
+will just be using Issues to keep track of ideas/thoughts as they pop up that weren't a part of the expected road 
+map.
+
 ## Contents
 1. [Project Plan](#project-plan)
 1. [Dev Resources](#dev-resources)
@@ -36,9 +43,6 @@ A backstabbing dungeon-themed party game.
    - [ ] Update Winner
    - [X] Update Game Phase
    - [ ] Update Round Phase
-- [ ] Edit database structure to include missing things:
-   - [ ] Comments by players in the end outro
-   - [ ] Comment by current playing during play round
 - [ ] Create non-database front-end functions (things like timers)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)

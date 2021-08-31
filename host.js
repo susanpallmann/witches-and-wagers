@@ -5,6 +5,7 @@
 let players = {};
 let currentPlayer;
 let roomCode;
+let winningAmount = 30;
 
 /* ----------------------------------------------------------------------------------------------*/
 /*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
@@ -297,10 +298,10 @@ function databaseWrite(code, path, values) {
 }
 
 // Function to get current gold amount at specified path and add the provided value
-function adjustGold(code, path, amount) {
+function adjustGold(code, player, amount) {
     
     // Grabs directory location
-    let location = firebase.database().ref(code + path + '/gold');
+    let location = firebase.database().ref(code + '/players/' + player + '/gold');
     
     // If amount is set to null
     if (amount === null) {
@@ -314,8 +315,22 @@ function adjustGold(code, path, amount) {
         // Takes ongoing snapshot
         location.once('value', function(snapshot) {
             
-            // Sets that location to the provided values added
-            location.update(snapshot.val() + amount);
+            // If this addition is less than the amount of gold to win the game
+            if (snapshot.val() + amount < winningAmount) {
+                
+                // Sets that location to the provided values added
+                location.update(snapshot.val() + amount);
+            
+            // If someone has won
+            } else {
+                
+                // Declare them the winner
+                databaseWrite(code, '', {'winner' : player})
+                
+                // TODO: start victory sequence
+                // Update game phase
+                
+            }
         });
     }
 }
@@ -833,8 +848,7 @@ $(document).ready(function() {
     currentPlayer = 'Skooz';
     let testPay = setPlayerPay(5);
     
-    //databaseWrite('TEST', `/players/${currentPlayer}`, {'gold':testPay});
-    adjustGold('TEST', `/players/${currentPlayer}`, testPay);
+    adjustGold('TEST', `${currentPlayer}`, testPay);
 
 });
 // test

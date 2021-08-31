@@ -75,19 +75,16 @@ function generateMonster() {
     }
     
     // Depending on the strength modifier, choosing a specific prefix
-    if (generatedStrength == 0) {
+    if (generatedStrength < 0.25) {
         strengthPrefix = 'pitiful ';
         
-    } else if (generatedStrength < 0.5) {
+    } else if (generatedStrength < 0.75) {
         strengthPrefix = 'weak ';
         
-    } else if (generatedStrength < 1) {
-        strengthPrefix = 'lesser ';
-        
-    } else if (generatedStrength == 1) {
+    } else if (generatedStrength < 1.25) {
         strengthPrefix = '';
         
-    } else if (generatedStrength < 1.5) {
+    } else if (generatedStrength < 1.75) {
         strengthPrefix = 'greater ';
         
     } else if (generatedStrength < 2) {
@@ -778,4 +775,3 @@ $(document).ready(function() {
     
 });
 // test
-// why

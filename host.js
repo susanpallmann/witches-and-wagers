@@ -124,7 +124,7 @@ function generateMonster() {
 
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-function generateRoomCode(code) {
+function generateRoomCode(code, callback) {
     
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -138,7 +138,7 @@ function generateRoomCode(code) {
         roomCode =  code + newLetter;
 
         // Run this function again to check if the code is complete now (length of 4)
-        generateRoomCode(roomCode);
+        generateRoomCode(roomCode, callback);
         
     // If the string is 4 characters
     } else {
@@ -148,9 +148,8 @@ function generateRoomCode(code) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
-        verifyRoomCode(roomCode);
+        return callback(roomCode);
     }
-    return roomCode;
 }
 
 // Function to check if the room key passed into it (key) is already an in-session game in the database
@@ -165,13 +164,14 @@ function verifyRoomCode(code) {
         if (snapshot.val()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
-            generateRoomCode('');
+            generateRoomCode('', verifyRoomCode);
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {
             
             // TODO generate lobby here; keeping console log until I need this to actually work
             console.log(code + ' does not exist in DB, make lobby');
+            return code;
         }
     });
 }
@@ -752,6 +752,7 @@ $(document).ready(function() {
     //console.log(createLobby('TEST', null));
     
     let testCode = generateRoomCode('');
+    console.log(testCode);
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');

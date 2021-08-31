@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------------------------*/
-/*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
+/*            PSEUDOCODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
 /* ----------------------------------------------------------------------------------------------*/
 
 // Update Display Game Phase

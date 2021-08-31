@@ -765,9 +765,9 @@ $(document).ready(function() {
     databaseWrite('TEST', '/round', {'phase':'showAll'});
     
     // New game, new players
-    generateRoomCode('', null));
+    generateRoomCode('', null);
     
     // New game, existing players
-    generateRoomCode('', 'TEST'));
+    generateRoomCode('', 'TEST');
 
 });

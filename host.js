@@ -319,7 +319,7 @@ function adjustGold(code, player, amount) {
             if (snapshot.val() + amount < winningAmount) {
                 
                 // Sets that location to the provided values added
-                location.update(snapshot.val() + amount);
+                location.set(snapshot.val() + amount);
             
             // If someone has won
             } else {

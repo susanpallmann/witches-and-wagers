@@ -138,7 +138,7 @@ function generateRoomCode(code, callback) {
         roomCode =  code + newLetter;
 
         // Run this function again to check if the code is complete now (length of 4)
-        generateRoomCode(roomCode);
+        generateRoomCode(roomCode, callback);
         
     // If the string is 4 characters
     } else {

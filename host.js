@@ -773,6 +773,9 @@ $(document).ready(function() {
     //Bets payout
     playerBetPayout('TEST', 'win');
     
+    // TODO: Call during play phase when fight is introduced
+    displayActorScores('TEST');
+    
 });
 // test
 // why

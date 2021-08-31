@@ -747,16 +747,13 @@ $(document).ready(function() {
     
     // Test room code generator
     //generateRoomCode('');
-    generateRoomCode('TEST');
+    //generateRoomCode('TEST');
     
     // Update game phase
     databaseWrite('TEST', '', {'phase':'showAll'});
     
     // Testing new lobby object generation
     //console.log(createLobby('TEST', null));
-    
-    // Generate room code
-    let newRoomCode = generateRoomCode('');
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');

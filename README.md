@@ -25,9 +25,9 @@ A backstabbing dungeon-themed party game.
 
 ## To Do
 - [ ] Create database write function(s)
-   - [ ] Room code creator
-   - [ ] Room code empty
-   - [ ] Monster generator
+   - [X] Room code generator (doesn't create room yet)
+   - [X] Room code empty
+   - [X] Monster generator (doesn't update database yet)
    - [ ] New Players Button
    - [ ] Same Players Button
    - [ ] Pay Player After Round

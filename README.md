@@ -6,6 +6,7 @@ A backstabbing dungeon-themed party game.
 
 **Personal Achievements**
 - [X] Successfully coded for 11 consecutive days (excluding vacation) without burning out
+- [X] Do all read/do all write/selectively hide after was definitely a good approach
 
 
 **On Issues**

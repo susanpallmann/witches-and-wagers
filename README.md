@@ -79,6 +79,7 @@ map, and I will note what to do better for future projects.
   * Also moved global variables to common.js, just in case they are needed in both host and client functions.
   * Started remove player functionality, but it is complex and will rely on some unwritten functions (part of code debt).
      * Left as pseudocode for now.
+  * Fixed a small bug with displaying on the fight scene cause by changing on to once. Resolved by calling the update function after the monster creation function.
 
 - [X] 08/30/21 - 08/31/21:
 

@@ -105,13 +105,15 @@ function generateMonster() {
     }
     
     let fullMonsterName = monsterPrefix + strengthPrefix + monsterData.name;
-    let words = fullMonsterName.split(" ");
+    let fullMonsterName = fullMonsterName.split(" ");
 
-    for (let i = 0; i < words.length; i++) {
-        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    for (let i = 0; i < fullMonsterName.length; i++) {
+        fullMonsterName[i] = fullMonsterName[i][0].toUpperCase() + fullMonsterName[i].substr(1);
     }
     
-    console.log(words);
+    fullMonsterName = fullMonsterName.join(' ');
+    
+    console.log(fullMonsterName);
     
     // Filling our object with our data
     monster = {

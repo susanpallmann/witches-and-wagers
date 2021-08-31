@@ -54,6 +54,8 @@ A backstabbing dungeon-themed party game.
   * Created a function to write/delete database entries at provided location.
   * Finalized monster generator to return monster data. Doesn't update database.
   * More commenting and code maintenance.
+  * Removed obsolete HTML elements from index.html.
+  * 
 
 - [X] 08/29/21:
 

@@ -124,7 +124,7 @@ function generateMonster() {
 
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-function generateRoomCode(code, callback) {
+function generateRoomCode(code, players) {
     console.log('this should run first');
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -138,7 +138,7 @@ function generateRoomCode(code, callback) {
         roomCode =  code + newLetter;
 
         // Run this function again to check if the code is complete now (length of 4)
-        generateRoomCode(roomCode, verifyRoomCode);
+        generateRoomCode(roomCode, players);
         
     // If the string is 4 characters
     } else {
@@ -148,15 +148,14 @@ function generateRoomCode(code, callback) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
-        console.log(callback(roomCode));
-        return callback(roomCode);
+        verifyRoomCode(roomCode, players);
     }
 }
 
 // Function to check if the room key passed into it (key) is already an in-session game in the database
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 // I realize this reads the database but I want to keep it near generateRoomCode function
-function verifyRoomCode(code) {
+function verifyRoomCode(code, players) {
     console.log('this should run second');
     // Checks that specific location in the database and takes a snapshot
     firebase.database().ref(code).once("value", snapshot => {
@@ -165,14 +164,23 @@ function verifyRoomCode(code) {
         if (snapshot.exists()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
-            generateRoomCode('', verifyRoomCode);
+            generateRoomCode('', players);
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {
             
             // TODO generate lobby here; keeping console log until I need this to actually work
             console.log(code + ' does not exist in DB, make lobby');
-            return code;
+            
+            
+            // Grabs directory location
+            let location = firebase.database().ref('TEST' + '/players');
+    
+            // Takes ongoing snapshot
+            location.on('value', function(snapshot) {
+                // Creates game with same players
+                createLobby(code, snapshot.val());
+            });
         }
     });
 }
@@ -753,14 +761,6 @@ $(document).ready(function() {
     //console.log(createLobby('TEST', null));
     
     //let testCode = generateRoomCode('', verifyRoomCode);
-    console.log('third ' + generateRoomCode('', verifyRoomCode));
-    
-    // Grabs directory location
-    let location = firebase.database().ref('TEST' + '/players');
-    
-    // Takes ongoing snapshot
-    location.on('value', function(snapshot) {
-        // Creates game with same players
-        //createLobby(testCode, snapshot.val());
-    });
+    console.log(generateRoomCode('', null));
+
 });

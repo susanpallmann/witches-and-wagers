@@ -770,7 +770,7 @@ $(document).ready(function() {
     
     adjustGold('TEST', `${currentPlayer}`, testPay);
 
-    Bets payout
+    //Bets payout
     playerBetPayout('TEST', 'win');
     
 });

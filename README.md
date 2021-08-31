@@ -32,6 +32,8 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
+- [ ] Consider moving some functions to common.js from main.js
+- [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
 - [ ] Create player-side database read/display functions
 - [ ] Address all current code debt (TODOs)

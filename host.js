@@ -325,11 +325,10 @@ function adjustGold(code, player, amount) {
             } else {
                 
                 // Declare them the winner
-                databaseWrite(code, '', {'winner' : player})
+                databaseWrite(code, '', {'winner' : player});
                 
-                // TODO: start victory sequence
                 // Update game phase
-                
+                databaseWrite('TEST', '', {'phase':'won'});
             }
         });
     }
@@ -846,7 +845,7 @@ $(document).ready(function() {
     
     // Player payout post-round success; 5 to test
     currentPlayer = 'Skooz';
-    let testPay = setPlayerPay(15);
+    let testPay = setPlayerPay(5);
     
     adjustGold('TEST', `${currentPlayer}`, testPay);
 

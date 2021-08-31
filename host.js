@@ -58,16 +58,21 @@ function generateMonster() {
     // Initialize variable
     let monster = {};
     
+    // Initializing a strength prefix variable
+    let strengthPrefix;
+    
     // Choosing a random monster type from monsters object (monsters.js)
     let randomMonster = Math.floor(Math.random() * Object.keys(monsters).length) + 1;
-    let monsterData = monsters[randomMonster];
+    
+    // Randomly generating a strength modifier (to multiply the monster's base strength)
+    let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
 
-    // Listing monster attributes as additional variables
-    let monsterName = monsterData.name;
-    let monsterStrength = monsterData.baseStrength;
+    // Store monster data
+    let monsterData = monsters[randomMonster];
+    
+    // Getting monster prefix (like "a" or "the") if it exists, and adding a space if so
     let monsterPrefix = monsterData.prefix;
     
-    // If monster has a prefix (like "a" or "the"), add a space after it
     if (monsterPrefix) {
         monsterPrefix = monsterPrefix + ' ';
         
@@ -75,13 +80,6 @@ function generateMonster() {
     } else {
         monsterPrefix = '';
     }
-    
-    // Randomly generating a strength modifier (to multiply the monster's base strength)
-    let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
-    monsterStrength = Math.round(monsterStrength * generatedStrength);
-    
-    // Initializing a strength prefix variable
-    let strengthPrefix;
     
     // Depending on the strength modifier, choosing a specific prefix
     if (generatedStrength == 0) {
@@ -106,16 +104,13 @@ function generateMonster() {
         strengthPrefix = 'apocolyptic ';
     }
     
-    // Assembling a final form of the monster's name
-    let finalMonsterName = monsterPrefix + strengthPrefix + monsterName;
-    
     // Filling our object with our data
     monster = {
         "attributes" : {
             "appearance" : monsters[randomMonster]
         },
         "monster" : monsterPrefix + strengthPrefix + monsterData.name,
-        "score" : Math.round(monsterStrength * generatedStrength)
+        "score" : Math.round(monsterData.strength * generatedStrength)
     }
     
     // Returns values

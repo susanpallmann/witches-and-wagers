@@ -32,14 +32,14 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Create database write function(s)
+- [X] Create database write function(s)
    - [X] Room code generator
    - [X] Room code empty
    - [X] Monster generator
    - [X] New Players Button
    - [X] Same Players Button
    - [X] Pay Player After Round (logic not planned, empty function for now)
-   - [ ] Bet Payouts
+   - [X] Bet Payouts
    - [X] Update Winner
    - [X] Update Game Phase
    - [X] Update Round Phase
@@ -60,7 +60,12 @@ map, and I will note what to do better for future projects.
   * Made the monster appearance pull from database, when it hadn't before.
   * Cleaned and commented all code from yesterday night (it was less bad than I thought it would be).
   * Created write winner functionality.
-  * 
+  * Created player gold modification functionality.
+     * If gold modification would result in a negative number, sets gold to 0.
+     * Payout can be positive or negative.
+     * Checks if gold amount is the winning value or greater and changes game phase if so.
+  * Created bet payout functionality.
+  * This completes planned database write functions for the host screen.
 
 - [X] 08/30/21 - 08/31/21:
 

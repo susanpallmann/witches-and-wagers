@@ -16,11 +16,16 @@ function generateRoomCode(code) {
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
         // Generate a random number between 0 and 25
-        var tempNum = Math.floor(Math.random() * 25);
+        //var tempNum = Math.floor(Math.random() * 25); DELETE
+        
+        let newLetter = Math.floor(Math.random() * 25);
+        newLetter = String.fromCharCode(65 + newLetter);
+        
         // Convert this new value to an ascii character (uppercase)
-        var tempLetter = String.fromCharCode(65 + tempNum);
+        //var tempLetter = String.fromCharCode(65 + tempNum); DELETE
+        
         // Add the new value to the existing room code
-        roomCode =  code + tempLetter;
+        roomCode =  code + newLetter;
         console.log('room code so far is ' + roomCode);
         // Run this function again to check if the code is complete (length of 4)
         generateRoomCode(roomCode);

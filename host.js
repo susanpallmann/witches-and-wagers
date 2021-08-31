@@ -124,7 +124,7 @@ function generateMonster() {
 
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-function generateRoomCode(code) {
+function generateRoomCode(code, callback) {
     
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -148,7 +148,7 @@ function generateRoomCode(code) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
-        verifyRoomCode(roomCode);
+        callback(roomCode);
     }
     return roomCode;
 }
@@ -165,7 +165,7 @@ function verifyRoomCode(code) {
         if (snapshot.val()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
-            generateRoomCode('');
+            generateRoomCode('', verifyRoomCode);
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {

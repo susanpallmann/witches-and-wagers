@@ -595,6 +595,6 @@ $(document).ready(function() {
     generateMonster();
     
     // Test room code generator
-    generateRoomCode('');
+    //generateRoomCode('');
     generateRoomCode('TEST');
 });

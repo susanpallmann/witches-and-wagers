@@ -1,13 +1,4 @@
 /* ----------------------------------------------------------------------------------------------*/
-/*                    GLOBAL VARIABLES FOR GLOBAL INFORMATION IN THE FRONT-END                   */
-/* ----------------------------------------------------------------------------------------------*/
-
-let players = {};
-let currentPlayer;
-let roomCode;
-let winningAmount = 30;
-
-/* ----------------------------------------------------------------------------------------------*/
 /*           PSEUDO CODE I'M NOT SURE IF I'LL NEED THAT I'M TOO AFRAID TO DELETE YET             */
 /* ----------------------------------------------------------------------------------------------*/
 
@@ -313,70 +304,6 @@ function playerBetPayout(code, outcome) {
 /* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
-
-// Writes to a provided location under the room code a value or set of values
-function databaseWrite(code, path, values) {
-    
-    // Creates database location from parameters
-    let location = firebase.database().ref(code + path);
-    
-    // If values is set to null
-    if (values === null) {
-        
-        // Delete everything at this path
-        location.set(values);
-        
-    // Otherwise
-    } else {
-    
-        // Sets that location to the provided value or values
-        location.update(values);
-    }
-}
-
-// Function to get current gold amount at specified path and add the provided value
-function adjustGold(code, player, amount) {
-    
-    // Grabs directory location
-    let location = firebase.database().ref(code + '/players/' + player + '/gold');
-    
-    // If amount is set to null
-    if (amount === null) {
-        
-        // Delete everything at this path
-        location.set(amount);
-        
-    // Otherwise
-    } else {
-        
-        // Takes ongoing snapshot
-        location.once('value', function(snapshot) {
-            
-            // If this addition is less than 0
-            if (snapshot.val() + amount < 0) {
-                
-                // Sets that location 0
-                location.set(0);
-            
-            // If this addition is less than the amount of gold to win the game
-            } else if (snapshot.val() + amount < winningAmount) {
-                
-                // Sets that location to the provided values added
-                location.set(snapshot.val() + amount);
-                
-            // If someone has won    
-            } else {
-                
-                // Declare them the winner
-                databaseWrite(code, '', {'winner' : player});
-                
-                // Update game phase
-                databaseWrite('TEST', '', {'phase':'won'});
-            }
-        });
-    }
-}
-
 
 /* ----------------------------------------------------------------------------------------------*/
 /*             THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE             */

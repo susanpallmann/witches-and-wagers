@@ -317,7 +317,7 @@ function adjustGold(code, path, amount) {
         // Takes ongoing snapshot
         location.once('value', function(snapshot) {
             
-            console.log(snapshot.val);
+            console.log(snapshot);
         });
         
         // Sets that location to the provided value or values

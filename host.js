@@ -155,7 +155,7 @@ function generateRoomCode(code, currentLocation) {
 // Function to check if the room key passed into it (key) is already an in-session game in the database
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
 // I realize this reads the database but I want to keep it near generateRoomCode function
-function verifyRoomCode(code, players) {
+function verifyRoomCode(code, currentLocation) {
     console.log('this should run second');
     // Checks that specific location in the database and takes a snapshot
     firebase.database().ref(code).once("value", snapshot => {
@@ -164,7 +164,7 @@ function verifyRoomCode(code, players) {
         if (snapshot.exists()) {
             console.log(code + ' exists');
             // Rerun the code generator and try again
-            generateRoomCode('', players);
+            generateRoomCode('', currentLocation);
             
         // If the snapshot doesn't exist, we can set up the lobby
         } else {

@@ -198,7 +198,7 @@ function databaseWrite(code, path, values) {
         location.set(values);
         
     // Otherwise
-    } else
+    } else {
     
         // Sets that location to the provided value or values
         location.update(values);

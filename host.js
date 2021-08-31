@@ -303,10 +303,10 @@ function adjustGold(code, path, amount) {
     let location = firebase.database().ref(code + path);
     
     // If values is set to null
-    if (values === null) {
+    if (amount === null) {
         
         // Delete everything at this path
-        location.set(values);
+        location.set(amount);
         
     // Otherwise
     } else {
@@ -321,7 +321,7 @@ function adjustGold(code, path, amount) {
         });
         
         // Sets that location to the provided value or values
-        //location.update(values);
+        //location.update(amount);
     }
 }
 

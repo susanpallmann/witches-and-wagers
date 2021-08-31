@@ -756,22 +756,22 @@ $(document).ready(function() {
     databaseWrite('TEST', '/round', {'phase':'showAll'});
     
     // New game, new players
-    generateRoomCode('', null);
+    //generateRoomCode('', null);
     
     // New game, existing players
-    generateRoomCode('', 'TEST');
+    //generateRoomCode('', 'TEST');
     
     // Update game winner
     //databaseWrite('TEST', '', {'winner':'UH82CIT'});
     
     // Player payout post-round success; 5 to test
-    currentPlayer = 'Skooz';
-    let testPay = setPlayerPay(5);
+    //currentPlayer = 'Skooz';
+    //let testPay = setPlayerPay(5);
     
-    adjustGold('TEST', `${currentPlayer}`, testPay);
+    //adjustGold('TEST', `${currentPlayer}`, testPay);
 
     //Bets payout
-    playerBetPayout('TEST', 'win');
+    //playerBetPayout('TEST', 'win');
     
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');

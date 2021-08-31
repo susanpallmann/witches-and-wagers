@@ -756,7 +756,7 @@ $(document).ready(function() {
     console.log(createLobby('TEST', null));
     
     // Grabs directory location
-    let location = firebase.database().ref(code + '/players');
+    let location = firebase.database().ref('TEST' + '/players');
     
     // Takes ongoing snapshot
     location.on('value', function(snapshot) {

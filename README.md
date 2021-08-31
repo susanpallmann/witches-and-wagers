@@ -38,7 +38,7 @@ map, and I will note what to do better for future projects.
    - [X] Monster generator
    - [X] New Players Button
    - [X] Same Players Button
-   - [ ] Pay Player After Round
+   - [X] Pay Player After Round (logic not planned, empty function for now)
    - [ ] Bet Payouts
    - [X] Update Winner
    - [X] Update Game Phase

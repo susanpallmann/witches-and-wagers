@@ -751,8 +751,8 @@ $(document).ready(function() {
     // Testing new lobby object generation
     //console.log(createLobby('TEST', null));
     
-    let testCode = generateRoomCode('', verifyRoomCode);
-    console.log(testCode);
+    //let testCode = generateRoomCode('', verifyRoomCode);
+    console.log(generateRoomCode('', verifyRoomCode););
     
     // Grabs directory location
     let location = firebase.database().ref('TEST' + '/players');

@@ -779,8 +779,6 @@ $(document).ready(function() {
     });
     
     // Generate a test monster (TODO)
-    //console.log(generateMonster());
-    //console.log(generateMonster());
     let testMonster = generateMonster();
     databaseWrite('TEST', '/round/currentMonster', testMonster);
     

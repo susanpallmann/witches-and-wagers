@@ -66,11 +66,9 @@ function generateMonster() {
     
     // Randomly generating a strength modifier (to multiply the monster's base strength)
     let generatedStrength = Math.round((Math.random() * (2 - 0) + 0) * 10) / 10;
-    console.log(generatedStrength);
 
     // Store monster data
     let monsterData = monsters[randomMonster];
-    console.log(monsterData);
     
     // Getting monster prefix (like "a" or "the") if it exists, and adding a space if so
     let monsterPrefix = monsterData.prefix;
@@ -106,11 +104,10 @@ function generateMonster() {
         strengthPrefix = 'apocolyptic ';
     }
     
-    console.log(Math.round(monsterData.strength * generatedStrength));
     // Filling our object with our data
     monster = {
         "attributes" : {
-            "appearance" : monsters[randomMonster]
+            "appearance" : randomMonster
         },
         "monster" : monsterPrefix + strengthPrefix + monsterData.name,
         "score" : Math.round(monsterData.baseStrength * generatedStrength)

@@ -191,8 +191,18 @@ function databaseWrite(code, path, values) {
     // Creates database location from parameters
     let location = firebase.database().ref(code + path);
     
-    // Sets that location to the provided value or values
-    location.update(values);
+    // If values is set to null
+    if (values === null) {
+        
+        // Delete everything at this path
+        location.set(values);
+        
+    // Otherwise
+    } else
+    
+        // Sets that location to the provided value or values
+        location.update(values);
+    }
 }
 
 /* ----------------------------------------------------------------------------------------------*/
@@ -696,5 +706,5 @@ $(document).ready(function() {
     generateRoomCode('TEST');
     
     // Test erase data
-    databaseWrite('TEST', '', {null});
+    databaseWrite('TEST', '', null);
 });

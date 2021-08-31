@@ -32,7 +32,7 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-- [ ] Clean and comment all code from yesterday night (because it's a mess).
+- [ ] Clean and comment all code from yesterday night (less bad than I thought it would be).
 - [ ] Create database write function(s)
    - [X] Room code generator (doesn't create room yet)
    - [X] Room code empty

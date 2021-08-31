@@ -112,10 +112,10 @@ function generateMonster() {
     // Filling our object with our data
     monster = {
         "attributes" : {
-            "appearance" : randomMonster
+            "appearance" : monsters[randomMonster]
         },
-        "monster" : finalMonsterName,
-        "score" : monsterStrength
+        "monster" : monsterPrefix + strengthPrefix + monsterData.name,
+        "score" : Math.round(monsterStrength * generatedStrength)
     }
     
     // Returns values

@@ -361,3 +361,47 @@ function adjustGold(code, player, amount) {
         });
     }
 }
+
+/* ----------------------------------------------------------------------------------------------*/
+/*                                 GAME CONTROLLER FUNCTIONS                                     */
+/* ----------------------------------------------------------------------------------------------*/
+
+// Update Display Game Phase
+// TODO: more in depth commenting on what this shows on each screen/user segment per phase
+function updateGamePhase(newPhase) {
+    switch (newPhase) {
+            
+        // If title, show title sequence until CTA
+        case 'title':
+            break;
+            
+        // If setup, show setup screen (lobby join)
+        case 'setup':
+            break;
+            
+        // If tutorial, run tutorial sequence
+        case 'tutorial':
+            break;
+            
+        // If play, initiate play sequence (play has its own phase controller)
+        case 'play':
+            break;
+            
+        // If won, run victory sequence
+        case 'won':
+            break;
+            
+        // If outro, show credits and options to play again
+        case 'outro':
+            break;
+            
+        // Only for testing purposes, shows all at the same time
+        case 'showAll':
+            break;
+            
+        // Errors or if all else fails
+        case 'error':
+        default:
+            break;
+    }
+}

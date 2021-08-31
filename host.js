@@ -124,7 +124,7 @@ function generateMonster() {
 
 // Recursive function to check if the room code is complete and generate random letters if not
 // Sorry for commenting inconsistencies; this code is from one of my previous attempts at this game
-function generateRoomCode(code, players) {
+function generateRoomCode(code, currentLocation) {
     console.log('this should run first');
     // If the string isn't yet 4 characters long
     if (code.length < 4) {
@@ -138,7 +138,7 @@ function generateRoomCode(code, players) {
         roomCode =  code + newLetter;
 
         // Run this function again to check if the code is complete now (length of 4)
-        generateRoomCode(roomCode, players);
+        generateRoomCode(roomCode, currentLocation);
         
     // If the string is 4 characters
     } else {
@@ -148,7 +148,7 @@ function generateRoomCode(code, players) {
         
         // End recursion
         // Passes the 4-digit code into the verifyRoomCode function
-        verifyRoomCode(roomCode, players);
+        verifyRoomCode(roomCode, currentLocation);
     }
 }
 
@@ -172,15 +172,20 @@ function verifyRoomCode(code, players) {
             // TODO generate lobby here; keeping console log until I need this to actually work
             console.log(code + ' does not exist in DB, make lobby');
             
+            if (currentLocation === null) {
+                
+                createLobby(code, currentLocation);
+            } else {
             
-            // Grabs directory location
-            let location = firebase.database().ref('TEST' + '/players');
-    
-            // Takes ongoing snapshot
-            location.on('value', function(snapshot) {
-                // Creates game with same players
-                createLobby(code, snapshot.val());
-            });
+                // Grabs directory location
+                let location = firebase.database().ref(currentLocation + '/players');
+
+                // Takes ongoing snapshot
+                location.on('value', function(snapshot) {
+                    // Creates game with same players
+                    createLobby(code, snapshot.val());
+                });
+            }
         }
     });
 }
@@ -762,5 +767,6 @@ $(document).ready(function() {
     
     //let testCode = generateRoomCode('', verifyRoomCode);
     console.log(generateRoomCode('', null));
+    console.log(generateRoomCode('', 'TEST'));
 
 });

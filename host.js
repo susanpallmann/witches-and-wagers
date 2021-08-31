@@ -177,7 +177,7 @@ function verifyRoomCode(code) {
 
 // Creates a new lobby with either new or existing players, returns values to send to database
     function createLobby(code, existPlayers) {
-        let newGame;
+        let newGame = {};
         let newDeck = {};
         let playerData = {};
         let trackerPlaceholder = null;

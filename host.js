@@ -178,14 +178,7 @@ function verifyRoomCode(code) {
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
 
-// Function to populate database with a test data set
-// Also a decent model for future database write functions
-function setTestData(data) {
-    let location = firebase.database().ref('TEST');
-    location.update(data);
-}
-
-// Writes to a provided location under the room code a set of values, expecting an object
+// Writes to a provided location under the room code a value or set of values
 function databaseWrite(code, path, values) {
     
     // Creates database location from parameters
@@ -660,8 +653,6 @@ function updateGamePhase(newPhase) {
 // When document loads
 $(document).ready(function() {
     
-    // Initializing a variable to store player names and avatars to the front-end rather
-    // than rereading the database all the time
     // For now calls all of the "starter" functions just for testing. Going to also write
     // a little about when these should be called in the end
     // TODO: Call when setup phase begins
@@ -705,8 +696,8 @@ $(document).ready(function() {
     //generateRoomCode('');
     generateRoomCode('TEST');
     
-    // Test erase data
-    databaseWrite('TEST', '', null);
-    databaseWrite('TEST', '', TEST);
+    // Update game phase
+    databaseWrite('TEST', '/phase', 'test');
+    databaseWrite('TEST', '/phase', 'showAll');
     
 });

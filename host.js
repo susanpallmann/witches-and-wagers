@@ -762,6 +762,10 @@ $(document).ready(function() {
     // Update game phase
     databaseWrite('TEST', '', {'phase':'showAll'});
     
+    // Update game phase
+    databaseWrite('TEST', '/round', {'phase':'test'});
+    databaseWrite('TEST', '/round', {'phase':'showAll'});
+    
     // New game, new players
     generateRoomCode('', null));
     

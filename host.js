@@ -399,11 +399,12 @@ function displayPlayerStats(code) {
         'pessimist' : 0
     };
     
-    // Saves actual user each score belongs to, starts empty
+    // Saves actual user each score belongs to, starts with first player in the players array
+    let randomPlayer = Object.keys(players)[0];
     let playerStats = {
-        'coward' : '',
-        'optimist' : '',
-        'pessimist' : ''
+        'coward' : randomPlayer,
+        'optimist' : randomPlayer,
+        'pessimist' : randomPlayer
     };
     
     // Takes a snapshot one time (this information won't update visually)

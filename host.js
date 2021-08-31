@@ -193,8 +193,8 @@ function verifyRoomCode(code) {
             for (let player in existPlayers) {
                 let thisPlayerData = existPlayers[player];
                 playerData[player] = {
-                    'VIP' = thisPlayerData.VIP,
-                    'counts' = {
+                    'VIP' : thisPlayerData.VIP,
+                    'counts' : {
                         'coward' : 0,
                         'optimist' : 0,
                         'pessimist' : 0

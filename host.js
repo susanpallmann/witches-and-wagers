@@ -150,6 +150,7 @@ function generateRoomCode(code) {
         // Passes the 4-digit code into the verifyRoomCode function
         verifyRoomCode(roomCode);
     }
+    return roomCode;
 }
 
 // Function to check if the room key passed into it (key) is already an in-session game in the database

@@ -186,7 +186,7 @@ function verifyRoomCode(code) {
             newDeck[i] = i;
         }
         
-        if (players === null) {
+        if (existPlayers === null) {
             newGame['phase'] = 'setup';
         } else {
             newGame['phase'] = 'tutorial';

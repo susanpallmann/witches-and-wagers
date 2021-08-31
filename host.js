@@ -48,8 +48,8 @@ function verifyRoomCode(code) {
         } else {
             // Calls function lobbySetup
             // TODO
-            return false;
             console.log(code + ' does not exist in DB, make lobby');
+            return false;
         }
     });
 }

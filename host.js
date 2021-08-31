@@ -43,7 +43,7 @@ function verifyRoomCode(code) {
         // If the snapshot exists already
         if (snapshot.exists()) {
             // Rerun the code generator and try again
-            generateRoomCode();
+            generateRoomCode('');
             return true;
         // If the snapshot doesn't exist, we can set up the lobby
         } else {

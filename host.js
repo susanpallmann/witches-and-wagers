@@ -796,7 +796,6 @@ $(document).ready(function() {
     
     // Update game winnter
     databaseWrite('TEST', '', {'winner':'UH82CIT'});
-    databaseWrite('TEST', '', {'winner': null});
 
 });
 // test

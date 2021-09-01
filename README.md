@@ -71,7 +71,8 @@ map, and I will note what to do better for future projects.
   * Added functionality for card animation to update the actor's score.
   * Somehow accidentally created recursion that's breaking everything and crashing the browser.
   * Fixed the recursion issue. Cards now update actor scores in the database.
-  * Created logic to write a warning to the current player based on bets. Need to update DB next.
+  * Created logic to write a warning to the current player based on bets. Need to make it update DB next.
+  * Fixed issue where player cards were breaking in animation (caused by database and function restructuring).
 
 - [X] 08/31/21:
 

@@ -695,10 +695,9 @@ function loadCardDisplay(code, creator) {
             let label = childSnapshot.key;
             let senders = childSnapshot.val();
             console.log(senders);
+            let cardsArray = [];
             for (let sender in senders) {
-                let cardsArray = [];
-                cardsArray = Object.keys(senders[sender]);
-                console.log(cardsArray)
+                cardsArray.push(Object.keys(senders[sender]));
                 values[label] = cardsArray;
             }
         });

@@ -698,10 +698,11 @@ function loadCardDisplay(code, creator) {
             for (let sender in senders) {
                 let cardsArray = [];
                 cardsArray = Object.keys(senders[sender]);
+                console.log(cardsArray)
                 values[label] = cardsArray;
             }
         });
-        
+        console.log(values);
         // Sends values object to queue for animation
         queueCards(values, creator);
     });

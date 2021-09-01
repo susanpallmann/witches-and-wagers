@@ -693,10 +693,12 @@ function loadCardDisplay(code, creator) {
             
             // Save some information to variables
             let label = childSnapshot.key;
-            let cards = childSnapshot.val();
-            let cardsArray = [];
-            cardsArray = Object.keys(cards);
-            values[label] = cardsArray;
+            let senders = childSnapshot.val();
+            for (let sender in senders) {
+                let cardsArray = [];
+                cardsArray = Object.keys(sender);
+                values[label] = cardsArray;
+            }
         });
         
         // Sends values object to queue for animation

@@ -319,16 +319,17 @@ function generateBetMessage(code) {
         let message;
         
         // Sets message based on number of wagers in each category
-        if (Object.keys(pass).length === numberPlayers) {
+        // Number of players is reduced by one because the current player cannot bet on themselves
+        if (Object.keys(pass).length === numberPlayers - 1) {
             message = "Nobody bet on this round.";
             
-        } else if (Object.keys(win).length === numberPlayers) {
+        } else if (Object.keys(win).length === numberPlayers - 1) {
             message = "Everyone believes in you."
             
-        } else if (Object.keys(loss).length === numberPlayers) {
+        } else if (Object.keys(loss).length === numberPlayers - 1) {
             message = "Everyone's betting against you.";
             
-        } else if (Object.keys(flee).length === numberPlayers) {
+        } else if (Object.keys(flee).length === numberPlayers - 1) {
             message = "Everyone thinks you're a coward."
             
         } else if (Object.keys(win).length > Object.keys(loss).length && Object.keys(win).length > Object.keys(flee).length) {

@@ -393,6 +393,8 @@ function removePlayer(code, playerName) {
     // If player is currentPlayer, end round, give people their items back
     // Find next player, start their turn
     
+    // Return avatar to available avatars
+    
     // Deletes player under "players" in database
     databaseWrite(code, '/players/', {'Skooz': null});   
 }

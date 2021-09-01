@@ -751,6 +751,7 @@ function loadCardDisplay(code, creator) {
             // Save some information to variables
             let label = childSnapshot.key;
             let senders = childSnapshot.val();
+            console.log(senders);
             let cardsArray = [];
             
             // For each player who played a card towards this actor

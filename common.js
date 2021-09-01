@@ -304,6 +304,9 @@ let TEST = {
         }
     },
     
+    // Warning, or message to the current player following the betting phase of the round
+    "warning" : "Most of your friends believe in you!",
+    
     // Winner, if one exists
     "winner" : "UH82CIT"
 };

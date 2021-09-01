@@ -8,6 +8,14 @@
 // exported directly from Firebase - it would normally be structured more intuitively.
 let TEST = {
     
+    // Stores which avatars are available
+    "avatars" : {
+        "7" : 7,
+        "8" : 8,
+        "9" : 9,
+        "10" : 10
+    },
+    
     // Stores which cards are not in any player's hand, lists cards by ID
     "deck" : {
         "45" : 45
@@ -43,7 +51,7 @@ let TEST = {
                 "optimist" : 1,
                 
                 // Number of bets against a person
-                "pessimist" : 2
+                "pessimist" : 2,
             },
             
             // Amount of gold
@@ -60,7 +68,10 @@ let TEST = {
             // Weapon currently equipped to this player, lists cards by ID
             "weapon" : {
                 "35" : 35
-            }
+            },
+            
+            // Current comment
+            "comment" : "I've got this!"
         },
         "Jules" : {
             "VIP" : "no",
@@ -82,7 +93,8 @@ let TEST = {
             },
             "weapon" : {
                 "43" : 43
-            }
+            },
+            "comment" : "I've got this!"
         },
         "Magpie" : {
             "VIP" : "no",
@@ -104,7 +116,8 @@ let TEST = {
             },
             "weapon" : {
                 "41" : 41
-            }
+            },
+            "comment" : "I've got this!"
         },
         "Skooz" : {
             "VIP" : "yes",
@@ -126,7 +139,8 @@ let TEST = {
             },
             "weapon" : {
                 "33" : 33
-            }
+            },
+            "comment" : "I've got this!"
         },
         "Tangerine" : {
             "VIP" : "no",
@@ -148,7 +162,8 @@ let TEST = {
             },
             "weapon" : {
                 "37" : 37
-            }
+            },
+            "comment" : "I've got this!"
         },
         "UH82CIT" : {
             "VIP" : "no",
@@ -170,7 +185,8 @@ let TEST = {
             },
             "weapon" : {
                 "39" : 39
-            }
+            },
+            "comment" : "I've got this!"
       }
     },
     

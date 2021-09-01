@@ -35,6 +35,7 @@ map, and I will note what to do better for future projects.
 ## To Do
 **Host**
 - [ ] Determine/send warning message
+- [ ] Manage play order
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
 

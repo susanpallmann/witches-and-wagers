@@ -62,7 +62,11 @@ map, and I will note what to do better for future projects.
 
 - [X] 09/01/21:
 
-  * .
+  * Resolved two database-specific issues.
+  * Added available avatars to database.
+  * Added comments to users in database.
+  * Refactored card animation functions to account for new structure.
+  * Expanded delete player pseudocode.
 
 - [X] 08/31/21:
 

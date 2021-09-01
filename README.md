@@ -70,7 +70,7 @@ map, and I will note what to do better for future projects.
   * Changed actor score update function back to on from once (realized this was necessary).
   * Added functionality for card animation to update the actor's score.
   * Somehow accidentally created recursion that's breaking everything and crashing the browser.
-  * Fixed the recursion issue. Firebase is pissed.
+  * Fixed the recursion issue. Cards now update actor scores in the database.
 
 - [X] 08/31/21:
 

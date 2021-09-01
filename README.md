@@ -69,6 +69,8 @@ map, and I will note what to do better for future projects.
   * Refactored card animation functions to account for new structure.
   * Expanded delete player pseudocode.
   * Added player warning message to database structure (wasn't an issue).
+  * Changed actor score update function back to on from once (realized this was necessary).
+  * Added functionality for card animation to update the actor's score.
 
 - [X] 08/31/21:
 

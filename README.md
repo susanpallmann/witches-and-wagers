@@ -71,6 +71,7 @@ map, and I will note what to do better for future projects.
   * Added player warning message to database structure (wasn't an issue).
   * Changed actor score update function back to on from once (realized this was necessary).
   * Added functionality for card animation to update the actor's score.
+  * Somehow accidentally created recursion that's breaking everything and crashing the browser.
 
 - [X] 08/31/21:
 

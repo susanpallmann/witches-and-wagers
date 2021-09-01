@@ -345,6 +345,7 @@ function generateBetMessage(code) {
             message = "The room's divided! Good luck!"
         }
         console.log(message);
+        databaseWrite(code, '', {'warning' : message});
     });
 }
 

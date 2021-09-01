@@ -200,13 +200,19 @@ let TEST = {
             
             // Items used on monster, by ID
             "monster" : {
-                "7" : 7
+                "Tangerine" : {
+                    "7" : 7
+                }
             },
             
             // Items used on player, by ID
             "player" : {
-                "5" : 5,
-                "6" : 6
+                "Auben" : {
+                    "5" : 5
+                },
+                "UH82CIT" : {
+                    "6" : 6
+                }
             }
         },
         

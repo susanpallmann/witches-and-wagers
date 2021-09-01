@@ -67,6 +67,7 @@ map, and I will note what to do better for future projects.
   * Added comments to users in database.
   * Refactored card animation functions to account for new structure.
   * Expanded delete player pseudocode.
+  * Added player warning message to database structure (wasn't an issue).
 
 - [X] 08/31/21:
 

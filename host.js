@@ -840,4 +840,3 @@ $(document).ready(function() {
     // TODO: Generates message based on wagers
     generateBetMessage('TEST');
 });
-// I miss you every day

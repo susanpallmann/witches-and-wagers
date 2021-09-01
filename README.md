@@ -9,6 +9,10 @@ A backstabbing dungeon-themed party game.
 - [X] (Do all read/do all write/selectively hide after) was definitely a good organization approach
 
 
+**Personal Failings**
+- [X] This project has gone 0 days without server-side recursion issues.
+
+
 **On Issues**
 
 I now recognize that the "Dev Diary" would have been better served as a series of Issues. However, I do not want to

@@ -645,7 +645,7 @@ function clearCardsDom(location) {
 }
 
 // Animates cards as they show up during specific parts of a round, queued by queueCards()
-function createCardDom(location, cardInfo) {
+function createCardDom(code, location, cardInfo) {
     
     // Pulling out some information from cardInfo
     let number = cardInfo.number;
@@ -654,15 +654,21 @@ function createCardDom(location, cardInfo) {
     // Finds the requested card in our deck object (see deck.js)
     let cardLookup = deck[number];
     
-    // Looks up sprite from deck object
+    // Looks up sprite and score modifier from deck object
     let cardSprite = cardLookup.sprite;
+    let cardAmount = cardLookup.effect;
     
     // Determines direction to animate based on if the card affects the player or monster
     let fadeDirection;
+    
+    // Determines which directory to update in the database (ugly but oh well)
+    let dataLocation;
     if (assigned === "player") {
         fadeDirection = 0;
+        dataLocation = "currentPlayer";
     } else {
         fadeDirection = 80;
+        dataLocation = "currentMonster";
     }
     
     // Appends card and animates effect
@@ -680,12 +686,13 @@ function createCardDom(location, cardInfo) {
             left: fadeDirection + '%',
         }, 200)
     .fadeOut(0);
+    updateActorScore(code, dataLocation, cardAmount)
 }
 
 // Queues cards given an object containing cards and who played the card (audience or player)
 // Note this does not assign the literal player who played the card because this information is
 // not needed for this animation
-function queueCards(values, creator) {
+function queueCards(code, values, creator) {
     let monster = values.monster;
     let player = values.player;
     let location;
@@ -713,7 +720,7 @@ function queueCards(values, creator) {
             $('#' + location).delay(1200).queue(function() {
                 
                 // Create a card in the determined location with a number and actor
-                createCardDom($('#' + location),{'number' : thisCardsArray[i], 
+                createCardDom(code, $('#' + location),{'number' : thisCardsArray[i], 
                                                  'assigned' : thisActor});
                 $.dequeue(this);
             });
@@ -754,7 +761,7 @@ function loadCardDisplay(code, creator) {
         });
 
         // Sends values object to queue for animation
-        queueCards(values, creator);
+        queueCards(code, values, creator);
     });
 }
 

@@ -653,7 +653,6 @@ function createCardDom(code, location, cardInfo) {
     
     // Finds the requested card in our deck object (see deck.js)
     let cardLookup = deck[number];
-    console.log(number);
     
     // Looks up sprite and score modifier from deck object
     let cardSprite = cardLookup.sprite;
@@ -757,8 +756,12 @@ function loadCardDisplay(code, creator) {
             // For each player who played a card towards this actor
             for (let sender in senders) {
                 
-                // Add to array for cards towards this actor
-                cardsArray.push(Object.keys(senders[sender]));
+                if (creator = "audienceItems") {
+                    // Add to array for cards towards this actor
+                    cardsArray.push(Object.keys(senders[sender]));
+                } else {
+                    cardsArray.push(senders[sender]);
+                }
             }
             
             // Add to values we're sending on to queueCards

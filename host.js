@@ -653,7 +653,7 @@ function createCardDom(code, location, cardInfo) {
     
     // Finds the requested card in our deck object (see deck.js)
     let cardLookup = deck[number];
-    console.log(cardLookup);
+    console.log(number);
     
     // Looks up sprite and score modifier from deck object
     let cardSprite = cardLookup.sprite;

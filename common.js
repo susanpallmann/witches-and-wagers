@@ -342,7 +342,7 @@ function updateActorScore(code, actor, amount) {
             } else {
                 
                 // Adjusts the score
-                location.update({'score' : snapshot.val() + amount});
+                location.set(snapshot.val() + amount);
             }
     });
 }

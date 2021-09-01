@@ -840,3 +840,4 @@ $(document).ready(function() {
     // TODO: Generates message based on wagers
     generateBetMessage('TEST');
 });
+// what the heckkk

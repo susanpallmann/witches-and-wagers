@@ -756,7 +756,7 @@ function loadCardDisplay(code, creator) {
             // For each player who played a card towards this actor
             for (let sender in senders) {
                 
-                if (creator = "audienceItems") {
+                if (creator == "audienceItems") {
                     // Add to array for cards towards this actor
                     cardsArray.push(Object.keys(senders[sender]));
                 } else {

@@ -302,6 +302,51 @@ function playerBetPayout(code, outcome) {
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
 
+// Function to check existing bets and create a message that will be sent to the current player
+function generateBetMessage(code) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/bets');
+    
+    // Take an ongoing snapshot to allow for continuous updates
+    location.on('value', function(snapshot) {
+        let bets = snapshot.val();
+        let win = bets.win;
+        let loss = bets.loss;
+        let flee = bets.flee;
+        let pass = bets.pass;
+        let numberPlayers = Object.keys(players).length;
+        let message;
+        
+        // Sets message based on number of wagers in each category
+        if (Object.keys(pass).length === numberPlayers) {
+            message = "Nobody bet on this round.";
+            
+        } else if (Object.keys(win).length === numberPlayers) {
+            message = "Everyone believes in you."
+            
+        } else if (Object.keys(loss).length === numberPlayers) {
+            message = "Everyone's betting against you.";
+            
+        } else if (Object.keys(flee).length === numberPlayers) {
+            message = "Everyone thinks you're a coward."
+            
+        } else if (Object.keys(win).length > Object.keys(loss).length && Object.keys(win).length > Object.keys(flee).length) {
+            message = "Most people believe in you."
+            
+        } else if (Object.keys(loss).length > Object.keys(win).length && Object.keys(loss).length > Object.keys(flee).length) {
+            message = "Most people are betting against you."
+            
+        } else if (Object.keys(flee).length > Object.keys(win).length && Object.keys(flee).length > Object.keys(loss).length) {
+            message = "Most people think you're a coward."
+            
+        } else {
+            message = "The room's divided! Good luck!"
+        }
+        console.log(message);
+    });
+}
+
 /* ----------------------------------------------------------------------------------------------*/
 /*             THE BELOW DEALS WITH UPDATING THE GAME DISPLAY & READING THE DATABASE             */
 /* ----------------------------------------------------------------------------------------------*/
@@ -781,5 +826,7 @@ $(document).ready(function() {
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');
     
+    // TODO: Generates message based on wagers
+    generateBetMessage('TEST');
 });
 // I miss you every day

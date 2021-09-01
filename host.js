@@ -436,7 +436,7 @@ function displayActorScores(code) {
     let location = firebase.database().ref(code + '/round/');
     
     // Takes ongoing snapshot
-    location.once('value', function(snapshot) {
+    location.on('value', function(snapshot) {
         
         // Stores information about the current round
         let round = snapshot.val();

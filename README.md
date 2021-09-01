@@ -34,6 +34,7 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
+- [ ] Determine/send warning message
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
 
@@ -58,6 +59,10 @@ map, and I will note what to do better for future projects.
 - [ ] Animate everything better
 
 ## Dev Diary
+
+- [X] 09/01/21:
+
+  * .
 
 - [X] 08/31/21:
 

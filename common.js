@@ -324,6 +324,29 @@ let winningAmount = 30;
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
 
+// Function to update scores on the scene
+function updateActorScore(code, actor, amount) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/' + actor + '/score');
+    
+    // Takes ongoing snapshot
+    location.once('value', function(snapshot) {
+        
+        // If this addition is less than 0
+            if (snapshot.val() + amount < 0) {
+                
+                // Sets that location 0
+                location.set(0);
+                
+            // Otherwise
+            } else {
+                
+                // Adjusts the score
+                location.update({'score' : snapshot.val() + amount});
+            }
+    });
+}
+
 // Writes to a provided location under the room code a value or set of values
 function databaseWrite(code, path, values) {
     

@@ -3,15 +3,9 @@ A backstabbing dungeon-themed party game.
 
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
-
 **Personal Achievements**
 - [X] Successfully coded for 12 consecutive days (excluding vacation) without burning out
 - [X] (Do all read/do all write/selectively hide after) was definitely a good organization approach
-
-
-**Personal Failings**
-- [X] This project has gone 0 days without server-side recursion issues.
-
 
 **On Issues**
 
@@ -76,6 +70,7 @@ map, and I will note what to do better for future projects.
   * Changed actor score update function back to on from once (realized this was necessary).
   * Added functionality for card animation to update the actor's score.
   * Somehow accidentally created recursion that's breaking everything and crashing the browser.
+  * Fixed the recursion issue. Firebase is pissed.
 
 - [X] 08/31/21:
 

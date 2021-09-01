@@ -721,8 +721,8 @@ $(document).ready(function() {
     // TODO: Call during the scoreboard phase of the play phase
     displayScoreboard('TEST');
     
-    //loadCardDisplay('TEST', 'audienceItems');
-    loadCardDisplay('TEST', 'playerItems');
+    loadCardDisplay('TEST', 'audienceItems');
+    //loadCardDisplay('TEST', 'playerItems');
     
     // TODO: Call during play phase when fight is introduced
     displayActorScores('TEST');

@@ -685,8 +685,11 @@ function createCardDom(code, location, cardInfo) {
             opacity: 0,
             left: fadeDirection + '%',
         }, 200)
-    .fadeOut(0);
-    updateActorScore(code, dataLocation, cardAmount);
+    .fadeOut(0)
+    .queue(function() {
+        updateActorScore(code, dataLocation, cardAmount);
+        $.dequeue(this);
+    });
 }
 
 // Queues cards given an object containing cards and who played the card (audience or player)

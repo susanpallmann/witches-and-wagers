@@ -694,14 +694,19 @@ function loadCardDisplay(code, creator) {
             // Save some information to variables
             let label = childSnapshot.key;
             let senders = childSnapshot.val();
-            console.log(senders);
             let cardsArray = [];
+            
+            // For each player who played a card towards this actor
             for (let sender in senders) {
+                
+                // Add to array for cards towards this actor
                 cardsArray.push(Object.keys(senders[sender]));
-                values[label] = cardsArray;
             }
+            
+            // Add to values we're sending on to queueCards
+            values[label] = cardsArray;
         });
-        console.log(values);
+
         // Sends values object to queue for animation
         queueCards(values, creator);
     });

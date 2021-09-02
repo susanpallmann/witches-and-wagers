@@ -441,7 +441,7 @@ function updateCurrentPlayer(code) {
         // If snapshot exists (if there exists a current player)
         if (snapshot.val()) {
             
-            console.log(snapshot.val());
+            console.log(snapshot.val().player);
         // If no current player exists
         } else {
             

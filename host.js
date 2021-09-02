@@ -845,7 +845,7 @@ $(document).ready(function() {
     // TODO: Generates message based on wagers
     generateBetMessage('TEST');
     
-    updateCurrentPlayer('TEST');
-    updateCurrentPlayer('TESU');
+    // Cycles to next player
+    //updateCurrentPlayer('TEST');
 });
 // I miss you every day

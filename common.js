@@ -443,8 +443,12 @@ function updateCurrentPlayer(code) {
             
             console.log(snapshot.val().player);
             let position = Object.keys(players).indexOf(snapshot.val().player);
-            console.log(position);
-            console.log(Object.keys(players)[position]);
+            let length = Object.keys(players).length;
+            if (position == length) {
+                console.log('next is ' + Object.keys(players)[0]);
+            } else {
+                console.log('next is ' + Object.keys(players)[position + 1]);
+            }
             
         // If no current player exists
         } else {

@@ -57,7 +57,7 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
-- [X] 09/02/21"
+- [X] 09/02/21:
 
   * Created function to advance to the next current player in play order.
   * Modified score/gold updating functions to account for the possibility that no data exists.

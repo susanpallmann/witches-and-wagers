@@ -444,7 +444,7 @@ function updateCurrentPlayer(code) {
             console.log(snapshot.val().player);
             let position = Object.keys(players).indexOf(snapshot.val().player);
             console.log(position);
-            console.log(Object.keys(players)[position];
+            console.log(Object.keys(players)[position]);
             
         // If no current player exists
         } else {

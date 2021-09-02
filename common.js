@@ -332,18 +332,30 @@ function updateActorScore(code, actor, amount) {
     // Takes ongoing snapshot
     location.once('value', function(snapshot) {
         
+        // If snapshot does not exist and amount is less than 0
+        if (!snapshot.val() && amount < 0) {
+
+            // Sets that location 0
+            location.set(0);
+
+        // If snapshot does not exist and amount is 0 or more
+        } else if (!snapshot.val()) {
+
+            // Set location to amount
+            location.set(amount);
+            
         // If this addition is less than 0
-            if (snapshot.val() + amount < 0) {
-                
-                // Sets that location 0
-                location.set(0);
-                
-            // Otherwise
-            } else {
-                
-                // Adjusts the score
-                location.set(snapshot.val() + amount);
-            }
+        } else if (snapshot.val() + amount < 0) {
+
+            // Sets that location 0
+            location.set(0);
+
+        // Otherwise
+        } else {
+
+            // Adjusts the score
+            location.set(snapshot.val() + amount);
+        }
     });
 }
 
@@ -385,8 +397,20 @@ function adjustGold(code, player, amount) {
         // Takes a snapshot
         location.once('value', function(snapshot) {
             
+            // If snapshot does not exist and amount is less than 0
+            if (!snapshot.val() && amount < 0) {
+                
+                // Sets that location 0
+                location.set(0);
+                
+            // If snapshot does not exist and amount is 0 or more
+            } else if (!snapshot.val()) {
+                
+                // Set location to amount
+                location.set(amount);
+            
             // If this addition is less than 0
-            if (snapshot.val() + amount < 0) {
+            } else if (snapshot.val() + amount < 0) {
                 
                 // Sets that location 0
                 location.set(0);

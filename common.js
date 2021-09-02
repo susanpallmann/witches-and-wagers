@@ -445,7 +445,7 @@ function updateCurrentPlayer(code) {
         // If no current player exists
         } else {
             
-            console.log(players[0]);
+            console.log(Object.keys(players)[0];);
         }
     });
 }

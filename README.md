@@ -73,6 +73,7 @@ map, and I will note what to do better for future projects.
   * Fixed the recursion issue. Cards now update actor scores in the database.
   * Created logic to write a warning to the current player based on bets. Need to make it update DB next.
   * Fixed issue where player cards were breaking in animation (caused by database and function restructuring).
+  * Experimented with drawing avatars; not sure if final design though.
 
 - [X] 08/31/21:
 

@@ -845,5 +845,8 @@ $(document).ready(function() {
     
     // TODO: Generates message based on wagers
     generateBetMessage('TEST');
+    
+    updateCurrentPlayer('TEST');
+    updateCurrentPlayer('TESU');
 });
 // what the heckkk

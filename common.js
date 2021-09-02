@@ -446,26 +446,25 @@ function updateCurrentPlayer(code) {
             
             // Get length of players
             let length = Object.keys(players).length;
-            console.log(length);
             
             // If player is last in players
             if (position == length) {
                 
                 // Start from beginning of players
-                console.log('next is ' + Object.keys(players)[0]);
+                location.set({'player' : Object.keys(players)[0]});
                 
             // Otherwise
             } else {
                 
                 // Choose the next player in players
-                console.log('next is ' + Object.keys(players)[position + 1]);
+                location.set({'player' : Object.keys(players)[position + 1]});
             }
             
         // If no current player exists
         } else {
             
             // Start from beginning of players
-            console.log(Object.keys(players)[0]);
+            location.set({'player' : Object.keys(players)[0]});
         }
     });
 }

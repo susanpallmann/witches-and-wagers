@@ -382,7 +382,7 @@ function adjustGold(code, player, amount) {
     // Otherwise
     } else {
         
-        // Takes ongoing snapshot
+        // Takes a snapshot
         location.once('value', function(snapshot) {
             
             // If this addition is less than 0
@@ -429,6 +429,25 @@ function removePlayer(code, playerName) {
     
     // Deletes player under "players" in database
     databaseWrite(code, '/players/', {'Skooz': null});   
+}
+
+function updateCurrentPlayer(code) {
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/currentPlayer');
+        
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        
+        // If snapshot exists (if there exists a current player)
+        if (snapshot.val()) {
+            
+            console.log(snapshot.val());
+        // If no current player exists
+        } else {
+            
+            console.log(players[0]);
+        }
+    });
 }
 
 /* ----------------------------------------------------------------------------------------------*/

@@ -32,7 +32,6 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [ ] Manage play order
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
 
@@ -57,6 +56,11 @@ map, and I will note what to do better for future projects.
 - [ ] Animate everything better
 
 ## Dev Diary
+
+- [X] 09/02/21"
+
+  * Created function to advance to the next current player in play order.
+  * Modified score/gold updating functions to account for the possibility that no data exists.
 
 - [X] 09/01/21:
 

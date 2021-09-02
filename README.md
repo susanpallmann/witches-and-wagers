@@ -32,7 +32,6 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [ ] Determine/send warning message
 - [ ] Manage play order
 - [ ] Address all current code debt (TODOs)
 - [ ] Create non-database front-end functions (things like timers)
@@ -71,7 +70,7 @@ map, and I will note what to do better for future projects.
   * Added functionality for card animation to update the actor's score.
   * Somehow accidentally created recursion that's breaking everything and crashing the browser.
   * Fixed the recursion issue. Cards now update actor scores in the database.
-  * Created logic to write a warning to the current player based on bets. Need to make it update DB next.
+  * Created logic to write a warning to the current player based on bets.
   * Fixed issue where player cards were breaking in animation (caused by database and function restructuring).
   * Experimented with drawing avatars; not sure if final design though.
 

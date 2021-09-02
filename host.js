@@ -453,7 +453,7 @@ function displayActorScores(code) {
         updateDomText($('#monster .score'), monster.score);
         updateDomText($('#player .score'), player.score);
         $('#monster .image').css('background-image', `url('monsters/${monsterAtt.appearance}.gif')`);
-        $('#monster .image').css('background-image', `url('avatars/full-body/cat.png')`);
+        $('#player .image').css('background-image', `url('avatars/full-body/cat.png')`);
     });
 }
 

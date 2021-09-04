@@ -637,7 +637,10 @@ function removePlayer(code, playerName) {
     
     // Deletes player under "players" in database
     // Anticipating an issue where other functions are slower than this one and this removes the information they need
-    databaseWrite(code, '/players/', { playerName : null});
+    let values;
+    values[playerName] = null;
+    databaseWrite(code, '/players/', values);
+    console.log(players);
 }
 
 function updateCurrentPlayer(code) {

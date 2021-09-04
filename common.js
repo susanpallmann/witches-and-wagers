@@ -617,11 +617,11 @@ function removePlayer(code, playerName) {
     //reassignVIP(code, playerName);
     
     // If player had bid items, return their items to the deck
-    returnBidItems(code, playerName, '/deck');
+    //returnBidItems(code, playerName, '/deck');
         
     // If player had items in play for a round, return their items to the deck
     // If so, give people their items back
-    //returnPlayItems(code, playerName);
+    returnPlayItems(code, playerName);
     
     // If player had wagers, remove those
     //removeWagers(code, playerName);

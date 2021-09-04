@@ -522,7 +522,7 @@ function returnBidItems(code, playerName, to) {
                         console.log(card);
                         console.log(actor);
                         console.log('/round/audienceItems' + actor + '/' + playerName);
-                        sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, to);
+                        sendCard(code, card, '/round/audienceItems/' + actor + '/' + playerName, to);
                     }
                 }
             }

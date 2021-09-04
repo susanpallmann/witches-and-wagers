@@ -434,25 +434,197 @@ function adjustGold(code, player, amount) {
     }
 }
 
+// Function to send card from one position to another in the game
+function sendCard(code, card, from, to) {
+    
+    // Adds card to new location
+    databaseWrite(code, to, {card : card});
+    
+    // Removes card from previous location
+    databaseWrite(code, from, {card : null});
+}
+
+// Takes player's inventory and adds back to deck
+function returnPlayerInventory(code, playerName) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/players/' + playerName + '/inventory');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        let inventory = snapshot.val();
+
+        // For each card in player's inventory
+        for (let card in inventory) {
+
+            // Send card back to the deck
+            sendCard(code, card, `/players/${playerName}/inventory`, '/deck');
+        }
+    });
+}
+
+// If player was VIP, reassign VIP
+function reassignVIP(code, playerName) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/players/' + playerName + '/VIP');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+
+        // If player was VIP
+        if (snapshot.val() == "yes") {
+
+            // Get position of current player in players
+            let position = Object.keys(players).indexOf(snapshot.val().player);
+
+            // Get length of players
+            let length = Object.keys(players).length;
+
+            // If player is last in players
+            if (position == length) {
+
+                // Choose the first player in players, make them VIP
+                databaseWrite(code, '/players/' + Object.keys(players)[0], {'VIP' : 'yes'});
+
+            // Otherwise
+            } else {
+
+                // Choose the next player in players, make them VIP
+                databaseWrite(code, '/players/' + Object.keys(players)[position + 1], {'VIP' : 'yes'});
+            }
+        }
+    });
+}
+
+// If player had bid items, return their items to the deck or the player
+function returnBidItems(code, playerName, location) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/audienceItems');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        let audienceItems = snapshot.val();
+        
+        // If the player has any cards in the game, sends them back to the location specified
+        for (let actor in audienceItems) {
+            for (let player in actor) {
+                if (player == playerName) {
+                    for (let card in player) {
+                        sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, location);
+                    }
+                }
+            }
+        }
+    });
+}
+
+// If player had items in play for a round, return their items to the deck
+function returnPlayItem(code, playerName) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/currentPlayer/player');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        if (snapshot.val() == playerName) {
+            
+            // Grabs directory location
+            location = firebase.database().ref(code + '/round/playerItems');
+            
+            // Takes a snapshot
+            location.once('value', function(snapshot) {
+                let playerItems = snapshot.val();
+                
+                // If the player has any cards in the game, sends them back to the deck
+                for (let actor in playerItems) {
+                    for (let card in actor) {
+                        sendCard(code, card, '/round/playerItems' + actor, 'deck');
+                        
+                        // If player was current player, we want to return the other players' items to them
+                        let playersArray = Object.keys(players);
+                        let currentPlayer = playersArray.indexOf(playerName);
+                        playersArray.splice(currentPlayer, 1);
+                        let thisPlayer;
+                        for (let i; i < playersArray.length; i++) {
+                            thisPlayer = playersArray[i];
+                            returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
+                        }
+                        
+                    }
+                }
+                
+            });
+        }
+    });
+}
+
+// If player had wagers, remove those
+function removeWagers(code, playerName) {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/round/bets');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        let outcomes = snapshot.val()
+        
+        // If the player has any bets, remove them
+        for (let outcome in outcomes) {
+            for (let player in outcome) {
+                if (player == playerName) {
+                    databaseWrite(code, `/round/bets/${outcome}`, {playerName : null});
+                }
+            }
+        }
+    });
+}
+
+// Return avatar to available avatars
+function returnAvatar(code, playerName)  {
+    
+    // Grabs directory location
+    let location = firebase.database().ref(code + '/players/' + playerName + '/avatar');
+
+    // Takes a snapshot
+    location.once('value', function(snapshot) {
+        let avatar = snapshot.val();
+        
+        // Deletes avatar in original location, adds it to the new
+        databaseWrite(code, '/avatars', {avatar : avatar});
+        databaseWrite(code, '/players/' + playerName, {'avatar' : null});
+    });
+}
+                  
+// Function to remove a player from the game and database
 function removePlayer(code, playerName) {
     
     // Takes player's inventory and adds back to deck
+    returnPlayerInventory(code, playerName);
     
     // If player was VIP, reassign VIP
-    
-    // If player was in game-wide trackers, reassign/recalculate trackers
+    reassignVIP(code, playerName);
     
     // If player had bid items, return their items to the deck
+    returnBidItems(code, playerName, '/deck');
+        
+    // If player had items in play for a round, return their items to the deck
+    // If so, give people their items back
+    returnPlayItems(code, playerName);
     
     // If player had wagers, remove those
+    removeWagers(code, playerName);
     
-    // If player is currentPlayer, end round, give people their items back
     // Find next player, start their turn
+    updateCurrentPlayer(code);
     
     // Return avatar to available avatars
+    returnAvatar(code, playerName);
     
     // Deletes player under "players" in database
-    databaseWrite(code, '/players/', {'Skooz': null});   
+    // Anticipating an issue where other functions are slower than this one and this removes the information they need
+    databaseWrite(code, '/players/', {playerName: null});
 }
 
 function updateCurrentPlayer(code) {

@@ -848,6 +848,6 @@ $(document).ready(function() {
     // Cycles to next player
     updateCurrentPlayer('TEST');
     
-    removePlayer('TEST', 'Auben');
+    removePlayer('TEST', 'Skooz');
 });
 // I miss you every day

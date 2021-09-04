@@ -590,9 +590,11 @@ function returnAvatar(code, playerName)  {
     // Takes a snapshot
     location.once('value', function(snapshot) {
         let avatar = snapshot.val();
+        let values = {avatar : avatar};
+        console.log(values);
         
         // Deletes avatar in original location, adds it to the new
-        databaseWrite(code, '/avatars', {avatar : avatar});
+        databaseWrite(code, '/avatars', values);
         databaseWrite(code, '/players/' + playerName, {'avatar' : null});
     });
 }

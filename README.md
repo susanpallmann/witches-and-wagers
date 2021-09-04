@@ -59,7 +59,7 @@ map, and I will note what to do better for future projects.
 
 - [X] 09/03/21:
 
-  * .
+  * Created basic send card function, moves card from anywhere to anywhere in the game.
 
 - [X] 09/02/21:
 

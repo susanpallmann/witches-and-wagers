@@ -518,7 +518,7 @@ function returnBidItems(code, playerName, to) {
             for (let player in audienceItems[actor]) {
                 console.log(player);
                 if (player == playerName) {
-                    for (let card in player) {
+                    for (let card in audienceItems[actor][player]) {
                         console.log(card);
                         sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, to);
                     }

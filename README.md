@@ -66,6 +66,7 @@ map, and I will note what to do better for future projects.
      * returnPlayerInventory() is working.
      * sendCard() is working.
      * reassignVIP() is now working (there was a bug).
+     * returnBidItems() is now working (finally).
   * Fixed issue where moving cards was converting numbers to strings.
      * Might not have caused any real issues, but I don't like looking at it.
 

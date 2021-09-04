@@ -846,7 +846,7 @@ $(document).ready(function() {
     generateBetMessage('TEST');
     
     // Cycles to next player
-    //updateCurrentPlayer('TEST');
+    updateCurrentPlayer('TEST');
     
     removePlayer('TEST', 'Skooz');
 });

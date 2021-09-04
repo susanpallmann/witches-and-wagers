@@ -617,30 +617,29 @@ function removePlayer(code, playerName) {
     returnPlayerInventory(code, playerName);
     
     // If player was VIP, reassign VIP
-    reassignVIP(code, playerName);
+    //reassignVIP(code, playerName);
     
     // If player had bid items, return their items to the deck
-    returnBidItems(code, playerName, '/deck');
+    //returnBidItems(code, playerName, '/deck');
         
     // If player had items in play for a round, return their items to the deck
     // If so, give people their items back
-    returnPlayItems(code, playerName);
+    //returnPlayItems(code, playerName);
     
     // If player had wagers, remove those
-    removeWagers(code, playerName);
+    //removeWagers(code, playerName);
     
     // Find next player, start their turn
-    updateCurrentPlayer(code);
+    //updateCurrentPlayer(code);
     
     // Return avatar to available avatars
-    returnAvatar(code, playerName);
+    //returnAvatar(code, playerName);
     
     // Deletes player under "players" in database
     // Anticipating an issue where other functions are slower than this one and this removes the information they need
     let values = {};
     values[playerName] = null;
-    databaseWrite(code, '/players/', values);
-    console.log(players);
+    //databaseWrite(code, '/players/', values);
 }
 
 function updateCurrentPlayer(code) {

@@ -537,7 +537,10 @@ function returnPlayItems(code, playerName) {
         let currentPlayer = round.currentPlayer;
         let playerItems = round.playerItems;
         let player = currentPlayer.player;
-        if (player === playerName) {
+        console.log(currentPlayer[player]);
+        console.log(player);
+        console.log(playerName);
+        if (currentPlayer[player] === playerName) {
             for (let actor in playerItems) {
                 console.log(actor)
                 for (let card in playerItems[actor]) {

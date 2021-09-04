@@ -514,14 +514,9 @@ function returnBidItems(code, playerName, to) {
         
         // If the player has any cards in the game, sends them back to the location specified
         for (let actor in audienceItems) {
-            console.log(audienceItems[actor]);
             for (let player in audienceItems[actor]) {
-                console.log(player);
                 if (player == playerName) {
                     for (let card in audienceItems[actor][player]) {
-                        console.log(card);
-                        console.log(actor);
-                        console.log('/round/audienceItems' + actor + '/' + playerName);
                         sendCard(code, card, '/round/audienceItems/' + actor + '/' + playerName, to);
                     }
                 }
@@ -549,8 +544,8 @@ function returnPlayItems(code, playerName) {
                 
                 // If the player has any cards in the game, sends them back to the deck
                 for (let actor in playerItems) {
-                    for (let card in actor) {
-                        sendCard(code, card, '/round/playerItems' + actor, '/deck');
+                    for (let card in playerItems[actor]) {
+                        sendCard(code, card, '/round/playerItems/' + actor, '/deck');
                         
                         // If player was current player, we want to return the other players' items to them
                         let playersArray = Object.keys(players);

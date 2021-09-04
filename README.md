@@ -60,6 +60,7 @@ map, and I will note what to do better for future projects.
 - [X] 09/03/21:
 
   * Created basic send card function, moves card from anywhere to anywhere in the game.
+  * Possibly finished removePlayer functionality. Expecting a lot of things to break since I wrote it all without testing.
 
 - [X] 09/02/21:
 

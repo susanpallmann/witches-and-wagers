@@ -28,7 +28,7 @@ let TEST = {
     "players" : {
         
         // Stored by username
-        "Auben" : {
+        "Clumpy" : {
             
             // If player was first to join or not
             "VIP" : "no",
@@ -207,7 +207,7 @@ let TEST = {
             
             // Items used on player, by ID
             "player" : {
-                "Auben" : {
+                "Clumpy" : {
                     "5" : 5
                 },
                 "UH82CIT" : {
@@ -234,7 +234,7 @@ let TEST = {
                 "Jules" : 0
             },
             "win" : {
-                "Auben" : 5,
+                "Clumpy" : 5,
                 "UH82CIT" : 2
             }
         },
@@ -300,7 +300,7 @@ let TEST = {
         // Player who has sabotaged another player the most
         "hurter" : {
             "amount" : 10,
-            "player" : "Auben"
+            "player" : "Clumpy"
         }
     },
     

@@ -498,7 +498,7 @@ function reassignVIP(code, playerName) {
 }
 
 // If player had bid items, return their items to the deck or the player
-function returnBidItems(code, playerName, location) {
+function returnBidItems(code, playerName, to) {
     
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/audienceItems');
@@ -512,7 +512,7 @@ function returnBidItems(code, playerName, location) {
             for (let player in actor) {
                 if (player == playerName) {
                     for (let card in player) {
-                        sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, location);
+                        sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, to);
                     }
                 }
             }

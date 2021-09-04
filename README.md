@@ -62,6 +62,7 @@ map, and I will note what to do better for future projects.
   * Created basic send card function, moves card from anywhere to anywhere in the game.
   * Possibly finished removePlayer functionality. Expecting a lot of things to break since I wrote it all without testing.
   * Yep, broke a lot of things.
+  * Broke the larger function into pieces to figure out which specifically aren't working.
 
 - [X] 09/02/21:
 

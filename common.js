@@ -521,7 +521,7 @@ function returnBidItems(code, playerName, to) {
 }
 
 // If player had items in play for a round, return their items to the deck
-function returnPlayItem(code, playerName) {
+function returnPlayItems(code, playerName) {
     
     // Grabs directory location
     let location = firebase.database().ref(code + '/round/currentPlayer/player');

@@ -514,9 +514,12 @@ function returnBidItems(code, playerName, to) {
         
         // If the player has any cards in the game, sends them back to the location specified
         for (let actor in audienceItems) {
+            console.log(actor);
             for (let player in actor) {
+                console.log(player);
                 if (player == playerName) {
                     for (let card in player) {
+                        console.log(card);
                         sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, to);
                     }
                 }

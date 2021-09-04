@@ -539,9 +539,7 @@ function returnPlayItems(code, playerName) {
         let player = currentPlayer.player;
         if (player === playerName) {
             for (let actor in playerItems) {
-                console.log(actor)
                 for (let card in playerItems[actor]) {
-                    console.log(card)
                     sendCard(code, card, '/round/playerItems/' + actor, '/deck');
 
                     // If player was current player, we want to return the other players' items to them
@@ -551,6 +549,7 @@ function returnPlayItems(code, playerName) {
                     let thisPlayer;
                     for (let i; i < playersArray.length; i++) {
                         thisPlayer = playersArray[i];
+                        console.log(thisPlayer);
                         returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
                     }
 

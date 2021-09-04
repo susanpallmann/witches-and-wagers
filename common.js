@@ -614,10 +614,10 @@ function returnAvatar(code, playerName)  {
 function removePlayer(code, playerName) {
     
     // Takes player's inventory and adds back to deck
-    returnPlayerInventory(code, playerName);
+    //returnPlayerInventory(code, playerName);
     
     // If player was VIP, reassign VIP
-    //reassignVIP(code, playerName);
+    reassignVIP(code, playerName);
     
     // If player had bid items, return their items to the deck
     //returnBidItems(code, playerName, '/deck');

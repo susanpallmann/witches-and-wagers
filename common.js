@@ -482,12 +482,9 @@ function reassignVIP(code, playerName) {
 
             // Get position of current player in players
             let position = Object.keys(players).indexOf(playerName);
-            console.log(players);
-            console.log(position);
 
             // Get length of players
             let length = Object.keys(players).length;
-            console.log(length);
 
             // If player is last in players
             if (position == length) {
@@ -617,10 +614,10 @@ function removePlayer(code, playerName) {
     //returnPlayerInventory(code, playerName);
     
     // If player was VIP, reassign VIP
-    reassignVIP(code, playerName);
+    //reassignVIP(code, playerName);
     
     // If player had bid items, return their items to the deck
-    //returnBidItems(code, playerName, '/deck');
+    returnBidItems(code, playerName, '/deck');
         
     // If player had items in play for a round, return their items to the deck
     // If so, give people their items back
@@ -654,11 +651,9 @@ function updateCurrentPlayer(code) {
             
             // Get position of current player in players
             let position = Object.keys(players).indexOf(snapshot.val().player);
-            console.log(position);
             
             // Get length of players
             let length = Object.keys(players).length;
-            console.log(length);
             
             // If player is last in players
             if (position == length) {

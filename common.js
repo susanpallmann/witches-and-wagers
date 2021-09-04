@@ -481,7 +481,7 @@ function reassignVIP(code, playerName) {
         if (snapshot.val() == "yes") {
 
             // Get position of current player in players
-            let position = Object.keys(players).indexOf(snapshot.val().player);
+            let position = Object.keys(players).indexOf(playerName);
             console.log(players);
             console.log(position);
 

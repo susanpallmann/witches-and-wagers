@@ -514,8 +514,8 @@ function returnBidItems(code, playerName, to) {
         
         // If the player has any cards in the game, sends them back to the location specified
         for (let actor in audienceItems) {
-            console.log(actor);
-            for (let player in actor) {
+            console.log(audienceItems[actor]);
+            for (let player in audienceItems[actor]) {
                 console.log(player);
                 if (player == playerName) {
                     for (let card in player) {

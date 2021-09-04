@@ -482,6 +482,7 @@ function reassignVIP(code, playerName) {
 
             // Get position of current player in players
             let position = Object.keys(players).indexOf(snapshot.val().player);
+            console.log(players);
             console.log(position);
 
             // Get length of players

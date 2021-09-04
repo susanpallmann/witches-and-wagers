@@ -536,10 +536,10 @@ function returnPlayItems(code, playerName) {
         if (snapshot.val() == playerName) {
             
             // Grabs directory location
-            location = firebase.database().ref(code + '/round/playerItems');
+            let newLocation = firebase.database().ref(code + '/round/playerItems');
             
             // Takes a snapshot
-            location.once('value', function(snapshot) {
+            newLocation.once('value', function(snapshot) {
                 let playerItems = snapshot.val();
                 
                 // If the player has any cards in the game, sends them back to the deck

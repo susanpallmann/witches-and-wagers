@@ -529,40 +529,33 @@ function returnBidItems(code, playerName, to) {
 function returnPlayItems(code, playerName) {
     
     // Grabs directory location
-    let location = firebase.database().ref(code + '/round/currentPlayer/player');
-
+    let location = firebase.database().ref(code + '/round');
+    
     // Takes a snapshot
     location.once('value', function(snapshot) {
-        if (snapshot.val() == playerName) {
-            
-            // Grabs directory location
-            let location2 = firebase.database().ref(code + '/round/playerItems');
-            
-            // Takes a snapshot
-            location2.once('value', function(snapshot2) {
-                let playerItems = snapshot2.val();
-                
-                // If the player has any cards in the game, sends them back to the deck
-                for (let actor in playerItems) {
-                    console.log(actor)
-                    for (let card in playerItems[actor]) {
-                        console.log(card)
-                        sendCard(code, card, '/round/playerItems/' + actor, '/deck');
-                        
-                        // If player was current player, we want to return the other players' items to them
-                        let playersArray = Object.keys(players);
-                        let currentPlayer = playersArray.indexOf(playerName);
-                        playersArray.splice(currentPlayer, 1);
-                        let thisPlayer;
-                        for (let i; i < playersArray.length; i++) {
-                            thisPlayer = playersArray[i];
-                            returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
-                        }
-                        
+        let round = snapshot.val();
+        let currentPlayer = round.currentPlayer;
+        let playerItems = round.playerItems;
+        let player = currentPlayer.player;
+        if (player == playerName) {
+            for (let actor in playerItems) {
+                console.log(actor)
+                for (let card in playerItems[actor]) {
+                    console.log(card)
+                    sendCard(code, card, '/round/playerItems/' + actor, '/deck');
+
+                    // If player was current player, we want to return the other players' items to them
+                    let playersArray = Object.keys(players);
+                    let currentPlayer = playersArray.indexOf(playerName);
+                    playersArray.splice(currentPlayer, 1);
+                    let thisPlayer;
+                    for (let i; i < playersArray.length; i++) {
+                        thisPlayer = playersArray[i];
+                        returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
                     }
+
                 }
-                
-            });
+            }
         }
     });
 }

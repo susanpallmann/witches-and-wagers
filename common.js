@@ -436,12 +436,17 @@ function adjustGold(code, player, amount) {
 
 // Function to send card from one position to another in the game
 function sendCard(code, card, from, to) {
+    let values = {};
+    values[card] = card;
+    
+    let deleteValues = {};
+    deleteValues[card] = null;
     
     // Adds card to new location
-    databaseWrite(code, to, {card : card});
+    databaseWrite(code, to, values);
     
     // Removes card from previous location
-    databaseWrite(code, from, {card : null});
+    databaseWrite(code, from, deleteValues);
 }
 
 // Takes player's inventory and adds back to deck
@@ -590,12 +595,15 @@ function returnAvatar(code, playerName)  {
     // Takes a snapshot
     location.once('value', function(snapshot) {
         let avatar = snapshot.val();
-        let values = {avatar : avatar};
-        console.log(values);
+        let values = {};
+        values[avatar] = avatar;
+        
+        let deleteValues = {};
+        deleteValues[avatar] = null;
         
         // Deletes avatar in original location, adds it to the new
         databaseWrite(code, '/avatars', values);
-        databaseWrite(code, '/players/' + playerName, {'avatar' : null});
+        databaseWrite(code, '/players/' + playerName, deleteValues);
     });
 }
                   

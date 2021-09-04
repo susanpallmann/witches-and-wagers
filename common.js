@@ -544,7 +544,9 @@ function returnPlayItems(code, playerName) {
                 
                 // If the player has any cards in the game, sends them back to the deck
                 for (let actor in playerItems) {
+                    console.log(actor)
                     for (let card in playerItems[actor]) {
+                        console.log(card)
                         sendCard(code, card, '/round/playerItems/' + actor, '/deck');
                         
                         // If player was current player, we want to return the other players' items to them

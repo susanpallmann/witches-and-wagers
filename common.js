@@ -520,6 +520,8 @@ function returnBidItems(code, playerName, to) {
                 if (player == playerName) {
                     for (let card in audienceItems[actor][player]) {
                         console.log(card);
+                        console.log(actor);
+                        console.log('/round/audienceItems' + actor + '/' + playerName);
                         sendCard(code, card, '/round/audienceItems' + actor + '/' + playerName, to);
                     }
                 }

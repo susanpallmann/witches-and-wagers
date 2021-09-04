@@ -437,7 +437,7 @@ function adjustGold(code, player, amount) {
 // Function to send card from one position to another in the game
 function sendCard(code, card, from, to) {
     let values = {};
-    values[card] = card;
+    values[card] = parseInt(card);
     
     let deleteValues = {};
     deleteValues[card] = null;

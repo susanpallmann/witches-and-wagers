@@ -63,6 +63,10 @@ map, and I will note what to do better for future projects.
   * Possibly finished removePlayer functionality. Expecting a lot of things to break since I wrote it all without testing.
   * Yep, broke a lot of things.
   * Broke the larger function into pieces to figure out which specifically aren't working.
+     * returnPlayerInventory() is working.
+     * sendCard() is working.
+  * Fixed issue where moving cards was converting numbers to strings.
+     * Might not have caused any real issues, but I don't like looking at it.
 
 - [X] 09/02/21:
 

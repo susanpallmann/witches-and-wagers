@@ -53,6 +53,7 @@ map, and I will note what to do better for future projects.
 
 **Uncategorized**
 - [ ] Animate everything better
+- [ ] Improve database security rules
 
 ## Dev Diary
 

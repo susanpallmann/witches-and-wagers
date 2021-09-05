@@ -548,7 +548,7 @@ function returnPlayItems(code, playerName) {
         // If player was current player, we want to return the other players' items to them
         let playersArray = Object.keys(players);
         console.log(playersArray);
-        let currentPlayer = playersArray.indexOf(playerName);
+        currentPlayer = playersArray.indexOf(playerName);
         console.log(currentPlayer);
         playersArray.splice(currentPlayer, 1);
         console.log(playersArray);

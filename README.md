@@ -4,7 +4,7 @@ A backstabbing dungeon-themed party game.
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
 **Personal Achievements**
-- [X] Successfully coded for 15 consecutive days (excluding vacation) without burning out
+- [X] Successfully coded for 16 consecutive days (excluding vacation) without burning out
 - [X] (Do all read/do all write/selectively hide after) was definitely a good organization approach
 
 **On Issues**
@@ -59,6 +59,8 @@ map, and I will note what to do better for future projects.
 - [X] 09/05/21:
 
   * Edited new game function to handle avatars in the database depending on what's being done.
+  * Started a timer function using code from my last attempt at this game.
+  * Added preliminary wildcard-based rules in Firebase console for safety.
 
 - [X] 09/04/21:
 

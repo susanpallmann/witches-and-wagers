@@ -848,5 +848,6 @@ $(document).ready(function() {
     // Cycles to next player
     //updateCurrentPlayer('TEST');
     
-    removePlayer('TEST', 'Skooz');
+    // Removes a player from the game (such as if they disconnect, for example)
+    //removePlayer('TEST', 'Skooz');
 });

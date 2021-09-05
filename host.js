@@ -258,7 +258,8 @@ function createLobby(code, existPlayers) {
                 'gold' : 0
             };
             
-            delete.avatars[thisPlayerData.avatar];
+            let thisAvatar = thisPlayerData.avatar;
+            delete.avatars[thisAvatar];
         }
     }
 

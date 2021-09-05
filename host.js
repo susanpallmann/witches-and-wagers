@@ -482,7 +482,6 @@ function displayPlayers(code) {
             let avatar = userData.avatar;
             
             // Creating a base DOM object based on the player data to update the players global variable
-            // TODO: need a function to remove a player from this if they leave the game
             players[username] = {
                 "avatar" : $(`<div class="player-${count}-avatar" style="background-image: url('avatars/${avatar}.png')"></div>`),
                 "username" : $(`<div class="player-1-name">${username}</div>`)

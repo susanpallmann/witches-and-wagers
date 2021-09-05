@@ -569,8 +569,11 @@ function removeWagers(code, playerName) {
         
         // If the player has any bets, remove them
         for (let outcome in outcomes) {
+            console.log(outcome);
             for (let player in outcomes[outcome]) {
+                console.log(player);
                 if (player == playerName) {
+                    console.log(playerName);
                     databaseWrite(code, `/round/bets/${outcome}`, {playerName : null});
                 }
             }

@@ -256,10 +256,8 @@ function createLobby(code, existPlayers) {
                     'pessimist' : 0
                 },
                 'gold' : 0
-            };
-            
-            let thisAvatar = thisPlayerData.avatar;
-            delete.avatars[thisAvatar];
+            }
+            delete avatars[thisPlayerData.avatar];
         }
     }
 

@@ -46,14 +46,19 @@
 /* ----------------------------------------------------------------------------------------------*/
 
 // Function to run and optionally display a timer on the host screen, with a callback to run after the timer completes
-function runTimer(code, time, display, callback) {
-    for (let i = 0; i < time; i+1000) {
-        $(document).delay(1000).queue(function() {
-            console.log('1 second has passed');
-            $.dequeue(this);
-        });
-    }
-    callback(code);
+function startTimer(code, duration, callback) {
+    var timer = duration, seconds;
+    var thisTimer = setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        $('#timer').css('display','block');
+        $('#timer').text(seconds);
+        if (--timer < 0) {
+            $('#timer').css('display','none');
+            callback(code);
+            clearInterval(thisTimer);
+        }
+    }, 1000);
 }
 
 // Generate a random monster for the round, returns monster information as an object
@@ -878,4 +883,7 @@ $(document).ready(function() {
     //removePlayer('TEST', 'Skooz');
     
     runTimer('TEST', 5000, null, null);
+    startTimer('TEST', 30, function() {
+        console.log('this ran at the end');
+    });
 });

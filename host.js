@@ -881,7 +881,6 @@ $(document).ready(function() {
     // Removes a player from the game (such as if they disconnect, for example)
     //removePlayer('TEST', 'Skooz');
     
-    runTimer('TEST', 5000, null, null);
     startTimer('TEST', 30, function() {
         console.log('this ran at the end');
     });

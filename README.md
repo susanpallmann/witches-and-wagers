@@ -62,6 +62,7 @@ map, and I will note what to do better for future projects.
   * Caused and then fixed a weird error where cards kept flashing more than once.
   * Continued breaking the larger function into pieces to figure out which specifically aren't working.
      * returnPlayItems() is now working.
+     * removeWagers() is now working.
 
 - [X] 09/03/21:
 

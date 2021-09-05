@@ -48,7 +48,7 @@
 // Function to run and optionally display a timer on the host screen, with a callback to run after the timer completes
 function runTimer(code, time, display, callback) {
     for (let i = 0; i < time; i+1000) {
-        $(document).queue(function() {
+        $(document).delay(1000).queue(function() {
             console.log('1 second has passed');
             $.dequeue(this);
         });

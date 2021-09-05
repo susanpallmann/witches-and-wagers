@@ -313,3 +313,13 @@ div[class*="-name"] {
 .bet-container {
   margin: 10px;
 }
+
+#timer {
+  font-family: "Carter One", sans-serif;
+  color: #fff;
+  font-size: 4em;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
+  margin-top: 30px;
+  position: absolute;
+}

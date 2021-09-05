@@ -630,6 +630,7 @@ function removePlayer(code, playerName) {
     let values = {};
     values[playerName] = null;
     databaseWrite(code, '/players/', values);
+    delete players[playerName];
 }
 
 function updateCurrentPlayer(code) {

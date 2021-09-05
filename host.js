@@ -205,6 +205,18 @@ function createLobby(code, existPlayers) {
     let playerData = {};
     let trackerPlaceholder = null;
     let gamePhase = null;
+    let avatars = {
+        1 : 1,
+        2 : 2,
+        3 : 3,
+        4 : 4,
+        5 : 5,
+        6 : 6,
+        7 : 7,
+        8 : 8,
+        9 : 9,
+        10 : 10
+    };
 
     // Create fresh deck from deck.js for new database entry
     for (let i = 1; i < Object.keys(deck).length + 1; i++) {
@@ -232,6 +244,7 @@ function createLobby(code, existPlayers) {
             let thisPlayerData = existPlayers[player];
             playerData[player] = {
                 'VIP' : thisPlayerData.VIP,
+                'avatar' : thisPlayerData.avatar,
                 'counts' : {
                     'coward' : 0,
                     'optimist' : 0,
@@ -239,12 +252,15 @@ function createLobby(code, existPlayers) {
                 },
                 'gold' : 0
             };
+            
+            delete.avatars[thisPlayerData.avatar];
         }
     }
 
     // Create new game data with variables we've determined
     newGame = {
         'deck' : newDeck,
+        'avatars' : avatars,
         'trackers' : {
             'helper' : {
                 'amount': 0,

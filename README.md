@@ -32,7 +32,7 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [ ] Create non-database front-end functions (things like timers)
+- [ ] Create non-database front-end functions (is there anything left?)
 
 **Client**
 - [ ] Create player-side HTML structure with each phase
@@ -61,6 +61,8 @@ map, and I will note what to do better for future projects.
   * Edited new game function to handle avatars in the database depending on what's being done.
   * Started a timer function using code from my last attempt at this game.
   * Added preliminary wildcard-based rules in Firebase console for safety.
+  * Added more advanced rules in Firebase.
+  * Completed timer function.
 
 - [X] 09/04/21:
 

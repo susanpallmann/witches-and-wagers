@@ -595,7 +595,7 @@ function returnAvatar(code, playerName)  {
         values[avatar] = avatar;
         
         let deleteValues = {};
-        deleteValues[avatar] = null;
+        deleteValues['avatar'] = null;
         
         // Deletes avatar in original location, adds it to the new
         databaseWrite(code, '/avatars', values);

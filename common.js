@@ -543,19 +543,18 @@ function returnPlayItems(code, playerName) {
                     sendCard(code, card, '/round/playerItems/' + actor, '/deck');
                 }
             }
+            // If player was current player, we want to return the other players' items to them
+            let playersArray = Object.keys(players);
+            currentPlayer = playersArray.indexOf(playerName);
+            playersArray.splice(currentPlayer, 1);
+            let thisPlayer;
+            for (let i = 0; i < playersArray.length; i++) {
+                thisPlayer = playersArray[i];
+                returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
+            }
+            // Find next player, start their turn
+            updateCurrentPlayer(code);
         }
-        
-        // If player was current player, we want to return the other players' items to them
-        let playersArray = Object.keys(players);
-        currentPlayer = playersArray.indexOf(playerName);
-        playersArray.splice(currentPlayer, 1);
-        let thisPlayer;
-        for (let i = 0; i < playersArray.length; i++) {
-            thisPlayer = playersArray[i];
-            returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
-        }
-        // Find next player, start their turn
-        updateCurrentPlayer(code);
     });
 }
 

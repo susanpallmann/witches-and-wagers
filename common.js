@@ -566,6 +566,8 @@ function removeWagers(code, playerName) {
     // Takes a snapshot
     location.once('value', function(snapshot) {
         let outcomes = snapshot.val()
+        let values = {};
+        values[playerName] = null;
         
         // If the player has any bets, remove them
         for (let outcome in outcomes) {
@@ -574,7 +576,7 @@ function removeWagers(code, playerName) {
                 console.log(player);
                 if (player == playerName) {
                     console.log(playerName);
-                    databaseWrite(code, `/round/bets/${outcome}`, {playerName : null});
+                    databaseWrite(code, `/round/bets/${outcome}`, values);
                 }
             }
         }

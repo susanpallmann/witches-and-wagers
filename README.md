@@ -57,6 +57,10 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
+- [X] 09/04/21:
+
+  * Caused and then fixed a weird error where cards kept flashing more than once.
+
 - [X] 09/03/21:
 
   * Created basic send card function, moves card from anywhere to anywhere in the game.

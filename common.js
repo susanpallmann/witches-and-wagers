@@ -554,6 +554,8 @@ function returnPlayItems(code, playerName) {
             thisPlayer = playersArray[i];
             returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
         }
+        // Find next player, start their turn
+        updateCurrentPlayer(code);
     });
 }
 
@@ -620,11 +622,8 @@ function removePlayer(code, playerName) {
     // If player had wagers, remove those
     //removeWagers(code, playerName);
     
-    // Find next player, start their turn
-    updateCurrentPlayer(code);
-    
     // Return avatar to available avatars
-    //returnAvatar(code, playerName);
+    returnAvatar(code, playerName);
     
     // Deletes player under "players" in database
     // Anticipating an issue where other functions are slower than this one and this removes the information they need

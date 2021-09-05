@@ -4,7 +4,7 @@ A backstabbing dungeon-themed party game.
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
 **Personal Achievements**
-- [X] Successfully coded for 14 consecutive days (excluding vacation) without burning out
+- [X] Successfully coded for 15 consecutive days (excluding vacation) without burning out
 - [X] (Do all read/do all write/selectively hide after) was definitely a good organization approach
 
 **On Issues**
@@ -65,6 +65,7 @@ map, and I will note what to do better for future projects.
      * removeWagers() is now working.
      * returnAvatar() is now working, this ends individual bug-fixing.
   * Fixed bug caused by putting some code outside of an if-statement in returnPlayItems.
+  * Tested all functions working together - doesn't seem to be any issues.
 
 - [X] 09/03/21:
 

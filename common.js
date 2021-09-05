@@ -626,6 +626,7 @@ function removePlayer(code, playerName) {
     
     // Deletes player under "players" in database
     // Anticipating an issue where other functions are slower than this one and this removes the information they need
+    // So far seems like it's working okay though
     let values = {};
     values[playerName] = null;
     databaseWrite(code, '/players/', values);

@@ -547,17 +547,11 @@ function returnPlayItems(code, playerName) {
         
         // If player was current player, we want to return the other players' items to them
         let playersArray = Object.keys(players);
-        console.log(playersArray);
         currentPlayer = playersArray.indexOf(playerName);
-        console.log(currentPlayer);
         playersArray.splice(currentPlayer, 1);
-        console.log(playersArray);
         let thisPlayer;
-        console.log(thisPlayer);
-        console.log(playersArray.length);
         for (let i = 0; i < playersArray.length; i++) {
             thisPlayer = playersArray[i];
-            console.log(thisPlayer);
             returnBidItems(code, thisPlayer, `/players/${thisPlayer}/inventory`);
         }
     });

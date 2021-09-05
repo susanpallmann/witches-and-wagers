@@ -66,6 +66,7 @@ map, and I will note what to do better for future projects.
      * returnAvatar() is now working, this ends individual bug-fixing.
   * Fixed bug caused by putting some code outside of an if-statement in returnPlayItems.
   * Tested all functions working together - doesn't seem to be any issues.
+  * Added code to remove player from locally stored array.
 
 - [X] 09/03/21:
 

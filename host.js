@@ -50,7 +50,7 @@ function runTimer(code, time, display, callback) {
     for (let i = 0; i < time; i+1000) {
         $(document).queue(function() {
             console.log('1 second has passed');
-            $.dequeue.(this);
+            $.dequeue(this);
         });
     }
     callback(code);

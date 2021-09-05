@@ -322,4 +322,9 @@ div[class*="-name"] {
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px;
   margin-top: 30px;
   position: absolute;
+  top: 0;
+}
+
+#play {
+  position: relative;
 }

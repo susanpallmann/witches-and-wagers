@@ -63,6 +63,7 @@ map, and I will note what to do better for future projects.
   * Continued breaking the larger function into pieces to figure out which specifically aren't working.
      * returnPlayItems() is now working.
      * removeWagers() is now working.
+     * returnAvatar() is now working, this ends individual bug-fixing.
 
 - [X] 09/03/21:
 

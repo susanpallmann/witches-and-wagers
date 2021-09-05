@@ -605,6 +605,9 @@ function returnAvatar(code, playerName)  {
 // Function to remove a player from the game and database
 function removePlayer(code, playerName) {
     
+    // If removing this player results in there being less than 4 players
+    // create error message and CTA to set up a new game (TODO)
+    
     // Takes player's inventory and adds back to deck
     returnPlayerInventory(code, playerName);
     

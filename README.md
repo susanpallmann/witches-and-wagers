@@ -32,7 +32,7 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [X] *Tentatively Complete* (for now)
+- [X] *Tentatively Complete*
 
 **Client**
 - [ ] Create player-side HTML structure with each phase

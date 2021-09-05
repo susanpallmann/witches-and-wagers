@@ -32,7 +32,7 @@ map, and I will note what to do better for future projects.
 
 ## To Do
 **Host**
-- [ ] Create non-database front-end functions (is there anything left?)
+- [X] *Tentatively Complete* (for now)
 
 **Client**
 - [ ] Create player-side HTML structure with each phase

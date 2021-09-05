@@ -618,10 +618,10 @@ function removePlayer(code, playerName) {
     //returnPlayItems(code, playerName);
     
     // If player had wagers, remove those
-    removeWagers(code, playerName);
+    //removeWagers(code, playerName);
     
     // Find next player, start their turn
-    //updateCurrentPlayer(code);
+    updateCurrentPlayer(code);
     
     // Return avatar to available avatars
     //returnAvatar(code, playerName);

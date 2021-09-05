@@ -45,6 +45,17 @@
 /*                           FRONT-END ONLY LOGIC, NO/LITTLE DATABASE                            */
 /* ----------------------------------------------------------------------------------------------*/
 
+// Function to run and optionally display a timer on the host screen, with a callback to run after the timer completes
+function runTimer(code, time, display, callback) {
+    for (let i = 0; i < time; i+1000) {
+        $(document).queue(function() {
+            console.log('1 second has passed');
+            $.dequeue.(this);
+        });
+    }
+    callback(code);
+}
+
 // Generate a random monster for the round, returns monster information as an object
 function generateMonster() {
     
@@ -849,4 +860,6 @@ $(document).ready(function() {
     
     // Removes a player from the game (such as if they disconnect, for example)
     //removePlayer('TEST', 'Skooz');
+    
+    runTimer('TEST', 5000, null, null);
 });

@@ -554,6 +554,7 @@ function returnPlayItems(code, playerName) {
         console.log(playersArray);
         let thisPlayer;
         console.log(thisPlayer);
+        console.log(playersArray.length);
         for (let i; i < playersArray.length; i++) {
             thisPlayer = playersArray[i];
             console.log(thisPlayer);

@@ -56,6 +56,10 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
+- [X] 09/05/21:
+
+  * Edited new game function to handle avatars in the database depending on what's being done.
+
 - [X] 09/04/21:
 
   * Caused and then fixed a weird error where cards kept flashing more than once.

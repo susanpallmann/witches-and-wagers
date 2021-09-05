@@ -742,8 +742,8 @@ function loadCardDisplay(code, creator) {
      // Initializing values variable for use later
     let values = {};
     
-    // Take an ongoing snapshot to allow for continuous updates
-    location.on('value', function(snapshot) {
+    // Take a snapshot to allow for continuous updates
+    location.once('value', function(snapshot) {
         
         // For each (monster and player)
         snapshot.forEach((childSnapshot) => {

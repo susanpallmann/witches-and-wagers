@@ -619,10 +619,10 @@ function removePlayer(code, playerName) {
         
     // If player had items in play for a round, return their items to the deck
     // If so, give people their items back
-    returnPlayItems(code, playerName);
+    //returnPlayItems(code, playerName);
     
     // If player had wagers, remove those
-    //removeWagers(code, playerName);
+    removeWagers(code, playerName);
     
     // Find next player, start their turn
     //updateCurrentPlayer(code);

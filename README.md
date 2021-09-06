@@ -64,6 +64,7 @@ map, and I will note what to do better for future projects.
   * Added preliminary wildcard-based rules in Firebase console for safety.
   * Added more advanced rules in Firebase.
   * Completed timer function.
+  * Started player-side HTML structure and lobby join form.
 
 - [X] 09/04/21:
 

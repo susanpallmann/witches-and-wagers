@@ -57,6 +57,14 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
+- [X] 09/07/21:
+
+  * Moving, not working on this.
+
+- [X] 09/06/21:
+
+  * Moving, not working on this.
+
 - [X] 09/05/21:
 
   * Edited new game function to handle avatars in the database depending on what's being done.

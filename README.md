@@ -57,13 +57,14 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
-- [X] 09/07/21:
+- [X] 09/09/21 - 09/12/21:
 
-  * Moving, not working on this.
+  * Fell off for a little while; mostly getting situated in the new apartment.
+  * Hope to resume work soon!
 
-- [X] 09/06/21:
+- [X] 09/06/21 - 09/08/21:
 
-  * Moving, not working on this.
+  * Moving!
 
 - [X] 09/05/21:
 

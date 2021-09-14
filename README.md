@@ -57,6 +57,11 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
+
+- [X] 09/13/21:
+
+  * Added to player-side HTML, minor changes (added profile/inventory containers).
+
 - [X] 09/09/21 - 09/12/21:
 
   * Fell off for a little while; mostly getting situated in the new apartment.

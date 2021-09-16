@@ -57,6 +57,11 @@ map, and I will note what to do better for future projects.
 
 ## Dev Diary
 
+- [X] 09/15/21:
+
+  * Added gold and strength to player-side HTMl, minor change.
+  * No longer going to be adding updates to dev diary for days I didn't work.
+  * New goal is to work on it at least once a week, but still aim to do something small daily.
 
 - [X] 09/13/21:
 

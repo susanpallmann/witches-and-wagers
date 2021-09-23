@@ -4,7 +4,7 @@ A backstabbing dungeon-themed party game.
 [View Live Web Build](https://susanpallmann.github.io/witches-and-wagers/)
 
 **Personal Achievements**
-- [X] Successfully coded for 17 days (excluding vacation) without burning out
+- [X] Successfully coded for 16 consecutive days (excluding vacation) without burning out
 - [X] (Do all read/do all write/selectively hide after) was definitely a good organization approach
 
 **On Issues**

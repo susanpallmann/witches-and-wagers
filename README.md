@@ -31,6 +31,14 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
+**Get Back on the Horse**
+- [ ] Read all of the existing code
+- [ ] Revisit miro board logic flow
+- [ ] Consider how authentication changes all of this
+   - [ ] Database restructuring
+   - [ ] All functions updated
+   - [ ] Need to answer if I can reuse an authentication check
+
 **Host**
 - [X] *Tentatively Complete*
 

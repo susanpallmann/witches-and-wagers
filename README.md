@@ -33,6 +33,7 @@ map, and I will note what to do better for future projects.
 ## To Do
 **Get Back on the Horse**
 - [ ] Read all of the existing code
+- [X] Read all open issues
 - [ ] Revisit miro board logic flow
 - [ ] Consider how authentication changes all of this
    - [ ] Database restructuring

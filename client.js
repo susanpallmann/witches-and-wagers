@@ -45,7 +45,6 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    console.log('test');
     let location = firebase.database().ref('TEST' + '/players/authorized');
     let user = user.uid;
     let values = {};

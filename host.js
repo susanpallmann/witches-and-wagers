@@ -806,6 +806,40 @@ function loadCardDisplay(code, creator) {
 // When document loads
 $(document).ready(function() {
     
+    
+    // Firebase authentication (anonymous) linked to 
+    // TODO add game code as parameter
+
+    // Sign in
+    firebase.auth().signInAnonymously()
+        .then(() => {
+            // Signed in..
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+    });
+
+    // On sign on
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+
+            // Adds user to authorized list
+            let location = firebase.database().ref('TEST' + '/authorized');
+            let uid = user.uid;
+            let values = {};
+            values[uid] = true;
+            location.update(values);
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+    
     // For now calls all of the "starter" functions just for testing. Going to also write
     // a little about when these should be called in the end
     // TODO: Call when setup phase begins
@@ -884,37 +918,4 @@ $(document).ready(function() {
     startTimer('TEST', 30, function() {
         console.log('this ran at the end');
     });
-});
-
-// Firebase authentication (anonymous) linked to 
-// TODO add game code as parameter
-
-// Sign in
-firebase.auth().signInAnonymously()
-  .then(() => {
-    // Signed in..
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
-
-// On sign on
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    
-    // Adds user to authorized list
-    let location = firebase.database().ref('TEST' + '/authorized');
-    let uid = user.uid;
-    let values = {};
-    values[uid] = true;
-    location.update(values);
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
 });

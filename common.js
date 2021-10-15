@@ -8,6 +8,10 @@
 // exported directly from Firebase - it would normally be structured more intuitively.
 let TEST = {
     
+    // In theory stores users authorized to join the room
+    "authorized" : {
+    },
+    
     // Stores which avatars are available
     "avatars" : {
         "7" : 7,

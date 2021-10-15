@@ -30,4 +30,31 @@ function validateUsername(code, username) {
   });
   
 }
-// bluh
+
+firebase.auth().signInAnonymously()
+  .then(() => {
+    // Signed in..
+    let location = firebase.database().ref('TEST' + '/players/authorized');
+    let user = user.uid;
+    let values = {};
+    values[user] = true;
+    location.update(values);
+  });
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    console.log('test');
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});

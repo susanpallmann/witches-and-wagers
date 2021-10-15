@@ -31,6 +31,10 @@ function validateUsername(code, username) {
   
 }
 
+// Firebase authentication (anonymous) linked to 
+// TODO add game code as parameter
+
+// Sign in
 firebase.auth().signInAnonymously()
   .then(() => {
     // Signed in..
@@ -41,16 +45,18 @@ firebase.auth().signInAnonymously()
     // ...
   });
 
+// On sign on
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
+    
+    // Adds user to authorized list
     let location = firebase.database().ref('TEST' + '/authorized');
     let uid = user.uid;
     let values = {};
     values[uid] = true;
     location.update(values);
-    console.log('test');
     // ...
   } else {
     // User is signed out

@@ -339,7 +339,7 @@ class GameController {
         this.code = code;
         this.tutorial = tutorial;
         this.phase = phase;
-        this.players = ["this", "is", "a", "test"];
+        this.players = [];
     }
 
     addPlayer(player) {
@@ -435,9 +435,7 @@ class GameController {
 }
 
 let game = new GameController('TEST', 'setup');
-console.log(game);
 game.advancePhase('tutorial');
-console.log(game);
 game.rotatePlayers();
 console.log(game);
 

@@ -438,7 +438,7 @@ let game = new GameController('TEST', 'setup');
 console.log(game);
 game.advancePhase('tutorial');
 console.log(game);
-game.rotatePlayers();
+//game.rotatePlayers();
 console.log(game);
 
 /* ----------------------------------------------------------------------------------------------*/

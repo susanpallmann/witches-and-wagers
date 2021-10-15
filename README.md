@@ -31,14 +31,6 @@ map, and I will note what to do better for future projects.
 - [jQuery](https://jquery.com/)
 
 ## To Do
-**Get Back on the Horse**
-- [ ] Read all of the existing code
-- [X] Read all open issues
-- [ ] Revisit miro board logic flow
-- [ ] Consider how authentication changes all of this
-   - [ ] Database restructuring
-   - [ ] All functions updated
-   - [ ] Need to answer if I can reuse an authentication check
 
 **Host**
 - [X] *Tentatively Complete*
@@ -62,10 +54,14 @@ map, and I will note what to do better for future projects.
 
 **Uncategorized**
 - [ ] Animate everything better
-- [ ] Add anonymous authentication
-- [ ] Improve database security rules
+- [X] Add anonymous authentication
+- [X] Improve database security rules (still could use more work)
 
 ## Dev Diary
+
+- [X] 10/14/21:
+  * Added anonymous authentication (Firebase Auth).
+  * Updated security rules to only allow authenticated users to edit a game's database.
 
 - [X] 09/15/21:
 

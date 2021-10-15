@@ -39,7 +39,7 @@ firebase.auth().signInAnonymously()
     let values = {};
     values[user] = true;
     location.update(values);
-  });
+  })
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;

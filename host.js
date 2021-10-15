@@ -828,11 +828,9 @@ $(document).ready(function() {
             // https://firebase.google.com/docs/reference/js/firebase.User
 
             // Adds user to authorized list
-            let location = firebase.database().ref('TEST' + '/authorized');
             let uid = user.uid;
-            let values = {};
-            values[uid] = true;
-            location.update(values);
+            let location = firebase.database().ref('TEST' + '/authorized/' + uid);
+            location.set(true);
             // ...
         } else {
             // User is signed out

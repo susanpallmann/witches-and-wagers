@@ -371,52 +371,31 @@ class GameController {
     advancePhase(phase = null) {
         let currentPhase = this.phase;
         let newPhase;
+        let sequentialPhases = [
+            "setup",
+            "tutorial",
+            "play",
+            "won",
+            "outro",
+            "inactive"
+        ];
+        let exceptionPhases = [
+            "error",
+            "abandoned",
+            "testing"
+        ];
         if (phase !== null) {
             
             // Update phase to parameter phase
             this.phase = phase;
         } else {
-            switch (currentPhase) {
-                    
-                // Lobby set up, players can join and choose avatars
-                case "setup":
-                    if (this.tutorial === false) {
-                        // If users skipped the tutorial...
-                    } else {
-                        // If users did not skip the tutorial
-                    }
-                    break;
-                
-                // Tutorial to the game
-                case "tutorial":
-                    break;
-                    
-                // Gameplay (broken into rounds)
-                case "play":
-                    break;
-                    
-                // A player has won the game
-                case "won":
-                    break;
-                    
-                // Outro with credits/some stats
-                case "outro":
-                    break;
-                    
-                // Game has been abandoned by the host
-                case "abandoned":
-                    break;
-                    
-                // Testing 
-                case "showAll" :
-                    break;
-                    
-                // Errors (like too few players to continue)
-                case "error":
-                    break;
-                    
-                default:
-                    break;
+            let position = sequentialPhases.indexOf(this.phase);
+            if (position !== sequentialPhases.length) {
+                if (this.phase === "setup" && this.tutorial === false) {
+                    this.phase = sequentialPhases(position + 2);
+                } else {
+                    this.phase = sequentialPhases(position + 1);
+                }
             }
         }
     }
@@ -431,6 +410,59 @@ class GameController {
     
     playerWon() {
         this.advancePhase("won");
+    }
+}
+
+class Round {
+    constructor(phase) {
+    }
+    
+    advancePhase(phase = null) {
+        let currentPhase = this.phase;
+        let newPhase;
+        let sequentialPhases = [
+            "intro",
+            "bets",
+            "showBets",
+            "playerAct1",
+            "showItems",
+            "fleeCheck",
+            "playerAct2",
+            "playFight",
+            "payout",
+            "scoreboard",
+        ];
+        let outcomePhases = [
+            "playerVictory",
+            "playerDefeat"
+        ];
+        let exceptionPhases = [
+            "error",
+            "testing"
+        ];
+        
+        if (phase !== null) {
+            
+            // Update phase to parameter phase
+            this.phase = phase;
+            
+        } else {
+            let position = sequentialPhases.indexOf(this.phase);
+            let endPart1 = sequentialPhases.indexOf("playFight");
+            let startPart2 = sequentialPhases.indexOf("payout");
+            
+            if (position > startPart2 && position < sequentialPhases.length) {
+                this.phase = sequentialPhases(position + 1);
+                
+            } else if (position === endPart1) {
+                
+            } else if (position < endPart1) {
+                this.phase = sequentialPhases(position + 1);
+                
+            } else if (position === sequentialPhases.length) {
+                this.phase = sequentialPhases(0);
+            } 
+        }
     }
 }
 

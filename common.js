@@ -415,6 +415,7 @@ class GameController {
 
 class Round {
     constructor(phase) {
+        this.phase = phase;
     }
     
     advancePhase(phase = null) {

@@ -34,11 +34,6 @@ function validateUsername(code, username) {
 firebase.auth().signInAnonymously()
   .then(() => {
     // Signed in..
-    let location = firebase.database().ref('TEST' + '/players/authorized');
-    let user = user.uid;
-    let values = {};
-    values[user] = true;
-    location.update(values);
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -50,7 +45,12 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    var uid = user.uid;
+    console.log('test');
+    let location = firebase.database().ref('TEST' + '/players/authorized');
+    let user = user.uid;
+    let values = {};
+    values[uid] = true;
+    location.update(values);
     console.log('test');
     // ...
   } else {

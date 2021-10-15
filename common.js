@@ -325,6 +325,98 @@ let roomCode;
 let winningAmount = 30;
 
 /* ----------------------------------------------------------------------------------------------*/
+/*                           TEST GAME CONTROLLER CLASS/DATABASE HYBRID                          */
+/* ----------------------------------------------------------------------------------------------*/
+
+class GameController {
+    // Needs to be able to restart with same players or new players
+    // Needs to track game phase
+    // Needs to track current players & play order
+    // Needs to track if there is a winner
+    // Needs to track game code?
+    
+    constructor(code, phase, tutorial = true) {
+        this.code = code;
+        this.tutorial = tutorial;
+        this.phase = phase;
+    }
+    
+    restartGame() {
+        if (this.tutorial === false) {
+            this.advancePhase("play");
+        } else {
+            this.advancePhase("tutorial");
+        }
+    }
+    
+    rotatePlayers() {
+    }
+    
+    advancePhase(phase = null) {
+        let currentPhase = this.phase;
+        let newPhase;
+        if (phase !== null) {
+            // Update phase to parameter phase
+            this.phase = phase;
+        } else {
+            switch (currentPhase) {
+                    
+                // Lobby set up, players can join and choose avatars
+                case "setup":
+                    if (this.tutorial === false) {
+                        // If users skipped the tutorial...
+                    } else {
+                        // If users did not skip the tutorial
+                    }
+                    break;
+                
+                // Tutorial to the game
+                case "tutorial":
+                    break;
+                    
+                // Gameplay (broken into rounds)
+                case "play":
+                    break;
+                    
+                // A player has won the game
+                case "won":
+                    break;
+                    
+                // Outro with credits/some stats
+                case "outro":
+                    break;
+                    
+                // Game has been abandoned by the host
+                case "abandoned":
+                    break;
+                    
+                // Testing 
+                case "showAll" :
+                    break;
+                    
+            }
+        }
+    }
+        
+    toggleTutorial() {
+        if (this.tutorial) {
+            this.tutorial = false;
+        } else {
+            this.tutorial = true;
+        }
+    }
+    
+    playerWon() {
+        this.advancePhase("won");
+    }
+}
+
+let game = new GameController('TEST', 'setup');
+console.log(game);
+game.advancePhase('tutorial');
+console.log(game);
+
+/* ----------------------------------------------------------------------------------------------*/
 /*                      THE BELOW DEALS WITH UPDATING/EDITING THE DATABASE                       */
 /* ----------------------------------------------------------------------------------------------*/
 

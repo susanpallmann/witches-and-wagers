@@ -339,6 +339,18 @@ class GameController {
         this.code = code;
         this.tutorial = tutorial;
         this.phase = phase;
+        this.players = ["this", "is", "a", "test"];
+    }
+
+    addPlayer(player) {
+        this.players.push(player)
+    }
+    
+    removePlayer(player) {
+        let index = this.players.indexOf(player);
+        if (index > -1) {
+            this.players.splice(player);
+        }
     }
     
     restartGame() {
@@ -350,12 +362,17 @@ class GameController {
     }
     
     rotatePlayers() {
+        let array = this.players;
+        let last = array.pop();
+        array.unshift(last);
+        this.players = array;
     }
     
     advancePhase(phase = null) {
         let currentPhase = this.phase;
         let newPhase;
         if (phase !== null) {
+            
             // Update phase to parameter phase
             this.phase = phase;
         } else {
@@ -394,6 +411,12 @@ class GameController {
                 case "showAll" :
                     break;
                     
+                // Errors (like too few players to continue)
+                case "error":
+                    break';
+                    
+                default:
+                    break;
             }
         }
     }
@@ -414,6 +437,8 @@ class GameController {
 let game = new GameController('TEST', 'setup');
 console.log(game);
 game.advancePhase('tutorial');
+console.log(game);
+game.rotatePlayers();
 console.log(game);
 
 /* ----------------------------------------------------------------------------------------------*/

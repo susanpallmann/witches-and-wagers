@@ -413,7 +413,7 @@ class GameController {
                     
                 // Errors (like too few players to continue)
                 case "error":
-                    break';
+                    break;
                     
                 default:
                     break;

@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged((user) => {
     let location = firebase.database().ref('TEST' + '/players/authorized');
     let user = user.uid;
     let values = {};
-    values[uid] = true;
+    values[user] = true;
     location.update(values);
     console.log('test');
     // ...
